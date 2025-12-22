@@ -1510,7 +1510,7 @@
                 <h3>You're on the list!</h3>
                 <p>We'll email you at <strong id="confirmedEmail"></strong> when Business features launch.</p>
                 <p style="margin-top: 20px;">In the meantime, try ThoughtCatcher Pro free for 14 days.</p>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="pro" style="margin-top: 20px;">Start Free Trial</a>
+                <a href="#" class="btn btn-primary close-and-open-early-access" data-tier="pro" style="margin-top: 20px;">Start Free Trial</a>
             </div>
         </div>
     </div>
@@ -1638,6 +1638,29 @@
                 if (tier && eaTierSelect) {
                     eaTierSelect.value = tier;
                 }
+            });
+        });
+
+        // Handle "Start Free Trial" button in waitlist success view
+        const closeAndOpenButtons = document.querySelectorAll('.close-and-open-early-access');
+        closeAndOpenButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Close waitlist modal first
+                closeModal();
+
+                // Wait for close animation, then open early access modal
+                setTimeout(() => {
+                    earlyAccessModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+
+                    // Pre-select tier
+                    const tier = button.getAttribute('data-tier');
+                    if (tier && eaTierSelect) {
+                        eaTierSelect.value = tier;
+                    }
+                }, 350);
             });
         });
 
