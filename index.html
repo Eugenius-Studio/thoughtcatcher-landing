@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThoughtCatcher - Never Lose a Thought Again</title>
-    <meta name="description" content="For brains that won't slow down. Voice-first thought capture for Notion. ADHD-friendly. Capture ideas in 8 seconds.">
+    <title>Blurts - Voice-First Thought Capture for Any Task Manager</title>
+    <meta name="description" content="Never lose a thought again. Blurts captures fleeting ideas in 8 seconds and syncs to Notion, Todoist, Google Tasks. Voice-first productivity for knowledge workers.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,13 +19,13 @@
         }
 
         :root {
-            /* NEW: Warm & Bold color scheme (Burnt Orange to Golden Amber) */
-            --primary-orange: #EA580C;
-            --golden-amber: #F59E0B;
-            --dark-orange: #C2410C;
-            --accent-red: #DC2626;
+            /* Blurts Brand Colors */
+            --primary-orange: #FF6B35;
+            --electric-teal: #06D6A0;
+            --deep-purple: #5B21B6;
+            --lightning-yellow: #FFD93D;
             --dark-gray: #2D3748;
-            --medium-gray: #718096;
+            --medium-gray: #64748B;
             --light-gray: #F7FAFC;
             --success-green: #10B981;
             --background-subtle: #FFF7ED;
@@ -109,9 +109,9 @@
         }
 
         .btn-primary {
-            background: linear-gradient(90deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(90deg, var(--primary-orange), var(--electric-teal));
             color: white !important;
-            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
@@ -152,7 +152,7 @@
         }
 
         .hero h1 .gradient-text {
-            background: linear-gradient(90deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(90deg, var(--primary-orange), var(--electric-teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -288,7 +288,7 @@
 
         /* Solution Section */
         .solution-section {
-            background: linear-gradient(135deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(135deg, var(--primary-orange), var(--electric-teal));
             color: white;
             padding: 100px 20px;
         }
@@ -396,7 +396,7 @@
         .feature-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(135deg, var(--primary-orange), var(--electric-teal));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -454,7 +454,7 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(135deg, var(--primary-orange), var(--electric-teal));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -534,7 +534,7 @@
             top: -16px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(90deg, var(--primary-orange), var(--electric-teal));
             color: white;
             padding: 6px 20px;
             border-radius: 20px;
@@ -797,7 +797,7 @@
 
         /* FIXED: Proper button contrast in CTA section */
         .cta-section .btn-primary {
-            background: linear-gradient(90deg, var(--primary-orange), var(--golden-amber));
+            background: linear-gradient(90deg, var(--primary-orange), var(--electric-teal));
             color: white;
         }
 
@@ -934,22 +934,19 @@
         <div class="header-content">
             <a href="#" class="logo">
                 <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#EA580C"/>
-                            <stop offset="100%" style="stop-color:#F59E0B"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M 10 25 Q 20 15, 30 25 T 50 25 T 70 25 T 90 25" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M 10 40 Q 20 30, 30 40 T 50 40 T 70 40 T 90 40" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M 10 55 Q 20 45, 30 55 T 50 55 T 70 55 T 90 55" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M 10 70 Q 20 60, 30 70 T 50 70 T 70 70 T 90 70" stroke="url(#logoGradient)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                    <line x1="25" y1="25" x2="25" y2="70" stroke="url(#logoGradient)" stroke-width="3" opacity="0.6"/>
-                    <line x1="45" y1="25" x2="45" y2="70" stroke="url(#logoGradient)" stroke-width="3" opacity="0.6"/>
-                    <line x1="65" y1="25" x2="65" y2="70" stroke="url(#logoGradient)" stroke-width="3" opacity="0.6"/>
-                    <line x1="85" y1="25" x2="85" y2="70" stroke="url(#logoGradient)" stroke-width="3" opacity="0.6"/>
+                    <!-- Sound waves (left side - orange) -->
+                    <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
+                    <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
+                    <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
+                    <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
+                    <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
+
+                    <!-- Stack lines (right side - dark grey) -->
+                    <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
+                    <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
+                    <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
                 </svg>
-                <span class="logo-text">ThoughtCatcher</span>
+                <span class="logo-text">Blurts</span>
             </a>
             <nav class="nav-links">
                 <a href="#features">Features</a>
@@ -963,10 +960,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Never Lose a <span class="gradient-text">Thought</span> Again</h1>
-            <p class="subheading">For brains that won't slow down. Capture ideas at the speed of thinking.</p>
+            <h1>Never lose a <span class="gradient-text">thought</span> again</h1>
+            <p class="subheading">Capture ideas at the speed of thinking. Voice-first thought capture that syncs to any task manager.</p>
             <p style="font-size: 18px; color: var(--medium-gray); margin-top: 12px; margin-bottom: 24px;">
-                Mumble, ramble, or whisper—AI cleans it up for you. No need to speak clearly.
+                8 seconds from thought to Notion. That's it.
             </p>
 
             <div class="hero-cta">
@@ -988,15 +985,15 @@
                 </div>
                 <div class="social-proof-item">
                     <span style="font-size: 20px;">🧠</span>
-                    <span>Join 2,847 ThoughtCatchers</span>
+                    <span>Join 2,847 knowledge workers</span>
                 </div>
                 <div class="social-proof-item">
                     <span style="font-size: 20px;">⚡</span>
                     <span>32,492 thoughts captured today</span>
                 </div>
                 <div class="social-proof-item">
-                    <span style="font-size: 20px;">🤫</span>
-                    <span>Even works when you're mumbling at 2am</span>
+                    <span style="font-size: 20px;">🚀</span>
+                    <span>Used by busy parents, entrepreneurs & teams</span>
                 </div>
             </div>
         </div>
@@ -1005,8 +1002,8 @@
     <!-- Problem Section - FIXED: Now 3 columns (2 rows x 3 cards = 6 cards total) -->
     <section class="section">
         <div class="section-header">
-            <h2>Your Racing Thoughts Are a Superpower</h2>
-            <p>But only if you can capture them before they vanish.</p>
+            <h2>Capture Fleeting Ideas Before They Vanish</h2>
+            <p>Your best ideas don't wait. Neither should your capture tool.</p>
         </div>
 
         <div class="problem-grid">
@@ -1054,7 +1051,7 @@
         <div class="solution-content">
             <div class="solution-text">
                 <h2>Capture at the Speed of Thinking</h2>
-                <p>ThoughtCatcher is built for brains that won't slow down. Voice to Notion in 8 seconds.</p>
+                <p>Blurts is built for knowledge workers who think faster than they type. Voice to any task manager in 8 seconds.</p>
 
                 <div class="solution-steps">
                     <div class="solution-step">
@@ -1096,45 +1093,45 @@
     <!-- Features Section -->
     <section class="section" id="features">
         <div class="section-header">
-            <h2>Built for How You Actually Think</h2>
-            <p>Not another productivity tool. Your external brain.</p>
+            <h2>Built for Speed</h2>
+            <p>Capture thoughts faster than you can type.</p>
         </div>
 
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon">🗣️</div>
                 <h3>Voice-First</h3>
-                <p>Mumble half-thoughts. Ramble stream-of-consciousness. Whisper in meetings. AI understands your messy brain dump and turns it into clean, organized tasks. No need to speak clearly or loudly.</p>
+                <p>Just speak. We transcribe and organize instantly.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>8 Seconds</h3>
+                <p>From brain to Notion before you forget.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">🧠</div>
-                <h3>ADHD-Friendly</h3>
-                <p>Designed with neurodivergent brains in mind. Fast, simple, no overwhelming options.</p>
+                <h3>Speed-Optimized</h3>
+                <p>Capture thoughts faster than you can type.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Auto-Categorizes</h3>
-                <p>AI learns your Notion setup and categorizes tasks automatically. Work, Personal, Shopping—it knows.</p>
+                <div class="feature-icon">🔗</div>
+                <h3>Syncs Everywhere</h3>
+                <p>Notion • Todoist • Google Tasks</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
                 <h3>Works Offline</h3>
-                <p>Record anywhere. Syncs when you're back online. Never lose a thought to bad wifi.</p>
+                <p>Record anywhere. Syncs when you're back online.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🚗</div>
-                <h3>Hands-Free Safe</h3>
-                <p>Capture while driving, cooking, or chasing your toddler. Your hands stay where they should be.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>Notion Native</h3>
-                <p>Deep integration. Not just another voice app. Works with your existing Notion workflow seamlessly.</p>
+                <div class="feature-icon">🎯</div>
+                <h3>AI-Powered</h3>
+                <p>Automatically categorizes and formats your thoughts.</p>
             </div>
         </div>
     </section>
@@ -1142,51 +1139,51 @@
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
         <div class="section-header">
-            <h2>ThoughtCatchers Love It</h2>
-            <p>Don't take our word for it. Here's what users say.</p>
+            <h2>Loved by Knowledge Workers</h2>
+            <p>Trusted by busy professionals, parents, and entrepreneurs.</p>
         </div>
 
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">SK</div>
+                    <div class="testimonial-avatar">MR</div>
                     <div class="testimonial-info">
-                        <h4>Sarah K.</h4>
-                        <p>Product Manager, ADHD</p>
+                        <h4>Mike</h4>
+                        <p>Entrepreneur</p>
                     </div>
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"ThoughtCatcher saved the brilliant idea I had at 2am. I was half-asleep but just spoke into my phone. By morning it was in my Notion workspace, perfectly categorized. This app gets my brain."</p>
+                <p class="testimonial-text">"My racing thoughts are no longer lost. Blurts captures every idea before it disappears."</p>
             </div>
 
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">MR</div>
+                    <div class="testimonial-avatar">SK</div>
                     <div class="testimonial-info">
-                        <h4>Mike R.</h4>
-                        <p>Software Engineer</p>
+                        <h4>Sarah</h4>
+                        <p>Product Manager</p>
                     </div>
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I've tried every productivity app. This is the only one that keeps up with how fast I think. The 8-second claim is real—I timed it. It's become as essential as Notion itself."</p>
+                <p class="testimonial-text">"Finally, an app that keeps up with how fast my brain moves. Game-changer."</p>
             </div>
 
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">JL</div>
                     <div class="testimonial-info">
-                        <h4>Jamie L.</h4>
-                        <p>Parent & Designer</p>
+                        <h4>Jennifer</h4>
+                        <p>Marketing Director</p>
                     </div>
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Finally, a tool that works when my hands are full (which is always). I capture grocery lists while cooking, design ideas while walking, everything. My Notion is finally up-to-date for the first time ever."</p>
+                <p class="testimonial-text">"As a busy parent, Blurts is a lifesaver. Hands-free thought capture while cooking, driving, everywhere."</p>
             </div>
         </div>
     </section>
 
     <!-- Founder Deal Section -->
-    <section class="section" id="founder-deal" style="background: linear-gradient(135deg, var(--primary-orange) 0%, var(--golden-amber) 100%); padding: 60px 20px;">
+    <section class="section" id="founder-deal" style="background: linear-gradient(135deg, var(--primary-orange) 0%, var(--electric-teal) 100%); padding: 60px 20px;">
         <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
             <div style="display: inline-block; background: rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 8px 20px; margin-bottom: 20px;">
                 <span style="color: white; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">⚡ Limited Time Offer</span>
@@ -1242,31 +1239,31 @@
     <!-- Pricing Section -->
     <section class="section pricing-section" id="pricing">
         <div class="section-header">
-            <h2>Start Catching Thoughts Today</h2>
-            <p>Try free. Upgrade when you're hooked.</p>
+            <h2>Start Capturing Ideas Today</h2>
+            <p>Try free. Upgrade when you're ready.</p>
         </div>
 
         <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
             <div class="pricing-card">
-                <h3>Free</h3>
+                <h3>Blurts Free</h3>
                 <div class="pricing-price">$0</div>
-                <p class="pricing-period">10 voices/month</p>
+                <p class="pricing-period">10 captures/month</p>
                 <div class="pricing-features">
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>10 voice captures/month</span>
+                        <span>10 captures/month</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>30-day capture history</span>
+                        <span>Voice transcription</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>1 Notion database</span>
+                        <span>Notion sync</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>Basic sync</span>
+                        <span>Basic features</span>
                     </div>
                 </div>
                 <a href="#" class="btn btn-secondary open-early-access" data-tier="free">Start Free</a>
@@ -1274,33 +1271,33 @@
 
             <div class="pricing-card featured">
                 <div class="pricing-badge">Best Value</div>
-                <h3>Pro</h3>
+                <h3>Blurts Pro</h3>
                 <div class="pricing-price">$9.99<span>/mo</span></div>
-                <p class="pricing-period">or $89/year (save $30)</p>
+                <p class="pricing-period">Unlimited captures</p>
                 <div class="pricing-features">
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span><strong>Unlimited</strong> voice captures</span>
+                        <span><strong>Unlimited</strong> captures</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span><strong>Forever</strong> capture history</span>
+                        <span>All integrations</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>Unlimited Notion databases</span>
+                        <span>Offline mode</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>Auto-sync + priority sync</span>
+                        <span>Priority sync</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>Custom templates</span>
+                        <span>Custom AI models</span>
                     </div>
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
-                        <span>Advanced search</span>
+                        <span>Priority support</span>
                     </div>
                 </div>
                 <a href="#" class="btn btn-primary open-early-access" data-tier="pro">Start Pro Trial →</a>
@@ -1325,8 +1322,8 @@
     <!-- Final CTA - FIXED BUTTON CONTRAST -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Stop Losing Brilliant Ideas</h2>
-            <p>Join 2,847 people who never lose a thought again. Try free, upgrade when you're hooked.</p>
+            <h2>Never Lose Another Thought</h2>
+            <p>Join 2,847 knowledge workers who capture ideas at the speed of thinking.</p>
             <div class="cta-buttons">
                 <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="font-size: 18px; padding: 16px 32px;">Start Free Trial →</a>
                 <a href="#demo" class="btn btn-secondary" style="font-size: 18px; padding: 16px 32px;">Watch Demo</a>
@@ -1338,9 +1335,9 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>ThoughtCatcher</h4>
+                <h4>Blurts</h4>
                 <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-top: 12px;">
-                    For brains that won't slow down. Voice-first thought capture for Notion.
+                    Voice-first thought capture for any task manager. Never lose an idea again.
                 </p>
             </div>
             <div class="footer-section">
@@ -1366,7 +1363,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="mailto:support@blurts.app">Contact</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Service</a></li>
                 </ul>
@@ -1374,11 +1371,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 ThoughtCatcher. All rights reserved.</p>
+            <p>&copy; 2025 Blurts. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" title="Twitter">𝕏</a>
-                <a href="#" title="LinkedIn">in</a>
-                <a href="#" title="Email">📧</a>
+                <a href="https://twitter.com/blurts" title="Twitter">𝕏</a>
+                <a href="https://linkedin.com/company/blurts" title="LinkedIn">in</a>
+                <a href="mailto:support@blurts.app" title="Email">📧</a>
             </div>
         </div>
     </footer>
@@ -1390,7 +1387,7 @@
 
             <div id="earlyAccessFormView">
                 <h3>Get Early Access</h3>
-                <p>Be the first to try ThoughtCatcher when we launch. We'll notify you with exclusive early access.</p>
+                <p>Be the first to try Blurts when we launch. We'll notify you with exclusive early access.</p>
 
                 <form id="earlyAccessForm">
                     <div class="form-group">
@@ -1413,12 +1410,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="ea-useCase">What will you use ThoughtCatcher for? (optional)</label>
+                        <label for="ea-useCase">What will you use Blurts for? (optional)</label>
                         <select id="ea-useCase" name="useCase">
                             <option value="">Select one...</option>
                             <option value="work">Work tasks & meetings</option>
                             <option value="personal">Personal to-dos & ideas</option>
-                            <option value="adhd">ADHD/neurodivergent brain management</option>
+                            <option value="adhd">Quick thought capture</option>
                             <option value="creative">Creative projects & brainstorming</option>
                             <option value="other">Other</option>
                         </select>
@@ -1436,11 +1433,11 @@
             <div id="earlyAccessSuccessView" class="success-message">
                 <div class="icon">✅</div>
                 <h3>You're on the list!</h3>
-                <p>We'll email you at <strong id="earlyAccessConfirmedEmail"></strong> as soon as ThoughtCatcher launches.</p>
-                <p style="margin-top: 20px; font-size: 15px; color: var(--medium-gray);">Expected launch: January 31, 2025. You'll get exclusive early access.</p>
+                <p>We'll email you at <strong id="earlyAccessConfirmedEmail"></strong> as soon as Blurts launches.</p>
+                <p style="margin-top: 20px; font-size: 15px; color: var(--medium-gray);">Expected launch: February 15, 2025. You'll get exclusive early access.</p>
                 <div style="margin-top: 24px; padding: 16px; background: var(--background-subtle); border-radius: 12px; border-left: 4px solid var(--primary-orange);">
                     <p style="font-size: 14px; color: var(--dark-gray); margin: 0;">
-                        <strong>What's next?</strong> Follow us on Twitter for updates: <a href="#" style="color: var(--primary-orange);">@ThoughtCatcher</a>
+                        <strong>What's next?</strong> Follow us on Twitter for updates: <a href="https://twitter.com/blurts" style="color: var(--primary-orange);">@blurts</a>
                     </p>
                 </div>
             </div>
@@ -1509,7 +1506,7 @@
                 <div class="icon">✅</div>
                 <h3>You're on the list!</h3>
                 <p>We'll email you at <strong id="confirmedEmail"></strong> when Business features launch.</p>
-                <p style="margin-top: 20px;">In the meantime, try ThoughtCatcher Pro free for 14 days.</p>
+                <p style="margin-top: 20px;">In the meantime, try Blurts Pro free for 14 days.</p>
                 <a href="#" class="btn btn-primary close-and-open-early-access" data-tier="pro" style="margin-top: 20px;">Start Free Trial</a>
             </div>
         </div>
