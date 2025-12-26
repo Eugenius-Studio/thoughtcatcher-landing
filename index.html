@@ -1590,6 +1590,9 @@
         });
 
         function closeModal() {
+            // Track modal dismissal
+            gtag('event', 'dismiss', {'event_category': 'Modal', 'event_label': 'Team Waitlist Modal Closed'});
+
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
 
@@ -1714,6 +1717,9 @@
         });
 
         function closeEarlyAccessModal() {
+            // Track modal dismissal
+            gtag('event', 'dismiss', {'event_category': 'Modal', 'event_label': 'Early Access Modal Closed'});
+
             earlyAccessModal.classList.remove('active');
             document.body.style.overflow = 'auto';
 
