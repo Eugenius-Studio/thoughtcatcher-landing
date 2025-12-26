@@ -971,7 +971,7 @@
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#testimonials">Reviews</a>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free">Get Started</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Get Started - Header'});">Get Started</a>
             </nav>
         </div>
     </header>
@@ -986,7 +986,7 @@
             </p>
 
             <div class="hero-cta">
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free">Start Free Trial →</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Hero'});">Start Free Trial →</a>
             </div>
 
             <div class="hero-demo">
@@ -1119,7 +1119,7 @@
                 </div>
 
                 <div style="margin-top: 40px;">
-                    <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="background: white !important; color: var(--primary-orange) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">Try Free (10 Voices) →</a>
+                    <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="background: white !important; color: var(--primary-orange) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Try Free - Solution Section'});">Try Free (10 Voices) →</a>
                 </div>
             </div>
 
@@ -1252,7 +1252,7 @@
             </div>
 
             <!-- CTA Button -->
-            <a href="#" id="founderCTA" class="btn btn-primary" style="background: white !important; color: #EA580C !important; font-size: 18px; padding: 18px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border: none;">
+            <a href="#" id="founderCTA" class="btn btn-primary" style="background: white !important; color: #EA580C !important; font-size: 18px; padding: 18px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border: none;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Founder Deal - Claim Spot'});">
                 Claim Your Founder Spot →
             </a>
 
@@ -1307,7 +1307,7 @@
                         <span>Basic features</span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-secondary open-early-access" data-tier="free">Start Free</a>
+                <a href="#" class="btn btn-secondary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free - Pricing Free'});">Start Free</a>
             </div>
 
             <div class="pricing-card featured">
@@ -1341,7 +1341,7 @@
                         <span>Priority support</span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="pro">Start Pro Trial →</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="pro" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Pro Trial - Pricing'});">Start Pro Trial →</a>
             </div>
         </div>
 
@@ -1350,7 +1350,7 @@
             <p style="color: var(--medium-gray); font-size: 16px; margin-bottom: 16px;">
                 Looking for team plans?
             </p>
-            <a href="#" class="open-waitlist" data-tier="team" style="color: var(--primary-orange); text-decoration: underline; font-weight: 600; font-size: 16px;">
+            <a href="#" class="open-waitlist" data-tier="team" style="color: var(--primary-orange); text-decoration: underline; font-weight: 600; font-size: 16px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Join Team Waitlist'});">
                 Join the team waitlist →
             </a>
         </div>
@@ -1366,7 +1366,7 @@
             <h2>Stop Losing Brilliant Ideas</h2>
             <p>Join 2,847 people who never lose a thought again. Try free, upgrade when you're hooked.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="font-size: 18px; padding: 16px 32px;">Start Free Trial →</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="font-size: 18px; padding: 16px 32px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Final CTA'});">Start Free Trial →</a>
             </div>
         </div>
     </section>
@@ -1429,7 +1429,7 @@
                 <h3>Get Early Access</h3>
                 <p>Be the first to try Blurts when we launch. We'll notify you with exclusive early access.</p>
 
-                <form id="earlyAccessForm">
+                <form id="earlyAccessForm" onsubmit="gtag('event', 'submit', {'event_category': 'Form', 'event_label': 'Early Access Signup'}); return true;">
                     <div class="form-group">
                         <label for="ea-name">Name *</label>
                         <input type="text" id="ea-name" name="name" required placeholder="Your name">
@@ -1493,7 +1493,7 @@
                 <h3>Join the Waitlist</h3>
                 <p>Be the first to know when Team & Business features launch. We'll notify you with exclusive early access.</p>
 
-                <form id="waitlistForm">
+                <form id="waitlistForm" onsubmit="gtag('event', 'submit', {'event_category': 'Form', 'event_label': 'Team Waitlist Signup'}); return true;">
                     <div class="form-group">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required placeholder="Your name">
@@ -1547,7 +1547,7 @@
                 <h3>You're on the list!</h3>
                 <p>We'll email you at <strong id="confirmedEmail"></strong> when Business features launch.</p>
                 <p style="margin-top: 20px;">In the meantime, try Blurts Pro free for 14 days.</p>
-                <a href="#" class="btn btn-primary close-and-open-early-access" data-tier="pro" style="margin-top: 20px;">Start Free Trial</a>
+                <a href="#" class="btn btn-primary close-and-open-early-access" data-tier="pro" style="margin-top: 20px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Waitlist Success'});">Start Free Trial</a>
             </div>
         </div>
     </div>
