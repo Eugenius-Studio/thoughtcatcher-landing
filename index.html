@@ -934,14 +934,54 @@
 
             .solution-content {
                 grid-template-columns: 1fr;
+                padding: 0 16px;
+            }
+
+            .solution-section {
+                padding: 60px 16px;
+            }
+
+            .solution-text h2 {
+                font-size: 28px;
+                padding-right: 8px;
+                word-wrap: break-word;
+            }
+
+            .solution-text p {
+                font-size: 16px;
+                padding-right: 8px;
+            }
+
+            .solution-visual {
+                padding: 40px 20px;
+            }
+
+            .solution-visual div[style*="font-size: 72px"] {
+                font-size: 48px !important;
+            }
+
+            .solution-visual div[style*="font-size: 64px"] {
+                font-size: 40px !important;
+            }
+
+            .solution-visual p[style*="font-size: 20px"] {
+                font-size: 16px !important;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+            }
+
+            .pricing-price {
+                font-size: 40px;
+            }
+
+            .pricing-card h3 {
+                font-size: 20px;
             }
 
             .nav-links {
                 display: none;
-            }
-
-            .solution-text h2 {
-                font-size: 32px;
             }
 
             .cta-content h2 {
@@ -976,7 +1016,7 @@
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#testimonials">Reviews</a>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Get Started - Header'});">Get Started</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Get Started - Header'}); return true;">Get Started</a>
             </nav>
         </div>
     </header>
@@ -991,7 +1031,7 @@
             </p>
 
             <div class="hero-cta">
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Hero'});">Start Free Trial →</a>
+                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Hero'}); return true;">Start Free Trial →</a>
             </div>
 
             <div class="hero-demo">
@@ -1124,7 +1164,7 @@
                 </div>
 
                 <div style="margin-top: 40px;">
-                    <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="background: white !important; color: var(--primary-orange) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Try Free - Solution Section'});">Try Free (10 Voices) →</a>
+                    <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="background: white !important; color: var(--primary-orange) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Try Free - Solution Section'}); return true;">Try Free (10 Voices) →</a>
                 </div>
             </div>
 
@@ -1257,7 +1297,7 @@
             </div>
 
             <!-- CTA Button -->
-            <a href="#" id="founderCTA" class="btn btn-primary" style="background: white !important; color: #EA580C !important; font-size: 18px; padding: 18px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border: none;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Founder Deal - Claim Spot'});">
+            <a href="#" id="founderCTA" class="btn btn-primary" style="background: white !important; color: #EA580C !important; font-size: 18px; padding: 18px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border: none;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Founder Deal - Claim Spot'}); return true;">
                 Claim Your Founder Spot →
             </a>
 
