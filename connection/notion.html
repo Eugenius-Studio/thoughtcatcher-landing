@@ -101,9 +101,23 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-icon {
             width: 48px;
             height: 48px;
-            margin: 0 auto 20px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark-gray);
+            letter-spacing: -0.5px;
         }
 
         /* Mobile responsive */
@@ -125,18 +139,21 @@
 <body>
     <div class="container">
         <div class="logo">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Sound wave bars -->
-                <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
-                <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
-                <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
-                <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
-                <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
-                <!-- Text lines -->
-                <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
-                <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
-                <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
-            </svg>
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sound wave bars -->
+                    <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
+                    <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
+                    <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
+                    <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
+                    <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
+                    <!-- Text lines -->
+                    <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
+                    <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
+                    <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
+                </svg>
+            </div>
+            <span class="logo-text">Blurts</span>
         </div>
 
         <div id="content">
