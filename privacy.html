@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Blurts</title>
+    <meta name="description" content="Blurts Privacy Policy - How we collect, use, and protect your data.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9QP1NHP4F2');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --dark-gray: #2D3748;
+            --medium-gray: #64748B;
+            --light-gray: #F7FAFC;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: white;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark-gray);
+            letter-spacing: -0.5px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            background: var(--primary-orange);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 80px;
+            padding: 60px 20px 100px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .last-updated {
+            color: var(--medium-gray);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: var(--light-gray);
+            border-left: 4px solid var(--primary-orange);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .footer a {
+            color: var(--primary-orange);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .main {
+                padding: 40px 20px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <!-- Sound waves (left side - orange) -->
+                        <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
+                        <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
+                        <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
+                        <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
+                        <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
+
+                        <!-- Stack lines (right side - dark grey) -->
+                        <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
+                        <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
+                        <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Blurts</span>
+            </a>
+            <a href="/" class="btn">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> January 19, 2025</p>
+
+        <p>At Blurts, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our voice-first thought capture application and services.</p>
+
+        <div class="highlight-box">
+            <p><strong>Quick Summary:</strong> We collect only what we need to provide our service. Your voice recordings are transcribed and then deleted. We never sell your data to third parties.</p>
+        </div>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Information You Provide</h3>
+        <ul>
+            <li><strong>Account Information:</strong> Name, email address, and payment information when you create an account or subscribe.</li>
+            <li><strong>Voice Recordings:</strong> Audio recordings you create using Blurts for transcription purposes.</li>
+            <li><strong>Content Data:</strong> The transcribed text and any edits or categorizations you make.</li>
+            <li><strong>Integration Data:</strong> Connection credentials for third-party services like Notion, Todoist, or Google Tasks.</li>
+        </ul>
+
+        <h3>1.2 Information We Collect Automatically</h3>
+        <ul>
+            <li><strong>Usage Data:</strong> How you interact with our app (features used, frequency, session duration).</li>
+            <li><strong>Device Information:</strong> Device type, operating system, browser type, IP address, and mobile identifiers.</li>
+            <li><strong>Analytics:</strong> We use Google Analytics to understand how users interact with our service.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Provide, maintain, and improve Blurts services</li>
+            <li>Process your voice recordings and generate transcriptions</li>
+            <li>Sync your captured thoughts to your connected task management platforms</li>
+            <li>Process payments and manage subscriptions</li>
+            <li>Send you service updates, security alerts, and support messages</li>
+            <li>Respond to your comments, questions, and customer service requests</li>
+            <li>Analyze usage patterns to improve our product</li>
+            <li>Detect, prevent, and address technical issues and fraudulent activity</li>
+        </ul>
+
+        <h2>3. Voice Data Processing</h2>
+
+        <p>Your privacy regarding voice data is critical to us:</p>
+        <ul>
+            <li><strong>Temporary Storage:</strong> Voice recordings are stored only as long as necessary to process transcription (typically less than 60 seconds).</li>
+            <li><strong>Automatic Deletion:</strong> Once transcribed, the original audio file is automatically deleted from our servers.</li>
+            <li><strong>Third-Party Transcription:</strong> We use OpenAI's Whisper API for transcription. Audio is sent securely and is not stored by OpenAI per their data processing policies.</li>
+            <li><strong>Encrypted Transmission:</strong> All voice data is transmitted using TLS encryption.</li>
+        </ul>
+
+        <h2>4. How We Share Your Information</h2>
+
+        <p>We do not sell your personal information. We may share your information only in the following circumstances:</p>
+
+        <h3>4.1 Service Providers</h3>
+        <p>We share information with third-party service providers who perform services on our behalf:</p>
+        <ul>
+            <li><strong>OpenAI:</strong> For voice transcription services</li>
+            <li><strong>Stripe:</strong> For payment processing</li>
+            <li><strong>Google Cloud Platform:</strong> For hosting and infrastructure</li>
+            <li><strong>Google Analytics:</strong> For usage analytics</li>
+        </ul>
+
+        <h3>4.2 Integrated Services</h3>
+        <p>When you connect Blurts to third-party services (Notion, Todoist, Google Tasks), we share only the data necessary to sync your captured thoughts to those platforms. You control which content is synced.</p>
+
+        <h3>4.3 Legal Requirements</h3>
+        <p>We may disclose your information if required by law or in response to valid requests by public authorities.</p>
+
+        <h2>5. Data Security</h2>
+
+        <p>We implement appropriate technical and organizational security measures to protect your personal information:</p>
+        <ul>
+            <li>End-to-end encryption for data transmission</li>
+            <li>Encrypted data storage</li>
+            <li>Regular security audits and updates</li>
+            <li>Access controls and authentication requirements</li>
+            <li>Secure API connections to third-party services</li>
+        </ul>
+
+        <p>However, no method of transmission over the Internet is 100% secure. While we strive to protect your personal information, we cannot guarantee its absolute security.</p>
+
+        <h2>6. Data Retention</h2>
+
+        <ul>
+            <li><strong>Voice Recordings:</strong> Deleted immediately after transcription</li>
+            <li><strong>Transcribed Content:</strong> Retained until you delete it or close your account</li>
+            <li><strong>Account Information:</strong> Retained for as long as your account is active</li>
+            <li><strong>Payment Information:</strong> Stored securely by Stripe, not on our servers</li>
+            <li><strong>Usage Logs:</strong> Retained for 90 days for analytics and troubleshooting</li>
+        </ul>
+
+        <h2>7. Your Rights and Choices</h2>
+
+        <p>You have the following rights regarding your personal information:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of your personal data</li>
+            <li><strong>Correction:</strong> Update or correct inaccurate information</li>
+            <li><strong>Deletion:</strong> Request deletion of your account and associated data</li>
+            <li><strong>Export:</strong> Download your captured thoughts and data</li>
+            <li><strong>Opt-Out:</strong> Unsubscribe from marketing emails (service emails are still sent)</li>
+            <li><strong>Disconnect Integrations:</strong> Revoke access to connected third-party services at any time</li>
+        </ul>
+
+        <p>To exercise these rights, contact us at <a href="mailto:privacy@blurts.app">privacy@blurts.app</a>.</p>
+
+        <h2>8. Children's Privacy</h2>
+
+        <p>Blurts is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.</p>
+
+        <h2>9. International Data Transfers</h2>
+
+        <p>Your information may be transferred to and processed in countries other than your own. We ensure that appropriate safeguards are in place to protect your data in accordance with this Privacy Policy.</p>
+
+        <h2>10. Changes to This Privacy Policy</h2>
+
+        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by:</p>
+        <ul>
+            <li>Posting the new Privacy Policy on this page</li>
+            <li>Updating the "Last Updated" date</li>
+            <li>Sending you an email notification (for significant changes)</li>
+        </ul>
+
+        <p>Your continued use of Blurts after any changes indicates your acceptance of the updated Privacy Policy.</p>
+
+        <h2>11. Contact Us</h2>
+
+        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
+
+        <p>
+            <strong>Email:</strong> <a href="mailto:privacy@blurts.app">privacy@blurts.app</a><br>
+            <strong>Support:</strong> <a href="mailto:support@blurts.app">support@blurts.app</a><br>
+            <strong>Website:</strong> <a href="https://blurts.app">https://blurts.app</a>
+        </p>
+
+        <div class="highlight-box" style="margin-top: 48px;">
+            <p><strong>GDPR & CCPA Compliance:</strong> If you are a resident of the European Union or California, you have additional rights under GDPR and CCPA. Please contact us at <a href="mailto:privacy@blurts.app">privacy@blurts.app</a> to exercise these rights.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Blurts. All rights reserved.</p>
+        <p>
+            <a href="/privacy.html">Privacy Policy</a> •
+            <a href="mailto:support@blurts.app">Contact Support</a>
+        </p>
+    </footer>
+</body>
+</html>
