@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Blurts</title>
+    <meta name="description" content="Delete your Blurts account and personal data.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9QP1NHP4F2');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --dark-gray: #2D3748;
+            --medium-gray: #64748B;
+            --light-gray: #F7FAFC;
+            --danger-red: #DC2626;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: white;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark-gray);
+            letter-spacing: -0.5px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-gray) !important;
+            border: 2px solid #E2E8F0;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            border-color: var(--medium-gray);
+        }
+
+        .btn-danger {
+            background: var(--danger-red);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 80px;
+            padding: 60px 20px 100px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .icon {
+            font-size: 64px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--medium-gray);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+        }
+
+        ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: #FEF2F2;
+            border-left: 4px solid var(--danger-red);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .warning-box strong {
+            color: var(--danger-red);
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: var(--light-gray);
+            border-left: 4px solid var(--primary-orange);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        .deletion-steps {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 15px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--danger-red);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: var(--light-gray);
+            border-radius: 16px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-message .icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .footer a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .main {
+                padding: 40px 20px 60px;
+            }
+
+            .deletion-steps,
+            .contact-form {
+                padding: 24px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <!-- Sound waves (left side - orange) -->
+                        <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
+                        <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
+                        <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
+                        <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
+                        <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
+
+                        <!-- Stack lines (right side - dark grey) -->
+                        <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
+                        <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
+                        <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Blurts</span>
+            </a>
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="icon">🗑️</div>
+        <h1>Delete Your Account</h1>
+        <p class="subtitle">We're sorry to see you go. Here's what you need to know.</p>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Warning:</strong> Account deletion is permanent and cannot be undone. All your data will be permanently deleted from our servers.</p>
+        </div>
+
+        <h2>What Gets Deleted</h2>
+        <p>When you delete your Blurts account, the following data will be permanently removed:</p>
+        <ul>
+            <li><strong>Account Information:</strong> Your email, name, and profile settings</li>
+            <li><strong>Captured Thoughts:</strong> All voice recordings (already auto-deleted after transcription) and transcribed text</li>
+            <li><strong>Integration Connections:</strong> Links to Notion, Todoist, and Google Tasks will be disconnected</li>
+            <li><strong>Usage History:</strong> All activity logs and analytics data</li>
+            <li><strong>Subscription:</strong> Your active subscription will be cancelled (no refunds for remaining time)</li>
+        </ul>
+
+        <h2>What Happens to Your Subscription</h2>
+        <p>If you have an active Pro or Founder Deal subscription:</p>
+        <ul>
+            <li>Your subscription will be immediately cancelled</li>
+            <li>You will not be charged again</li>
+            <li>No refunds will be issued for unused time (per our Terms of Service)</li>
+            <li>For Founder Deal members: Your lifetime access will be terminated</li>
+        </ul>
+
+        <div class="info-box">
+            <p><strong>💡 Alternative:</strong> If you're experiencing issues, consider reaching out to our support team at <a href="mailto:support@blurts.app" style="color: var(--primary-orange);">support@blurts.app</a> before deleting your account. We may be able to help!</p>
+        </div>
+
+        <h2>How to Delete Your Account</h2>
+
+        <div class="deletion-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Export Your Data (Optional)</h3>
+                    <p>If you want to keep a copy of your captured thoughts, export them from the Blurts app before proceeding.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Submit Deletion Request</h3>
+                    <p>Fill out the form below or email us at <a href="mailto:support@blurts.app" style="color: var(--primary-orange);">support@blurts.app</a> with "Delete My Account" in the subject line.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Confirmation</h3>
+                    <p>We'll send you a confirmation email. Click the link to verify the deletion request.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Account Deleted</h3>
+                    <p>Within 48 hours, your account and all associated data will be permanently deleted.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Request Account Deletion</h2>
+
+        <div class="contact-form" id="deletionFormView">
+            <form id="deletionForm">
+                <div class="form-group">
+                    <label for="email">Account Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for Leaving (Optional)</label>
+                    <textarea id="reason" name="reason" placeholder="Help us improve by telling us why you're leaving..."></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm" name="confirm" required>
+                    <label for="confirm">I understand that this action is permanent and cannot be undone. All my data will be permanently deleted, and I will not receive a refund for any unused subscription time.</label>
+                </div>
+
+                <div class="button-group">
+                    <a href="/" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-danger">Delete My Account</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="success-message" id="successView">
+            <div class="icon">✉️</div>
+            <h2 style="font-size: 28px; margin-bottom: 16px;">Deletion Request Received</h2>
+            <p>We've sent a confirmation email to <strong id="confirmedEmail"></strong>. Please click the link in the email to verify your deletion request.</p>
+            <p style="margin-top: 24px; color: var(--medium-gray);">Your account will be permanently deleted within 48 hours after confirmation.</p>
+            <a href="/" class="btn btn-primary" style="margin-top: 24px;">Return to Home</a>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; color: var(--medium-gray); font-size: 14px;">
+            Changed your mind? We'd love to have you back. Just <a href="/" style="color: var(--primary-orange);">sign up again</a> anytime.
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Blurts. All rights reserved.</p>
+        <p>
+            <a href="/privacy.html">Privacy Policy</a> •
+            <a href="mailto:support@blurts.app">Contact Support</a>
+        </p>
+    </footer>
+
+    <script>
+        const deletionForm = document.getElementById('deletionForm');
+        const deletionFormView = document.getElementById('deletionFormView');
+        const successView = document.getElementById('successView');
+
+        deletionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(deletionForm);
+            const data = {
+                email: formData.get('email'),
+                reason: formData.get('reason') || 'Not provided',
+                confirmed: formData.get('confirm') === 'on',
+                timestamp: new Date().toISOString(),
+                type: 'account_deletion_request'
+            };
+
+            // Log to console for debugging
+            console.log('Account deletion request:', data);
+
+            // TODO: Replace with your backend endpoint or Google Apps Script URL
+            const DELETION_ENDPOINT = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+            fetch(DELETION_ENDPOINT, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                console.log('✓ Deletion request sent');
+                document.getElementById('confirmedEmail').textContent = data.email;
+                deletionFormView.style.display = 'none';
+                successView.classList.add('active');
+
+                // Track in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'account_deletion_request', {
+                        'event_category': 'Account',
+                        'event_label': 'Deletion Request Submitted'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('⚠ Network error:', error);
+                alert('Network error. Please try again or email us directly at support@blurts.app');
+            });
+        });
+    </script>
+</body>
+</html>
