@@ -1727,12 +1727,18 @@
         // Open Early Access modal
         openEarlyAccessButtons.forEach(button => {
             button.addEventListener('click', (e) => {
+                const tier = button.getAttribute('data-tier');
+
+                // Skip Pro tier - handled by Pro checkout handler below
+                if (tier === 'pro') {
+                    return;
+                }
+
                 e.preventDefault();
                 earlyAccessModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
 
                 // Pre-select tier based on which button was clicked
-                const tier = button.getAttribute('data-tier');
                 if (tier && eaTierSelect) {
                     eaTierSelect.value = tier;
                 }
@@ -1743,6 +1749,13 @@
         const closeAndOpenButtons = document.querySelectorAll('.close-and-open-early-access');
         closeAndOpenButtons.forEach(button => {
             button.addEventListener('click', (e) => {
+                const tier = button.getAttribute('data-tier');
+
+                // Skip Pro tier - handled by Pro checkout handler
+                if (tier === 'pro') {
+                    return;
+                }
+
                 e.preventDefault();
 
                 // Close waitlist modal first
@@ -1754,7 +1767,6 @@
                     document.body.style.overflow = 'hidden';
 
                     // Pre-select tier
-                    const tier = button.getAttribute('data-tier');
                     if (tier && eaTierSelect) {
                         eaTierSelect.value = tier;
                     }
