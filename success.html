@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Blurts</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9QP1NHP4F2');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --dark-gray: #2D3748;
+            --medium-gray: #64748B;
+            --light-gray: #F7FAFC;
+            --success-green: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: bounce 0.6s ease-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--success-green);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--medium-gray);
+            margin-bottom: 40px;
+        }
+
+        .info-box {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .info-box h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 15px;
+            color: var(--medium-gray);
+            line-height: 1.5;
+        }
+
+        .session-id {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 32px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: var(--medium-gray);
+            word-break: break-all;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--primary-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .support-text {
+            margin-top: 32px;
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+
+        .support-text a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .support-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .info-box {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">🎉</div>
+
+        <h1>Payment Successful!</h1>
+        <p class="subtitle">Welcome to Blurts. Your journey to never losing a thought begins now.</p>
+
+        <div class="info-box">
+            <h2>What Happens Next?</h2>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Check Your Email</h3>
+                    <p>You'll receive a receipt and account activation instructions within 5 minutes.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Download Blurts</h3>
+                    <p>Get the app from the App Store (iOS) or Google Play (Android).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Sign In & Connect</h3>
+                    <p>Connect your Notion workspace and start capturing thoughts in seconds.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-id" id="sessionId">
+            Session ID: Loading...
+        </div>
+
+        <a href="/" class="btn">Return to Homepage →</a>
+
+        <p class="support-text">
+            Need help? Contact us at <a href="mailto:support@blurts.app">support@blurts.app</a>
+        </p>
+    </div>
+
+    <script>
+        // Get session ID from URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+
+        if (sessionId) {
+            document.getElementById('sessionId').textContent = `Session ID: ${sessionId}`;
+        } else {
+            document.getElementById('sessionId').style.display = 'none';
+        }
+
+        // Track conversion in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'purchase', {
+                'event_category': 'Ecommerce',
+                'event_label': 'Payment Success',
+                'value': 0 // Backend will track actual value
+            });
+        }
+    </script>
+</body>
+</html>

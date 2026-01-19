@@ -1329,6 +1329,19 @@
             <p>Try free. Upgrade when you're ready.</p>
         </div>
 
+        <!-- Monthly/Annual Toggle -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="display: inline-flex; background: var(--light-gray); border-radius: 12px; padding: 6px; gap: 6px;">
+                <button id="monthlyToggle" class="pricing-toggle active" style="padding: 12px 32px; border: none; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s; background: white; color: var(--dark-gray); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    Monthly
+                </button>
+                <button id="annualToggle" class="pricing-toggle" style="padding: 12px 32px; border: none; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s; background: transparent; color: var(--medium-gray);">
+                    Annual
+                    <span style="display: inline-block; margin-left: 8px; background: var(--primary-orange); color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700;">Save $30</span>
+                </button>
+            </div>
+        </div>
+
         <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
             <div class="pricing-card">
                 <h3>Blurts Free</h3>
@@ -1358,8 +1371,8 @@
             <div class="pricing-card featured">
                 <div class="pricing-badge">Best Value</div>
                 <h3>Blurts Pro</h3>
-                <div class="pricing-price">$9.99<span>/mo</span></div>
-                <p class="pricing-period">Unlimited captures</p>
+                <div class="pricing-price" id="proPrice">$9.99<span id="proPriceUnit">/mo</span></div>
+                <p class="pricing-period" id="proPeriod">Unlimited captures</p>
                 <div class="pricing-features">
                     <div class="pricing-feature">
                         <span class="checkmark">✓</span>
@@ -1838,15 +1851,168 @@
         // Set counter on page load
         updateFounderCounter();
 
-        // Founder CTA click handler
-        document.getElementById('founderCTA').addEventListener('click', (e) => {
+        // ========================================
+        // BACKEND API CONFIGURATION
+        // ========================================
+        const API_BASE_URL = 'https://taskvoice-backend-qnjgdkzioq-uc.a.run.app';
+        const API_ENDPOINTS = {
+            founderDeal: `${API_BASE_URL}/api/founder-deal/checkout`,
+            proSubscribe: `${API_BASE_URL}/api/pro/subscribe`
+        };
+
+        // Track selected plan (monthly or annual)
+        let selectedPlan = 'monthly';
+
+        // ========================================
+        // MONTHLY/ANNUAL TOGGLE FUNCTIONALITY
+        // ========================================
+        const monthlyToggle = document.getElementById('monthlyToggle');
+        const annualToggle = document.getElementById('annualToggle');
+        const proPrice = document.getElementById('proPrice');
+        const proPriceUnit = document.getElementById('proPriceUnit');
+        const proPeriod = document.getElementById('proPeriod');
+
+        function updatePricingDisplay(plan) {
+            selectedPlan = plan;
+
+            if (plan === 'monthly') {
+                // Update button styles
+                monthlyToggle.style.background = 'white';
+                monthlyToggle.style.color = 'var(--dark-gray)';
+                monthlyToggle.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                annualToggle.style.background = 'transparent';
+                annualToggle.style.color = 'var(--medium-gray)';
+                annualToggle.style.boxShadow = 'none';
+
+                // Update pricing
+                proPrice.innerHTML = '$9.99<span id="proPriceUnit">/mo</span>';
+                proPeriod.textContent = 'Unlimited captures';
+            } else {
+                // Update button styles
+                annualToggle.style.background = 'white';
+                annualToggle.style.color = 'var(--dark-gray)';
+                annualToggle.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                monthlyToggle.style.background = 'transparent';
+                monthlyToggle.style.color = 'var(--medium-gray)';
+                monthlyToggle.style.boxShadow = 'none';
+
+                // Update pricing
+                proPrice.innerHTML = '$89<span id="proPriceUnit">/yr</span>';
+                proPeriod.textContent = 'Unlimited captures • Save $30';
+            }
+        }
+
+        monthlyToggle.addEventListener('click', () => updatePricingDisplay('monthly'));
+        annualToggle.addEventListener('click', () => updatePricingDisplay('annual'));
+
+        // ========================================
+        // FOUNDER DEAL CHECKOUT HANDLER
+        // ========================================
+        document.getElementById('founderCTA').addEventListener('click', async (e) => {
             e.preventDefault();
-            // TODO: Implement Stripe checkout flow
-            // For now, open early access modal
-            alert('Founder Deal checkout coming soon! For now, sign up for early access to get notified when it launches.');
-            // Optionally open early access modal
-            // earlyAccessModal.classList.add('active');
-            // document.body.style.overflow = 'hidden';
+
+            // Check if spots available
+            const remainingSpots = parseInt(document.getElementById('founderRemainingCount').textContent);
+            if (remainingSpots <= 0) {
+                alert('Sorry, all Founder spots have been claimed!');
+                return;
+            }
+
+            try {
+                // Show loading state
+                const btn = e.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Loading...';
+                btn.disabled = true;
+
+                // Call backend to create checkout session
+                const response = await fetch(API_ENDPOINTS.founderDeal, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to create checkout session');
+                }
+
+                const data = await response.json();
+
+                // Track in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'begin_checkout', {
+                        'event_category': 'Ecommerce',
+                        'event_label': 'Founder Deal',
+                        'value': 149
+                    });
+                }
+
+                // Redirect to Stripe Checkout
+                window.location.href = data.checkoutUrl;
+            } catch (error) {
+                console.error('Checkout error:', error);
+                alert('Something went wrong. Please try again or contact support at support@blurts.app');
+
+                // Reset button
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // ========================================
+        // PRO CHECKOUT HANDLER (Monthly/Annual)
+        // ========================================
+        document.querySelectorAll('.open-early-access').forEach(button => {
+            button.addEventListener('click', async (e) => {
+                const tier = button.getAttribute('data-tier');
+
+                // Only intercept Pro tier clicks
+                if (tier === 'pro') {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    try {
+                        // Show loading state
+                        const originalText = button.textContent;
+                        button.textContent = 'Loading...';
+                        button.disabled = true;
+
+                        // Call backend to create checkout session with selected plan
+                        const response = await fetch(API_ENDPOINTS.proSubscribe, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                plan: selectedPlan // 'monthly' or 'annual'
+                            })
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Failed to create checkout session');
+                        }
+
+                        const data = await response.json();
+
+                        // Track in Google Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'begin_checkout', {
+                                'event_category': 'Ecommerce',
+                                'event_label': `Pro ${selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)}`,
+                                'value': selectedPlan === 'monthly' ? 9.99 : 89
+                            });
+                        }
+
+                        // Redirect to Stripe Checkout
+                        window.location.href = data.checkoutUrl;
+                    } catch (error) {
+                        console.error('Checkout error:', error);
+                        alert('Something went wrong. Please try again or contact support at support@blurts.app');
+
+                        // Reset button
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }
+                }
+                // For 'free' tier, let original handler run (opens Early Access modal)
+            });
         });
 
         // Add pulse animation style
