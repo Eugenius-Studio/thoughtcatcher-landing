@@ -1940,7 +1940,8 @@
                 // Call backend to create checkout session
                 const response = await fetch(API_ENDPOINTS.founderDeal, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
                 });
 
                 if (!response.ok) {
