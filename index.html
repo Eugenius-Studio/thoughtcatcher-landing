@@ -155,71 +155,171 @@
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            padding: 100px 20px 80px;
-            background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%);
-            text-align: center;
+            padding: 60px 20px 20px;
+            background: #FEF6EC;
+            text-align: left;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 60px;
+            row-gap: 16px;
+            align-items: center;
         }
 
         .hero h1 {
             font-size: 56px;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--dark-gray);
-            letter-spacing: -1px;
+            line-height: 1.08;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
         }
 
-        .hero h1 .gradient-text {
+        .hero h1 .line1 {
             color: var(--primary-orange);
         }
 
+        .hero h1 .line2 {
+            color: var(--dark-gray);
+        }
+
         .hero .subheading {
-            font-size: 24px;
+            font-size: 18px;
             color: var(--medium-gray);
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             font-weight: 400;
         }
 
         .hero-cta {
             display: flex;
+            align-items: center;
             gap: 16px;
-            justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
         }
 
-        .hero .btn {
-            font-size: 18px;
-            padding: 16px 32px;
+        .hero-cta .app-store-badge {
+            display: inline-block;
+            transition: transform 0.2s;
         }
 
-        .hero-demo {
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        .hero-cta .app-store-badge:hover {
+            transform: scale(1.05);
         }
 
-        .hero-demo-placeholder {
+        .hero-cta .app-store-badge img {
+            height: 54px;
+        }
+
+        .hero-cta .android-note {
+            font-size: 14px;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        .hero-cta .android-note span {
+            color: #34A853;
+            font-weight: 600;
+        }
+
+        .strip-label {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: var(--dark-gray) !important;
+            margin-bottom: 14px !important;
+            margin-top: 0 !important;
+            line-height: 1.4 !important;
+        }
+
+        .strip-label span {
+            color: var(--primary-orange) !important;
+        }
+
+        .hero-integrations {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .int-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .int-item:hover {
+            transform: scale(1.08);
+        }
+
+        .int-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
             background: white;
-            padding: 80px 40px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .int-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .int-name {
+            font-size: 11px;
+            font-weight: 500;
             color: var(--medium-gray);
         }
 
+        .coming-soon-row {
+            margin-top: 4px;
+        }
+
+        .int-item.coming-soon .int-icon {
+            opacity: 0.45;
+        }
+
+        .int-item.coming-soon .int-name {
+            color: var(--medium-gray);
+        }
+
+        .coming-soon-tag {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #34A853;
+            margin-top: 8px;
+            margin-bottom: 6px;
+        }
+
+        .hero-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-phone img {
+            max-width: 340px;
+            width: 100%;
+            height: auto;
+            filter: none;
+        }
+
         .social-proof {
-            margin-top: 60px;
+            grid-column: 1 / -1;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 40px;
             flex-wrap: wrap;
+            margin-top: 0;
         }
 
         .social-proof-item {
@@ -920,12 +1020,41 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
 
             .hero .subheading {
-                font-size: 18px;
+                font-size: 16px;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-phone {
+                order: -1;
+            }
+
+            .hero-phone img {
+                max-width: 260px;
+            }
+
+            .strip-label {
+                text-align: center;
+            }
+
+            .hero-integrations {
+                justify-content: center;
             }
 
             .section-header h2 {
@@ -1024,62 +1153,82 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Never lose a <span class="gradient-text">thought</span> again</h1>
-            <p class="subheading">For brains that won't slow down. Capture ideas at the speed of thinking.</p>
-            <p style="font-size: 18px; color: var(--medium-gray); margin-top: 12px; margin-bottom: 24px;">
-                Mumble, ramble, or whisper - AI cleans it up for you. No need to speak clearly.
-            </p>
+            <div class="hero-left">
+                <h1>
+                    <span class="line1">Tame the Chaos.</span><br>
+                    <span class="line2">Out loud.</span>
+                </h1>
+                <p class="subheading">For brains that won't slow down. Just talk - Blurts handles the rest.</p>
 
-            <div class="hero-cta">
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Hero'}); return true;">Start Free Trial →</a>
+                <div class="hero-cta">
+                    <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="app-store-badge" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'App Store - Hero'}); return true;">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                    </a>
+                    <p class="android-note"><span>Android</span> launching next week</p>
+                </div>
+
+                <p class="strip-label">Speak once. <span>Lands everywhere.</span></p>
+                <div class="hero-integrations">
+                    <div class="int-item">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#2D3748" stroke-width="2.5" fill="white"/><text x="18" y="25" text-anchor="middle" font-size="18" font-weight="800" fill="#2D3748" font-family="serif">N</text></svg>
+                        </div>
+                        <span class="int-name">Notion</span>
+                    </div>
+                    <div class="int-item">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" fill="#4285F4"/><path d="M12 18l4 4 8-8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="int-name">Google Tasks</span>
+                    </div>
+                    <div class="int-item">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" fill="#4285F4"/><rect x="4" y="4" width="14" height="14" rx="2" fill="#EA4335"/><rect x="18" y="4" width="14" height="14" rx="2" fill="#FBBC04"/><rect x="4" y="18" width="14" height="14" rx="2" fill="#34A853"/><text x="18" y="25" text-anchor="middle" font-size="16" font-weight="800" fill="white" font-family="Inter, sans-serif">31</text></svg>
+                        </div>
+                        <span class="int-name">Google Calendar</span>
+                    </div>
+                    <div class="int-item">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><rect x="4" y="4" width="28" height="10" rx="4" fill="#EF4444"/><text x="18" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#2D3748" font-family="Inter, sans-serif">17</text></svg>
+                        </div>
+                        <span class="int-name">Apple Calendar</span>
+                    </div>
+                    <div class="int-item">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><circle cx="13" cy="13" r="3" fill="#FF9500"/><circle cx="13" cy="22" r="3" fill="#007AFF"/><line x1="19" y1="13" x2="28" y2="13" stroke="#64748B" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="22" x2="26" y2="22" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <span class="int-name">Reminders</span>
+                    </div>
+                </div>
+                <span class="coming-soon-tag">Coming soon:</span>
+                <div class="hero-integrations coming-soon-row">
+                    <div class="int-item coming-soon">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="#E44332"/><path d="M10 12l16-4v5l-16 4z" fill="white"/><path d="M10 20l16-4v5l-16 4z" fill="white"/></svg>
+                        </div>
+                        <span class="int-name">Todoist</span>
+                    </div>
+                    <div class="int-item coming-soon">
+                        <div class="int-icon">
+                            <svg viewBox="0 0 36 36" fill="none"><path d="M18 4L32 18L18 32L4 18L18 4Z" fill="#2684FF"/><path d="M18 12L24 18L18 24L12 18L18 12Z" fill="#DEEBFF"/></svg>
+                        </div>
+                        <span class="int-name">Jira</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="hero-demo">
-                <div style="padding: 60px 40px; background: #F7FAFC; border-radius: 16px;">
-                    <div style="display: flex; gap: 40px; align-items: center; justify-content: center; max-width: 900px; margin: 0 auto;">
-
-                      <div style="flex: 1; text-align: center;">
-                        <div style="font-size: 64px; margin-bottom: 16px;">📱</div>
-                        <h3 style="font-size: 20px; font-weight: 700; color: #2D3748; margin-bottom: 8px;">Tap</h3>
-                        <p style="font-size: 16px; color: #64748B;">Open Blurts</p>
-                      </div>
-
-                      <div style="font-size: 32px; color: #FF6B35;">→</div>
-
-                      <div style="flex: 1; text-align: center;">
-                        <div style="font-size: 64px; margin-bottom: 16px;">🗣️</div>
-                        <h3 style="font-size: 20px; font-weight: 700; color: #2D3748; margin-bottom: 8px;">Speak</h3>
-                        <p style="font-size: 16px; color: #64748B;">Say your thought</p>
-                      </div>
-
-                      <div style="font-size: 32px; color: #FF6B35;">→</div>
-
-                      <div style="flex: 1; text-align: center;">
-                        <div style="font-size: 64px; margin-bottom: 16px;">✓</div>
-                        <h3 style="font-size: 20px; font-weight: 700; color: #2D3748; margin-bottom: 8px;">Done</h3>
-                        <p style="font-size: 16px; color: #64748B;">In Notion, organized</p>
-                      </div>
-
-                    </div>
-
-                    <p style="text-align: center; margin-top: 32px; font-size: 18px; color: #2D3748; font-weight: 600;">
-                      8 seconds total. Faster than opening your notes app.
-                    </p>
-                </div>
+            <div class="hero-phone">
+                <img src="images/appstore.png" alt="Blurts app - voice recording screen">
             </div>
 
             <div class="social-proof">
                 <div class="social-proof-item">
-                    <span style="font-size: 20px;">🧪</span>
-                    <span>52 beta testers helping us perfect Blurts</span>
-                </div>
-                <div class="social-proof-item">
                     <span style="font-size: 20px;">🚀</span>
-                    <span>Launching January 10, 2026</span>
+                    <span>Now live on the App Store</span>
                 </div>
                 <div class="social-proof-item">
                     <span style="font-size: 20px;">💭</span>
-                    <span>"I've been waiting for this. Finally, an app that keeps up with my brain."</span>
+                    <span>"Finally, an app that keeps up with my brain."</span>
                 </div>
             </div>
         </div>
@@ -1856,8 +2005,8 @@
         // FOUNDER DEAL COUNTER (STATIC)
         // ========================================
         function updateFounderCounter() {
-            // Static counter showing 98 remaining spots
-            document.getElementById('founderRemainingCount').textContent = '98';
+            // Static counter showing 92 remaining spots
+            document.getElementById('founderRemainingCount').textContent = '92';
         }
 
         // Set counter on page load
