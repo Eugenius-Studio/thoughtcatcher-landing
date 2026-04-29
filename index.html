@@ -3,2193 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blurts - Voice-First Thought Capture for Any Task Manager</title>
-    <meta name="description" content="Never lose a thought again. Blurts captures fleeting ideas in 8 seconds and syncs to Notion, Todoist, Google Tasks. Voice-first productivity for knowledge workers.">
-
-    <!-- Favicon -->
+    <title>Blurts - Voice to Your Existing Task App</title>
+    <meta name="description" content="Messy voice memos become clean tasks with titles, dates, priorities, and categories — then land in Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9QP1NHP4F2');
-    </script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Blurts Brand Colors */
-            --primary-orange: #FF6B35;
-            --electric-teal: #06D6A0;
-            --deep-purple: #5B21B6;
-            --lightning-yellow: #FFD93D;
-            --dark-gray: #2D3748;
-            --medium-gray: #64748B;
-            --light-gray: #F7FAFC;
-            --success-green: #10B981;
-            --background-subtle: #FFF7ED;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: white;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #E2E8F0;
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            display: block;
-        }
-
-        .logo-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--dark-gray);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--medium-gray);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-orange);
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--primary-orange);
-            color: white !important;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-orange);
-            border: 2px solid var(--primary-orange);
-        }
-
-        .btn-secondary:hover {
-            background: var(--background-subtle);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 60px 20px 20px;
-            background: #FEF6EC;
-            text-align: left;
-        }
-
-        .hero-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 60px;
-            row-gap: 16px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.08;
-            margin-bottom: 16px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 .line1 {
-            color: var(--primary-orange);
-        }
-
-        .hero h1 .line2 {
-            color: var(--dark-gray);
-        }
-
-        .hero .subheading {
-            font-size: 18px;
-            color: var(--medium-gray);
-            margin-bottom: 28px;
-            font-weight: 400;
-        }
-
-        .hero-cta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .hero-cta .app-store-badge {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .hero-cta .app-store-badge:hover {
-            transform: scale(1.05);
-        }
-
-        .hero-cta .app-store-badge img {
-            height: 54px;
-        }
-
-        .hero-cta .android-note {
-            font-size: 14px;
-            color: var(--medium-gray);
-            font-weight: 500;
-        }
-
-        .hero-cta .android-note span {
-            color: #34A853;
-            font-weight: 600;
-        }
-
-        .strip-label {
-            font-size: 16px !important;
-            font-weight: 700 !important;
-            color: var(--dark-gray) !important;
-            margin-bottom: 14px !important;
-            margin-top: 0 !important;
-            line-height: 1.4 !important;
-        }
-
-        .strip-label span {
-            color: var(--primary-orange) !important;
-        }
-
-        .hero-integrations {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .int-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s;
-        }
-
-        .int-item:hover {
-            transform: scale(1.08);
-        }
-
-        .int-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .int-icon svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        .int-name {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--medium-gray);
-        }
-
-        .coming-soon-row {
-            margin-top: 4px;
-        }
-
-        .int-item.coming-soon .int-icon {
-            opacity: 0.45;
-        }
-
-        .int-item.coming-soon .int-name {
-            color: var(--medium-gray);
-        }
-
-        .coming-soon-tag {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: #34A853;
-            margin-top: 8px;
-            margin-bottom: 6px;
-        }
-
-        .hero-phone {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-phone img {
-            max-width: 340px;
-            width: 100%;
-            height: auto;
-            filter: none;
-        }
-
-        .social-proof {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 0;
-        }
-
-        .social-proof-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--medium-gray);
-            font-size: 15px;
-        }
-
-        .social-proof-item .stars {
-            color: var(--accent-red);
-            font-size: 18px;
-        }
-
-        /* Problem Section */
-        .section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .section-header h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .section-header p {
-            font-size: 20px;
-            color: var(--medium-gray);
-        }
-
-        /* FIXED: Problem grid now shows 3 columns (2 rows of 3 cards) */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        @media (max-width: 968px) {
-            .problem-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .problem-card {
-            background: var(--light-gray);
-            padding: 40px 30px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .problem-card .emoji {
-            font-size: 64px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .problem-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark-gray);
-        }
-
-        .problem-card p {
-            color: var(--medium-gray);
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        /* Solution Section */
-        .solution-section {
-            background: var(--primary-orange);
-            color: white;
-            padding: 100px 20px;
-        }
-
-        .solution-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .solution-text h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .solution-text p {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-
-        .solution-steps {
-            margin-top: 40px;
-        }
-
-        .solution-step {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .step-content p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .solution-visual {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 60px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 968px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .feature-card {
-            background: white;
-            border: 1px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 40px 30px;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-orange);
-        }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--light-gray);
-            border: 2px solid var(--primary-orange);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark-gray);
-        }
-
-        .feature-card p {
-            color: var(--medium-gray);
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: var(--background-subtle);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 968px) {
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .testimonial-header {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--light-gray);
-            border: 2px solid var(--primary-orange);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-orange);
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .testimonial-info h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--dark-gray);
-        }
-
-        .testimonial-info p {
-            font-size: 14px;
-            color: var(--medium-gray);
-        }
-
-        .testimonial-stars {
-            color: var(--accent-red);
-            margin-bottom: 16px;
-            font-size: 18px;
-        }
-
-        .testimonial-text {
-            color: var(--dark-gray);
-            line-height: 1.7;
-            font-size: 16px;
-            font-style: italic;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            background: white;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 968px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .pricing-card {
-            background: white;
-            border: 2px solid #E2E8F0;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary-orange);
-            border-width: 3px;
-            background: linear-gradient(135deg, #F0FDFA 0%, #E0F2FE 100%);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-orange);
-            color: white;
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .pricing-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark-gray);
-        }
-
-        .pricing-price {
-            font-size: 52px;
-            font-weight: 800;
-            color: var(--dark-gray);
-            margin-bottom: 8px;
-            line-height: 1;
-        }
-
-        .pricing-price span {
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--medium-gray);
-        }
-
-        .pricing-period {
-            color: var(--medium-gray);
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .pricing-features {
-            text-align: left;
-            margin: 30px 0;
-        }
-
-        .pricing-feature {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-            align-items: flex-start;
-        }
-
-        .pricing-feature .checkmark {
-            color: var(--success-green);
-            font-weight: 700;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .pricing-feature span {
-            color: var(--dark-gray);
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .coming-soon-badge {
-            background: var(--medium-gray);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--medium-gray);
-            cursor: pointer;
-            line-height: 1;
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--dark-gray);
-        }
-
-        .modal h3 {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--dark-gray);
-        }
-
-        .modal p {
-            font-size: 16px;
-            color: var(--medium-gray);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #E2E8F0;
-            border-radius: 8px;
-            font-size: 15px;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-orange);
-        }
-
-        .form-group select {
-            cursor: pointer;
-            background-color: white;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: var(--primary-orange);
-        }
-
-        .checkbox-group label {
-            font-size: 14px;
-            color: var(--dark-gray);
-            cursor: pointer;
-        }
-
-        .modal .btn {
-            width: 100%;
-            font-size: 16px;
-            padding: 14px;
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .success-message.active {
-            display: block;
-        }
-
-        .success-message .icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-        }
-
-        /* CTA Section - FIXED: Better contrast for buttons */
-        .cta-section {
-            background: linear-gradient(135deg, var(--dark-gray) 0%, #1A202C 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-content h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .cta-content p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* FIXED: Proper button contrast in CTA section */
-        .cta-section .btn-primary {
-            background: var(--primary-orange);
-            color: white;
-        }
-
-        .cta-section .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-section .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark-gray);
-            color: white;
-            padding: 60px 20px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer-section h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-links a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 20px;
-            transition: color 0.2s;
-        }
-
-        .social-links a:hover {
-            color: white;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                text-align: center;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero .subheading {
-                font-size: 16px;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .hero-phone {
-                order: 2;
-            }
-
-            .social-proof {
-                order: 3;
-            }
-
-            .hero-phone img {
-                max-width: 260px;
-            }
-
-            .strip-label {
-                text-align: center;
-            }
-
-            .hero-integrations {
-                justify-content: center;
-            }
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
-                padding: 0 16px;
-            }
-
-            .solution-section {
-                padding: 60px 16px;
-            }
-
-            .solution-text h2 {
-                font-size: 28px;
-                padding-right: 8px;
-                word-wrap: break-word;
-            }
-
-            .solution-text p {
-                font-size: 16px;
-                padding-right: 8px;
-            }
-
-            .solution-visual {
-                padding: 40px 20px;
-            }
-
-            .solution-visual div[style*="font-size: 72px"] {
-                font-size: 48px !important;
-            }
-
-            .solution-visual div[style*="font-size: 64px"] {
-                font-size: 40px !important;
-            }
-
-            .solution-visual p[style*="font-size: 20px"] {
-                font-size: 16px !important;
-            }
-
-            .pricing-card {
-                padding: 30px 20px;
-            }
-
-            .pricing-price {
-                font-size: 40px;
-            }
-
-            .pricing-card h3 {
-                font-size: 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .cta-content h2 {
-                font-size: 36px;
-            }
-        }
-    </style>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/sections-lower.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="header">
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-                        <!-- Sound waves (left side - orange) -->
-                        <rect x="8" y="30" width="5" height="40" rx="2.5" fill="#FF6B35"/>
-                        <rect x="16" y="12" width="5" height="75" rx="2.5" fill="#FF6B35"/>
-                        <rect x="24" y="22" width="5" height="55" rx="2.5" fill="#FF6B35"/>
-                        <rect x="32" y="5" width="5" height="90" rx="2.5" fill="#FF6B35"/>
-                        <rect x="40" y="32" width="5" height="35" rx="2.5" fill="#FF6B35"/>
-
-                        <!-- Stack lines (right side - dark grey) -->
-                        <rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/>
-                        <rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/>
-                        <rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/>
-                    </svg>
-                </div>
-                <span class="logo-text">Blurts</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Get Started - Header'}); return true;">Get Started</a>
-            </nav>
-        </div>
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#0f172a"/></svg>
+            <span class="logo-text">Blurts</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#demo" onclick="gtag('event','click',{event_category:'Nav',event_label:'Demo'});">Demo</a>
+            <a href="#integrations" onclick="gtag('event','click',{event_category:'Nav',event_label:'Integrations'});">Integrations</a>
+            <a href="#pricing" onclick="gtag('event','click',{event_category:'Nav',event_label:'Pricing'});">Pricing</a>
+            <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'Nav',event_label:'Download'});">Download</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-left">
-                <h1>
-                    <span class="line1">Tame the Chaos.</span><br>
-                    <span class="line2">Out loud.</span>
-                </h1>
-                <p class="subheading">For brains that won't slow down. Just talk - Blurts handles the rest.</p>
-
-                <div class="hero-cta">
-                    <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="app-store-badge" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'App Store - Hero'}); return true;">
-                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-                    </a>
-                    <p class="android-note"><span>Android</span> launching next week</p>
-                </div>
-
-                <p class="strip-label">Speak once. <span>Lands everywhere.</span></p>
-                <div class="hero-integrations">
-                    <div class="int-item">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#2D3748" stroke-width="2.5" fill="white"/><text x="18" y="25" text-anchor="middle" font-size="18" font-weight="800" fill="#2D3748" font-family="serif">N</text></svg>
-                        </div>
-                        <span class="int-name">Notion</span>
-                    </div>
-                    <div class="int-item">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" fill="#4285F4"/><path d="M12 18l4 4 8-8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <span class="int-name">Google Tasks</span>
-                    </div>
-                    <div class="int-item">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" fill="#4285F4"/><rect x="4" y="4" width="14" height="14" rx="2" fill="#EA4335"/><rect x="18" y="4" width="14" height="14" rx="2" fill="#FBBC04"/><rect x="4" y="18" width="14" height="14" rx="2" fill="#34A853"/><text x="18" y="25" text-anchor="middle" font-size="16" font-weight="800" fill="white" font-family="Inter, sans-serif">31</text></svg>
-                        </div>
-                        <span class="int-name">Google Calendar</span>
-                    </div>
-                    <div class="int-item">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><rect x="4" y="4" width="28" height="10" rx="4" fill="#EF4444"/><text x="18" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#2D3748" font-family="Inter, sans-serif">17</text></svg>
-                        </div>
-                        <span class="int-name">Apple Calendar</span>
-                    </div>
-                    <div class="int-item">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><circle cx="13" cy="13" r="3" fill="#FF9500"/><circle cx="13" cy="22" r="3" fill="#007AFF"/><line x1="19" y1="13" x2="28" y2="13" stroke="#64748B" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="22" x2="26" y2="22" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg>
-                        </div>
-                        <span class="int-name">Reminders</span>
-                    </div>
-                </div>
-                <span class="coming-soon-tag">Coming soon:</span>
-                <div class="hero-integrations coming-soon-row">
-                    <div class="int-item coming-soon">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="6" fill="#E44332"/><path d="M10 12l16-4v5l-16 4z" fill="white"/><path d="M10 20l16-4v5l-16 4z" fill="white"/></svg>
-                        </div>
-                        <span class="int-name">Todoist</span>
-                    </div>
-                    <div class="int-item coming-soon">
-                        <div class="int-icon">
-                            <svg viewBox="0 0 36 36" fill="none"><path d="M18 4L32 18L18 32L4 18L18 4Z" fill="#2684FF"/><path d="M18 12L24 18L18 24L12 18L18 12Z" fill="#DEEBFF"/></svg>
-                        </div>
-                        <span class="int-name">Jira</span>
-                    </div>
+        <div class="hero-left">
+            <div class="hero-eyebrow"><span class="brand-eyebrow" style="color:var(--accent);">&#10024; VOICE TO YOUR EXISTING TASK APP</span></div>
+            <h1 class="brand-display">Talk once. Blurts sends it to the task app you already use.</h1>
+            <p class="subhead">Messy voice memos become clean tasks with titles, dates, priorities, and categories &mdash; then land in Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.</p>
+            <div class="hero-ctas">
+                <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'App Store - Hero'});"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="48"></a>
+                <a href="#demo" class="btn-ghost" onclick="gtag('event','click',{event_category:'CTA',event_label:'Demo - Hero'});">Try the demo</a>
+            </div>
+            <a href="https://www.producthunt.com/products/blurts-voice-to-any-task-app?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-blurts-voice-to-any-task-app" target="_blank" rel="noopener noreferrer" style="margin-top:20px;display:inline-block;" onclick="gtag('event','click',{event_category:'CTA',event_label:'Product Hunt - Hero'});"><img alt="Blurts on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1117186&amp;theme=light&amp;t=1777396643781"></a>
+            <div class="hero-pills">
+                <span class="hero-pill">Notion</span>
+                <span class="hero-pill">Google Tasks</span>
+                <span class="hero-pill">Google Calendar</span>
+                <span class="hero-pill">Apple Reminders</span>
+                <span class="hero-pill">Apple Calendar</span>
+            </div>
+            <!-- Try a real example card -->
+            <div class="demo-picker" id="demo">
+                <div class="demo-picker-label">Try a real example</div>
+                <p class="demo-picker-desc">Click one below to see the live app flow on the phone. Then tap the red button to move through it.</p>
+                <div class="demo-tabs" id="demoTabs">
+                    <button class="demo-tab">Busy parent</button>
+                    <button class="demo-tab">Work chaos</button>
+                    <button class="demo-tab">ADHD ramble</button>
                 </div>
             </div>
-
-            <div class="hero-phone">
-                <img src="images/appstore.png" alt="Blurts app - voice recording screen">
+        </div>
+        <div>
+            <p class="hero-phone-label brand-eyebrow">You say it messy. Blurts makes it useful.</p>
+            <div class="hero-phone-wrap" id="phoneWrap">
+                <div class="float-card float-card-voice" id="floatVoice">
+                    <div class="float-card-label"><span>&#127908;</span> Voice memo</div>
+                    <p class="float-card-body">"Remind me to book Amelia's doctor appointment tomorrow morning <span class="filler">and uh</span> add grocery pickup for Friday."</p>
+                </div>
+                <div class="phone-mockup">
+                    <div class="phone-inner">
+                        <div class="phone-notch-bar"><div class="phone-notch"></div></div>
+                        <div id="phoneScreen"></div>
+                    </div>
+                </div>
+                <div class="float-card float-card-sync" id="floatSync">
+                    <div class="float-card-label" style="color:var(--mint);">Syncs to</div>
+                    <div class="sync-grid"><span class="sync-item">Notion</span><span class="sync-item">Google</span><span class="sync-item">Apple</span><span class="sync-item">Tasks</span><span class="sync-item">Calendar</span></div>
+                </div>
             </div>
-
-            <div class="social-proof">
-                <div class="social-proof-item">
-                    <span style="font-size: 20px;">🚀</span>
-                    <span>Now live on the App Store</span>
-                </div>
-                <div class="social-proof-item">
-                    <span style="font-size: 20px;">💭</span>
-                    <span>"Finally, an app that keeps up with my brain."</span>
-                </div>
+            <div class="phone-controls" id="phoneControls" style="display:none;">
+                <button class="demo-tab" id="btnBackDefault">Back to default</button>
+                <button class="demo-tab active" id="btnSimStop" style="display:none;">Simulate stop</button>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section - FIXED: Now 3 columns (2 rows x 3 cards = 6 cards total) -->
-    <section class="section">
-        <div class="section-header">
-            <h2>Your Racing Thoughts Are a Superpower</h2>
-            <p>But only if you can capture them before they vanish.</p>
+    <!-- FEATURE GRID -->
+    <div class="section-wrap">
+        <div class="feature-grid">
+            <div class="feature-card glass-card"><div class="icon-badge">&#127908;&#65039;</div><h3>Capture fast</h3><p>Record the thought before it disappears.</p></div>
+            <div class="feature-card glass-card"><div class="icon-badge">&#10024;</div><h3>AI cleans it</h3><p>Extracts tasks, dates, categories, and priority.</p></div>
+            <div class="feature-card glass-card"><div class="icon-badge">&#10145;&#65039;</div><h3>Sends it out</h3><p>Syncs to the tools you already use.</p></div>
         </div>
+    </div>
 
-        <div class="problem-grid">
-            <div class="problem-card">
-                <span class="emoji">🧠</span>
-                <h3>Brilliant idea at 11pm</h3>
-                <p>Forgotten by morning. You know it was important, but can't remember what it was.</p>
+    <!-- COMPARISON -->
+    <div class="section-wrap">
+        <div class="comparison-grid">
+            <div class="comparison-col old-way">
+                <div class="comparison-col-eyebrow">Old way</div>
+                <div class="comparison-step"><div class="comparison-step-num">1</div>Open task app</div>
+                <div class="comparison-step"><div class="comparison-step-num">2</div>Find the right list</div>
+                <div class="comparison-step"><div class="comparison-step-num">3</div>Type the task</div>
+                <div class="comparison-step"><div class="comparison-step-num">4</div>Add date</div>
+                <div class="comparison-step"><div class="comparison-step-num">5</div>Add category</div>
+                <div class="comparison-step"><div class="comparison-step-num">6</div>Save</div>
+                <div class="comparison-time brand-display">~45 seconds</div>
             </div>
-            <div class="problem-card">
-                <span class="emoji">🚗</span>
-                <h3>Thought while driving</h3>
-                <p>Vanished by the red light. You can't type safely, and Siri isn't connected to Notion.</p>
-            </div>
-            <div class="problem-card">
-                <span class="emoji">👶</span>
-                <h3>Task while holding baby</h3>
-                <p>Lost in the chaos. Your hands are full, and you can't get to your phone fast enough.</p>
-            </div>
-            <div class="problem-card">
-                <span class="emoji">📱</span>
-                <h3>Open Notion → Wait...</h3>
-                <p>Navigate → Type → ...forget what you wanted to say. 30+ seconds of context switching kills the thought.</p>
-            </div>
-            <div class="problem-card">
-                <span class="emoji">🤫</span>
-                <h3>Self-conscious in public</h3>
-                <p>Can't use voice apps because you feel weird talking clearly to your phone. Meanwhile, the brilliant thought slips away.</p>
-            </div>
-            <div class="problem-card">
-                <span class="emoji">🚿</span>
-                <h3>Shower breakthrough</h3>
-                <p>The best ideas hit in the shower. But by the time you dry off, it's vanished into thin air.</p>
+            <div class="comparison-col new-way">
+                <div class="comparison-col-eyebrow">With Blurts</div>
+                <div class="comparison-step"><div class="comparison-step-num">1</div>Tap record</div>
+                <div class="comparison-step"><div class="comparison-step-num">2</div>Say the thought</div>
+                <div class="comparison-step"><div class="comparison-step-num">3</div>Review tasks</div>
+                <div class="comparison-step"><div class="comparison-step-num">4</div>Sync</div>
+                <div class="comparison-time brand-display">~8 seconds</div>
             </div>
         </div>
+    </div>
 
-        <div style="text-align: center;">
-            <p style="font-size: 22px; color: var(--medium-gray); max-width: 700px; margin: 0 auto; line-height: 1.8;">
-                <strong style="color: var(--dark-gray);">The problem isn't your brain.</strong> It's that your tools are too slow for how fast you think.
-            </p>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution-section">
-        <div class="solution-content">
-            <div class="solution-text">
-                <h2>Capture at the Speed of Thinking</h2>
-                <p>Blurts is built for brains that won't slow down. Voice to any task manager in 8 seconds.</p>
-
-                <div class="solution-steps">
-                    <div class="solution-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Tap & Speak</h4>
-                            <p>One tap. Mumble, ramble, or whisper. AI understands messy thoughts.</p>
-                        </div>
-                    </div>
-                    <div class="solution-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4>AI Cleans & Organizes</h4>
-                            <p>Turns messy rambles into clear tasks. Categorizes, formats, and prioritizes automatically.</p>
-                        </div>
-                    </div>
-                    <div class="solution-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Appears in Notion</h4>
-                            <p>Organized in your database. Never lost again.</p>
-                        </div>
-                    </div>
+    <!-- INTEGRATIONS -->
+    <div class="section-wrap" id="integrations">
+        <div class="glass-card" style="padding:32px;">
+            <div class="integrations-grid">
+                <div class="integrations-text">
+                    <p class="brand-eyebrow eyebrow">LANDS WHERE YOU ALREADY WORK</p>
+                    <h2 class="brand-display">A capture layer, not another productivity system.</h2>
+                    <p>Keep your current setup. Blurts only improves the hardest part: getting the thought out of your head and into the right place.</p>
                 </div>
-
-                <div style="margin-top: 40px;">
-                    <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="background: white !important; color: var(--primary-orange) !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Try Free - Solution Section'}); return true;">Try Free (10 Voices) →</a>
-                </div>
-            </div>
-
-            <div class="solution-visual">
-                <div style="font-size: 72px; margin-bottom: 20px;">⏱️</div>
-                <div style="font-size: 64px; font-weight: 900; line-height: 1;">8 Seconds</div>
-                <p style="font-size: 20px; margin-top: 16px; opacity: 0.9;">That's it. Faster than you can type.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="section-header">
-            <h2>Built for How You Actually Think</h2>
-            <p>Not another productivity tool. Your external brain.</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Voice-First</h3>
-                <p>Mumble half-thoughts. Ramble stream-of-consciousness. Whisper in meetings. AI understands your messy brain dump and turns it into clean, organized tasks. No need to speak clearly or loudly.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>ADHD-Friendly</h3>
-                <p>Designed with neurodivergent brains in mind. Fast, simple, no overwhelming options.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Auto-Categorizes</h3>
-                <p>AI learns your Notion setup and categorizes tasks automatically. Work, Personal, Shopping—it knows.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3>Works Offline</h3>
-                <p>Record anywhere. Syncs when you're back online. Never lose a thought to bad wifi.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🚗</div>
-                <h3>Hands-Free Safe</h3>
-                <p>Capture while driving, cooking, or chasing your toddler. Your hands stay where they should be.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>Notion Native</h3>
-                <p>Deep integration. Not just another voice app. Works with your existing Notion workflow seamlessly.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials" id="testimonials">
-        <div class="section-header">
-            <h2>Blurters Love It</h2>
-            <p>Don't take our word for it. Here's what users say.</p>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">SK</div>
-                    <div class="testimonial-info">
-                        <h4>Sarah K.</h4>
-                        <p>Product Manager, ADHD</p>
-                    </div>
-                </div>
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Blurts saved the brilliant idea I had at 2am. I was half-asleep but just spoke into my phone. By morning it was in my Notion workspace, perfectly categorized. This app gets my brain."</p>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">MR</div>
-                    <div class="testimonial-info">
-                        <h4>Mike R.</h4>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I've tried every productivity app. This is the only one that keeps up with how fast I think. The 8-second claim is real—I timed it. It's become as essential as Notion itself."</p>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">JL</div>
-                    <div class="testimonial-info">
-                        <h4>Jamie L.</h4>
-                        <p>Parent & Designer</p>
-                    </div>
-                </div>
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Finally, a tool that works when my hands are full (which is always). I capture grocery lists while cooking, design ideas while walking, everything. My Notion is finally up-to-date for the first time ever."</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder Deal Section -->
-    <section class="section" id="founder-deal" style="background: var(--primary-orange); padding: 60px 20px;">
-        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <div style="display: inline-block; background: rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 8px 20px; margin-bottom: 20px;">
-                <span style="color: white; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">⚡ Limited Time Offer</span>
-            </div>
-
-            <h2 style="font-size: 48px; font-weight: 800; color: white; margin-bottom: 16px; line-height: 1.2;">
-                Founder Deal: Lifetime Pro Access
-            </h2>
-
-            <p style="font-size: 20px; color: rgba(255, 255, 255, 0.95); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Be one of the first 100 users to lock in lifetime access for a one-time payment of $149
-            </p>
-
-            <!-- Counter -->
-            <div id="founderCounter" style="background: white; border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-                <div style="font-size: 64px; font-weight: 800; color: var(--primary-orange); margin-bottom: 8px;" id="founderRemainingCount">
-                    --
-                </div>
-                <div style="font-size: 18px; color: var(--medium-gray); font-weight: 600;">
-                    of 100 Founder spots remaining
-                </div>
-                <div style="margin-top: 16px; font-size: 14px; color: var(--medium-gray);">
-                    Once they're gone, Pro costs $9.99/month forever
-                </div>
-            </div>
-
-            <!-- CTA Button -->
-            <a href="#" id="founderCTA" class="btn btn-primary" style="background: white !important; color: #EA580C !important; font-size: 18px; padding: 18px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border: none;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Founder Deal - Claim Spot'}); return true;">
-                Claim Your Founder Spot →
-            </a>
-
-            <!-- Value Proposition -->
-            <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                <div style="text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">💰</div>
-                    <div style="color: white; font-weight: 600; margin-bottom: 4px;">Save $970+</div>
-                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">Over 10 years vs monthly</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🏆</div>
-                    <div style="color: white; font-weight: 600; margin-bottom: 4px;">Founder Badge</div>
-                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">Unique #1-100 badge</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🎯</div>
-                    <div style="color: white; font-weight: 600; margin-bottom: 4px;">Priority Support</div>
-                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">24-hour response SLA</div>
+                <div class="int-cards">
+                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#2D3748" stroke-width="2.5" fill="white"/><text x="18" y="25" text-anchor="middle" font-size="18" font-weight="800" fill="#2D3748" font-family="serif">N</text></svg></div><div><div class="int-card-name">Notion</div><div class="int-card-sub">Available integration</div></div></div>
+                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><circle cx="18" cy="18" r="14" fill="#4285F4"/><path d="M12 18l4 4 8-8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="int-card-name">Google Tasks</div><div class="int-card-sub">Available integration</div></div></div>
+                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="4" fill="#4285F4"/><rect x="4" y="4" width="14" height="14" rx="2" fill="#EA4335"/><rect x="18" y="4" width="14" height="14" rx="2" fill="#FBBC04"/><rect x="4" y="18" width="14" height="14" rx="2" fill="#34A853"/><text x="18" y="25" text-anchor="middle" font-size="16" font-weight="800" fill="white">31</text></svg></div><div><div class="int-card-name">Google Calendar</div><div class="int-card-sub">Available integration</div></div></div>
+                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><circle cx="13" cy="13" r="3" fill="#FF9500"/><circle cx="13" cy="22" r="3" fill="#007AFF"/><line x1="19" y1="13" x2="28" y2="13" stroke="#64748B" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="22" x2="26" y2="22" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="int-card-name">Apple Reminders</div><div class="int-card-sub">Available integration</div></div></div>
+                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><rect x="4" y="4" width="28" height="10" rx="4" fill="#EF4444"/><text x="18" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#2D3748">17</text></svg></div><div><div class="int-card-name">Apple Calendar</div><div class="int-card-sub">Available integration</div></div></div>
+                    <div class="int-card int-card-soon"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="#E44332"/><path d="M10 12l16-4v5l-16 4z" fill="white"/><path d="M10 20l16-4v5l-16 4z" fill="white"/></svg></div><div><div class="int-card-name">Todoist</div><div class="int-card-sub">Coming soon</div></div></div>
+                    <div class="int-card int-card-soon"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><path d="M18 4L32 18L18 32L4 18L18 4Z" fill="#2684FF"/><path d="M18 12L24 18L18 24L12 18L18 12Z" fill="#DEEBFF"/></svg></div><div><div class="int-card-name">Jira</div><div class="int-card-sub">Coming soon</div></div></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Pricing Section -->
-    <section class="section pricing-section" id="pricing">
-        <div class="section-header">
-            <h2>Start Capturing Ideas Today</h2>
-            <p>Try free. Upgrade when you're ready.</p>
-        </div>
-
-        <!-- Monthly/Annual Toggle -->
-        <div style="text-align: center; margin-bottom: 40px;">
-            <div style="display: inline-flex; background: var(--light-gray); border-radius: 12px; padding: 6px; gap: 6px;">
-                <button id="monthlyToggle" class="pricing-toggle active" style="padding: 12px 32px; border: none; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s; background: white; color: var(--dark-gray); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    Monthly
-                </button>
-                <button id="annualToggle" class="pricing-toggle" style="padding: 12px 32px; border: none; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s; background: transparent; color: var(--medium-gray);">
-                    Annual
-                    <span style="display: inline-block; margin-left: 8px; background: var(--primary-orange); color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700;">Save $30</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <div class="pricing-card">
-                <h3>Blurts Free</h3>
-                <div class="pricing-price">$0</div>
-                <p class="pricing-period">10 captures/month</p>
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>10 captures/month</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Voice transcription</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Notion sync</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Basic features</span>
+    <!-- FOUNDER DEAL -->
+    <div class="section-wrap" id="founder-deal">
+        <div class="founder-outer">
+            <div class="founder-grid">
+                <div class="founder-text-side">
+                    <p class="brand-eyebrow eyebrow" style="color:var(--accent);">LAUNCH SPECIAL</p>
+                    <h2 class="brand-display">Lifetime access for early users.</h2>
+                    <p>Be one of the first 100 users to lock in lifetime access. One payment, unlimited captures and all integrations forever.</p>
+                    <div class="founder-value-pills">
+                        <span class="founder-value-pill">&#10003; One-time purchase</span>
+                        <span class="founder-value-pill">&#10003; Unlimited voice entries</span>
+                        <span class="founder-value-pill">&#10003; All current integrations</span>
+                        <span class="founder-value-pill">&#10003; Future core updates</span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-secondary open-early-access" data-tier="free" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free - Pricing Free'}); return true;">Start Free</a>
-            </div>
-
-            <div class="pricing-card featured">
-                <div class="pricing-badge">Best Value</div>
-                <h3>Blurts Pro</h3>
-                <div class="pricing-price" id="proPrice">$9.99<span id="proPriceUnit">/mo</span></div>
-                <p class="pricing-period" id="proPeriod">Unlimited captures</p>
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span><strong>Unlimited</strong> captures</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>All integrations</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Offline mode</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Priority sync</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Custom AI models</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="checkmark">✓</span>
-                        <span>Priority support</span>
+                <div class="founder-price-side">
+                    <div class="founder-price-card">
+                        <div class="founder-price-label">Founder deal</div>
+                        <div class="founder-price brand-display">$149</div>
+                        <div class="founder-price-sub">one-time lifetime access</div>
+                        <div class="founder-remaining brand-display" id="founderRemainingCount">--</div>
+                        <div class="founder-remaining-label">of 100 spots remaining</div>
+                        <a href="#" id="founderCTA" class="btn-accent" onclick="gtag('event','click',{event_category:'CTA',event_label:'Founder Deal'});return true;">Claim lifetime access</a>
+                        <p class="founder-price-note">Once gone, Pro costs $9.99/month forever.</p>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary open-early-access" data-tier="pro" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Get Pro - Pricing'}); return true;">Get Pro →</a>
             </div>
         </div>
+    </div>
 
-        <!-- Small B2B Signal -->
-        <div style="text-align: center; margin-top: 60px; padding: 30px;">
-            <p style="color: var(--medium-gray); font-size: 16px; margin-bottom: 16px;">
-                Looking for team plans?
-            </p>
-            <a href="#" class="open-waitlist" data-tier="team" style="color: var(--primary-orange); text-decoration: underline; font-weight: 600; font-size: 16px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Join Team Waitlist'}); return true;">
-                Join the team waitlist →
-            </a>
+    <!-- PRICING -->
+    <div class="section-wrap" id="pricing">
+        <div class="section-center">
+            <p class="brand-eyebrow eyebrow">PRICING</p>
+            <h2 class="brand-display">Start free. Upgrade when Blurts becomes a habit.</h2>
+            <p>Keep pricing simple: free to try, Pro for unlimited capture, and a launch-only lifetime option for early supporters.</p>
         </div>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <p style="color: var(--medium-gray); font-size: 14px;">30-day money-back guarantee. No questions asked.</p>
-        </div>
-    </section>
-
-    <!-- Final CTA - FIXED BUTTON CONTRAST -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Stop Losing Brilliant Ideas</h2>
-            <p>Join 52 beta testers who never lose a thought again. Try free, upgrade when you're hooked.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary open-early-access" data-tier="free" style="font-size: 18px; padding: 16px 32px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Final CTA'}); return true;">Start Free Trial →</a>
+        <div class="pricing-toggle-wrap">
+            <div class="pricing-toggle">
+                <button class="pricing-toggle-btn" data-plan="monthly">Monthly</button>
+                <button class="pricing-toggle-btn" data-plan="yearly">Yearly</button>
+                <button class="pricing-toggle-btn active" data-plan="lifetime">Lifetime</button>
             </div>
         </div>
-    </section>
+        <div class="pricing-grid">
+            <div class="pricing-card"><h3>Free</h3><div class="pricing-price brand-display" id="freePrice">$0</div><div class="pricing-price-sub" id="freePeriod">to try Blurts</div><ul class="pricing-features"><li>&#10003; Limited voice entries</li><li>&#10003; Review extracted tasks</li><li>&#10003; Try one connected task app</li><li>&#10003; Basic categories and dates</li></ul><a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="btn-outline" onclick="gtag('event','click',{event_category:'CTA',event_label:'Start Free'});">Start free</a></div>
+            <div class="pricing-card featured"><div class="pricing-badge">Best value</div><h3>Blurts Pro</h3><div class="pricing-price brand-display accent" id="proPrice">$9.99</div><div class="pricing-price-sub" id="proPeriod">per month</div><ul class="pricing-features"><li>&#10003; Unlimited voice entries</li><li>&#10003; Multiple tasks from one memo</li><li>&#10003; Dates, priorities, and categories</li><li>&#10003; All available integrations</li><li>&#10003; Future core updates</li></ul><a href="#" class="btn-accent" data-checkout="pro" onclick="gtag('event','click',{event_category:'CTA',event_label:'Get Pro'});return true;" id="proCTA">Upgrade to Pro</a></div>
+            <div class="pricing-card"><h3>Teams / Family</h3><div class="pricing-price brand-display" id="teamsPrice">Soon</div><div class="pricing-price-sub" id="teamsPeriod">for shared systems</div><ul class="pricing-features"><li>&#10003; Shared Notion databases</li><li>&#10003; Family reminders</li><li>&#10003; Team workflows</li><li>&#10003; Admin controls</li></ul><a href="#" class="btn-outline open-waitlist" data-tier="team" onclick="gtag('event','click',{event_category:'CTA',event_label:'Join Waitlist'});">Join waitlist</a></div>
+        </div>
+        <p class="pricing-footer-note">30-day money-back guarantee. No questions asked.</p>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Blurts</h4>
-                <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.7; margin-top: 12px;">
-                    Voice-first thought capture for any task manager. Never lose an idea again.
-                </p>
-            </div>
-            <div class="footer-section">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer">Download iOS</a></li>
-                    <li><a href="#">Download Android</a></li>
-                    <li><a href="#">Changelog</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Notion Setup Guide</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">ADHD Resources</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="mailto:support@blurts.app">Contact</a></li>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
+    <!-- DARK CTA -->
+    <div class="section-wrap">
+        <div class="cta-dark">
+            <div class="cta-dark-grid">
+                <div>
+                    <div class="cta-dark-eyebrow">Download Blurts</div>
+                    <h2 class="brand-display">Stop losing tasks because typing them takes too long.</h2>
+                    <p>Capture the thought now. Organize it later &mdash; or let Blurts organize it for you before it reaches your task app.</p>
+                </div>
+                <div class="cta-dark-actions">
+                    <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'App Store - CTA'});"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="48"></a>
+                    <a href="https://www.producthunt.com/products/blurts-voice-to-any-task-app?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-blurts-voice-to-any-task-app" target="_blank" rel="noopener noreferrer"><img alt="Blurts on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1117186&amp;theme=dark&amp;t=1777397237033"></a>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 Blurts. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://twitter.com/blurts" title="Twitter">𝕏</a>
-                <a href="https://linkedin.com/company/blurts" title="LinkedIn">in</a>
-                <a href="mailto:support@blurts.app" title="Email">📧</a>
+    <!-- ANDROID WAITLIST -->
+    <div class="section-wrap">
+        <div class="android-section">
+            <div class="android-grid">
+                <div class="android-text">
+                    <span class="brand-eyebrow" style="color:var(--accent);background:#fff0eb;padding:6px 14px;border-radius:var(--radius-pill);display:inline-block;margin-bottom:16px;">ANDROID WAITLIST</span>
+                    <h2 class="brand-display" style="font-size:48px;">Want Blurts on Android?</h2>
+                    <p style="margin-top:16px;font-size:16px;line-height:1.6;color:var(--slate-600);">Join the waitlist and be first to know when Blurts launches on Android. No spam &mdash; just the release update.</p>
+                    <div class="android-features">
+                        <div class="android-feat"><strong>Voice capture</strong><span>Speak instead of typing</span></div>
+                        <div class="android-feat"><strong>AI cleanup</strong><span>Dates, titles, priorities</span></div>
+                        <div class="android-feat"><strong>Your tools</strong><span>No new system to learn</span></div>
+                    </div>
+                </div>
+                <div class="android-form-wrap">
+                    <div class="android-form-card">
+                        <h3 style="font-size:16px;font-weight:800;color:var(--slate-900);margin-bottom:16px;">Get the Android launch link</h3>
+                        <form id="androidWaitlistForm">
+                            <input type="email" id="android-email" name="email" required placeholder="Enter your email" class="android-input">
+                            <button type="submit" class="btn-accent" style="margin-top:12px;">Join Android waitlist</button>
+                        </form>
+                        <p style="margin-top:12px;font-size:13px;color:var(--slate-400);line-height:1.5;">Built for people who already use Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-dark">
+        <div class="footer-bar">
+            <div class="footer-left">
+                <a href="#" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#0f172a"/></svg>
+                    <span class="logo-text">Blurts</span>
+                </a>
+                <span class="footer-copy">&copy; 2026 Blurts &middot; Tame the Chaos. Out Loud.</span>
+            </div>
+            <nav class="footer-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="mailto:support@blurts.app">Support</a>
+            </nav>
         </div>
     </footer>
 
-    <!-- Early Access Modal (Free/Pro) -->
-    <div id="earlyAccessModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" data-modal="earlyAccess">&times;</span>
-
-            <div id="earlyAccessFormView">
-                <h3>Get Early Access</h3>
-                <p>Be the first to try Blurts when we launch. We'll notify you with exclusive early access.</p>
-
-                <form id="earlyAccessForm" onsubmit="gtag('event', 'submit', {'event_category': 'Form', 'event_label': 'Early Access Signup'}); return true;">
-                    <div class="form-group">
-                        <label for="ea-name">Name *</label>
-                        <input type="text" id="ea-name" name="name" required placeholder="Your name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ea-email">Email *</label>
-                        <input type="email" id="ea-email" name="email" required placeholder="you@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ea-tier">I'm interested in *</label>
-                        <select id="ea-tier" name="tier" required>
-                            <option value="">Select a plan</option>
-                            <option value="free">Free - 10 captures/month</option>
-                            <option value="pro">Pro - $9.99/month (Unlimited)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ea-useCase">What will you use Blurts for? (optional)</label>
-                        <select id="ea-useCase" name="useCase">
-                            <option value="">Select one...</option>
-                            <option value="work">Work tasks & meetings</option>
-                            <option value="personal">Personal to-dos & ideas</option>
-                            <option value="adhd">Quick thought capture</option>
-                            <option value="creative">Creative projects & brainstorming</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="ea-betaAccess" name="betaAccess">
-                        <label for="ea-betaAccess">I want to beta test before public launch</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Get Early Access →</button>
-                </form>
-            </div>
-
-            <div id="earlyAccessSuccessView" class="success-message">
-                <div class="icon">✅</div>
-                <h3>You're on the list!</h3>
-                <p>We'll email you at <strong id="earlyAccessConfirmedEmail"></strong> as soon as Blurts launches.</p>
-                <p style="margin-top: 20px; font-size: 15px; color: var(--medium-gray);">Expected launch: January 10, 2026. You'll get exclusive early access.</p>
-                <div style="margin-top: 24px; padding: 16px; background: var(--background-subtle); border-radius: 12px; border-left: 4px solid var(--primary-orange);">
-                    <p style="font-size: 14px; color: var(--dark-gray); margin: 0;">
-                        <strong>What's next?</strong> Follow us on Twitter for updates: <a href="https://twitter.com/blurts" style="color: var(--primary-orange);">@blurts</a>
-                    </p>
-                </div>
-            </div>
+    <!-- EARLY ACCESS MODAL -->
+    <div id="earlyAccessModal" class="modal"><div class="modal-content">
+        <span class="modal-close" data-modal="earlyAccess">&times;</span>
+        <div id="earlyAccessFormView"><h3>Get Early Access</h3><p>Be the first to try Blurts. We'll notify you with exclusive early access.</p>
+            <form id="earlyAccessForm">
+                <div class="form-group"><label for="ea-name">Name *</label><input type="text" id="ea-name" name="name" required placeholder="Your name"></div>
+                <div class="form-group"><label for="ea-email">Email *</label><input type="email" id="ea-email" name="email" required placeholder="you@example.com"></div>
+                <div class="form-group"><label for="ea-tier">I'm interested in *</label><select id="ea-tier" name="tier" required><option value="">Select a plan</option><option value="free">Free</option><option value="pro">Pro</option></select></div>
+                <div class="form-group"><label for="ea-useCase">What will you use Blurts for?</label><select id="ea-useCase" name="useCase"><option value="">Select one...</option><option value="work">Work tasks</option><option value="personal">Personal to-dos</option><option value="adhd">Quick thought capture</option><option value="other">Other</option></select></div>
+                <div class="checkbox-group"><input type="checkbox" id="ea-betaAccess" name="betaAccess"><label for="ea-betaAccess">I want to beta test</label></div>
+                <button type="submit" class="btn-accent">Get Early Access &rarr;</button>
+            </form>
         </div>
-    </div>
+        <div id="earlyAccessSuccessView" class="success-message"><div class="icon">&#9989;</div><h3>You're on the list!</h3><p>We'll email you at <strong id="earlyAccessConfirmedEmail"></strong> as soon as Blurts launches.</p></div>
+    </div></div>
 
-    <!-- B2B Waitlist Modal -->
-    <div id="waitlistModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-
-            <div id="formView">
-                <h3>Join the Waitlist</h3>
-                <p>Be the first to know when Team & Business features launch. We'll notify you with exclusive early access.</p>
-
-                <form id="waitlistForm" onsubmit="gtag('event', 'submit', {'event_category': 'Form', 'event_label': 'Team Waitlist Signup'}); return true;">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Work Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="you@company.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" placeholder="Your company name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="teamSize">Team Size</label>
-                        <select id="teamSize" name="teamSize">
-                            <option value="">Select team size</option>
-                            <option value="1-5">1-5 people</option>
-                            <option value="6-10">6-10 people</option>
-                            <option value="11-25">11-25 people</option>
-                            <option value="26-50">26-50 people</option>
-                            <option value="51-100">51-100 people</option>
-                            <option value="100+">100+ people</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="interest">I'm interested in *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select your interest</option>
-                            <option value="team">Team tier ($15/seat) - Small teams</option>
-                            <option value="business">Business tier ($25/seat) - Executive features</option>
-                            <option value="enterprise">Enterprise - Custom solution</option>
-                            <option value="not-sure">Not sure yet</option>
-                        </select>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="earlyAccess" name="earlyAccess">
-                        <label for="earlyAccess">I want early beta access (test features before launch)</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Join Waitlist →</button>
-                </form>
-            </div>
-
-            <div id="successView" class="success-message">
-                <div class="icon">✅</div>
-                <h3>You're on the list!</h3>
-                <p>We'll email you at <strong id="confirmedEmail"></strong> when Business features launch.</p>
-                <p style="margin-top: 20px;">In the meantime, try Blurts Pro free for 14 days.</p>
-                <a href="#" class="btn btn-primary close-and-open-early-access" data-tier="pro" style="margin-top: 20px;" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Start Free Trial - Waitlist Success'}); return true;">Start Free Trial</a>
-            </div>
+    <!-- WAITLIST MODAL -->
+    <div id="waitlistModal" class="modal"><div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="formView"><h3>Join the Waitlist</h3><p>Be the first to know when Team features launch.</p>
+            <form id="waitlistForm">
+                <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required placeholder="Your name"></div>
+                <div class="form-group"><label for="email">Work Email *</label><input type="email" id="email" name="email" required placeholder="you@company.com"></div>
+                <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Company name"></div>
+                <div class="form-group"><label for="teamSize">Team Size</label><select id="teamSize" name="teamSize"><option value="">Select</option><option value="1-5">1-5</option><option value="6-10">6-10</option><option value="11-25">11-25</option><option value="26+">26+</option></select></div>
+                <div class="form-group"><label for="interest">Interested in *</label><select id="interest" name="interest" required><option value="">Select</option><option value="team">Team tier</option><option value="business">Business tier</option><option value="enterprise">Enterprise</option><option value="not-sure">Not sure</option></select></div>
+                <div class="checkbox-group"><input type="checkbox" id="earlyAccess" name="earlyAccess"><label for="earlyAccess">I want early beta access</label></div>
+                <button type="submit" class="btn-accent">Join Waitlist &rarr;</button>
+            </form>
         </div>
-    </div>
-
-    <script>
-        // Modal functionality
-        const modal = document.getElementById('waitlistModal');
-        const modalClose = document.querySelector('.modal-close');
-        const openWaitlistButtons = document.querySelectorAll('.open-waitlist');
-        const waitlistForm = document.getElementById('waitlistForm');
-        const formView = document.getElementById('formView');
-        const successView = document.getElementById('successView');
-        const interestSelect = document.getElementById('interest');
-
-        // Open modal
-        openWaitlistButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-
-                // Pre-select interest based on which button was clicked
-                const tier = button.getAttribute('data-tier');
-                if (tier && interestSelect) {
-                    interestSelect.value = tier;
-                }
-            });
-        });
-
-        // Close modal
-        modalClose.addEventListener('click', () => {
-            closeModal();
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        function closeModal() {
-            // Track modal dismissal
-            gtag('event', 'dismiss', {'event_category': 'Modal', 'event_label': 'Team Waitlist Modal Closed'});
-
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-
-            // Reset form after delay
-            setTimeout(() => {
-                formView.style.display = 'block';
-                successView.classList.remove('active');
-                waitlistForm.reset();
-            }, 300);
-        }
-
-        // Form submission - GOOGLE FORMS INTEGRATION
-        waitlistForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(waitlistForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                company: formData.get('company') || 'Not provided',
-                teamSize: formData.get('teamSize') || 'Not provided',
-                interest: formData.get('interest'),
-                earlyAccess: formData.get('earlyAccess') === 'on',
-                timestamp: new Date().toISOString()
-            };
-
-            // Log to console for debugging
-            console.log('Waitlist signup:', data);
-
-            // TODO: Replace with your Google Apps Script endpoint URL
-            // Instructions: https://github.com/jamiewilson/form-to-google-sheets
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUBD3kk0gPPdkITCGc-qSUbKkmRhujg_aoGsqTyWzdILfBbU0iNua8QACQhgehB_6gtw/exec';
-
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Required for Google Apps Script
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(() => {
-                // no-cors mode doesn't return response, so assume success
-                console.log('✓ Waitlist signup sent to Google Sheets');
-                document.getElementById('confirmedEmail').textContent = data.email;
-                formView.style.display = 'none';
-                successView.classList.add('active');
-            })
-            .catch(error => {
-                console.error('⚠ Network error:', error);
-                alert('Network error. Please check your connection and try again.');
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // ========================================
-        // EARLY ACCESS MODAL (Free/Pro Tiers)
-        // ========================================
-        const earlyAccessModal = document.getElementById('earlyAccessModal');
-        const earlyAccessModalClose = document.querySelector('.modal-close[data-modal="earlyAccess"]');
-        const openEarlyAccessButtons = document.querySelectorAll('.open-early-access');
-        const earlyAccessForm = document.getElementById('earlyAccessForm');
-        const earlyAccessFormView = document.getElementById('earlyAccessFormView');
-        const earlyAccessSuccessView = document.getElementById('earlyAccessSuccessView');
-        const eaTierSelect = document.getElementById('ea-tier');
-
-        // Open Early Access modal
-        openEarlyAccessButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const tier = button.getAttribute('data-tier');
-
-                // Skip Pro tier - handled by Pro checkout handler below
-                if (tier === 'pro') {
-                    return;
-                }
-
-                e.preventDefault();
-                earlyAccessModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-
-                // Pre-select tier based on which button was clicked
-                if (tier && eaTierSelect) {
-                    eaTierSelect.value = tier;
-                }
-            });
-        });
-
-        // Handle "Start Free Trial" button in waitlist success view
-        const closeAndOpenButtons = document.querySelectorAll('.close-and-open-early-access');
-        closeAndOpenButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const tier = button.getAttribute('data-tier');
-
-                // Skip Pro tier - handled by Pro checkout handler
-                if (tier === 'pro') {
-                    return;
-                }
-
-                e.preventDefault();
-
-                // Close waitlist modal first
-                closeModal();
-
-                // Wait for close animation, then open early access modal
-                setTimeout(() => {
-                    earlyAccessModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-
-                    // Pre-select tier
-                    if (tier && eaTierSelect) {
-                        eaTierSelect.value = tier;
-                    }
-                }, 350);
-            });
-        });
-
-        // Close Early Access modal
-        earlyAccessModalClose.addEventListener('click', () => {
-            closeEarlyAccessModal();
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === earlyAccessModal) {
-                closeEarlyAccessModal();
-            }
-        });
-
-        function closeEarlyAccessModal() {
-            // Track modal dismissal
-            gtag('event', 'dismiss', {'event_category': 'Modal', 'event_label': 'Early Access Modal Closed'});
-
-            earlyAccessModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-
-            // Reset form after delay
-            setTimeout(() => {
-                earlyAccessFormView.style.display = 'block';
-                earlyAccessSuccessView.classList.remove('active');
-                earlyAccessForm.reset();
-            }, 300);
-        }
-
-        // Early Access form submission - GOOGLE FORMS INTEGRATION
-        earlyAccessForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(earlyAccessForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                tier: formData.get('tier'),
-                useCase: formData.get('useCase') || 'Not provided',
-                betaAccess: formData.get('betaAccess') === 'on',
-                timestamp: new Date().toISOString(),
-                source: 'early_access_modal'
-            };
-
-            // Log to console for debugging
-            console.log('Early Access signup:', data);
-
-            // TODO: Replace with your Google Apps Script endpoint URL
-            // Instructions: https://github.com/jamiewilson/form-to-google-sheets
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUBD3kk0gPPdkITCGc-qSUbKkmRhujg_aoGsqTyWzdILfBbU0iNua8QACQhgehB_6gtw/exec';
-
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Required for Google Apps Script
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(() => {
-                // no-cors mode doesn't return response, so assume success
-                console.log('✓ Early Access signup sent to Google Sheets');
-                document.getElementById('earlyAccessConfirmedEmail').textContent = data.email;
-                earlyAccessFormView.style.display = 'none';
-                earlyAccessSuccessView.classList.add('active');
-            })
-            .catch(error => {
-                console.error('⚠ Network error:', error);
-                alert('Network error. Please check your connection and try again.');
-            });
-        });
-
-        // Close Early Access modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && earlyAccessModal.classList.contains('active')) {
-                closeEarlyAccessModal();
-            }
-        });
-
-        // ========================================
-        // FOUNDER DEAL COUNTER (STATIC)
-        // ========================================
-        function updateFounderCounter() {
-            // Static counter showing 92 remaining spots
-            document.getElementById('founderRemainingCount').textContent = '92';
-        }
-
-        // Set counter on page load
-        updateFounderCounter();
-
-        // ========================================
-        // BACKEND API CONFIGURATION
-        // ========================================
-        const API_BASE_URL = 'https://taskvoice-backend-qnjgdkzioq-uc.a.run.app';
-        const API_ENDPOINTS = {
-            founderDeal: `${API_BASE_URL}/api/founder-deal/checkout`,
-            proSubscribe: `${API_BASE_URL}/api/pro/subscribe`
-        };
-
-        // Track selected plan (monthly or annual)
-        let selectedPlan = 'monthly';
-
-        // ========================================
-        // MONTHLY/ANNUAL TOGGLE FUNCTIONALITY
-        // ========================================
-        const monthlyToggle = document.getElementById('monthlyToggle');
-        const annualToggle = document.getElementById('annualToggle');
-        const proPrice = document.getElementById('proPrice');
-        const proPriceUnit = document.getElementById('proPriceUnit');
-        const proPeriod = document.getElementById('proPeriod');
-
-        function updatePricingDisplay(plan) {
-            selectedPlan = plan;
-
-            if (plan === 'monthly') {
-                // Update button styles
-                monthlyToggle.style.background = 'white';
-                monthlyToggle.style.color = 'var(--dark-gray)';
-                monthlyToggle.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                annualToggle.style.background = 'transparent';
-                annualToggle.style.color = 'var(--medium-gray)';
-                annualToggle.style.boxShadow = 'none';
-
-                // Update pricing
-                proPrice.innerHTML = '$9.99<span id="proPriceUnit">/mo</span>';
-                proPeriod.textContent = 'Unlimited captures';
-            } else {
-                // Update button styles
-                annualToggle.style.background = 'white';
-                annualToggle.style.color = 'var(--dark-gray)';
-                annualToggle.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                monthlyToggle.style.background = 'transparent';
-                monthlyToggle.style.color = 'var(--medium-gray)';
-                monthlyToggle.style.boxShadow = 'none';
-
-                // Update pricing
-                proPrice.innerHTML = '$89<span id="proPriceUnit">/yr</span>';
-                proPeriod.textContent = 'Unlimited captures • Save $30';
-            }
-        }
-
-        monthlyToggle.addEventListener('click', () => updatePricingDisplay('monthly'));
-        annualToggle.addEventListener('click', () => updatePricingDisplay('annual'));
-
-        // ========================================
-        // FOUNDER DEAL CHECKOUT HANDLER
-        // ========================================
-        document.getElementById('founderCTA').addEventListener('click', async (e) => {
-            e.preventDefault();
-
-            // Check if spots available
-            const remainingSpots = parseInt(document.getElementById('founderRemainingCount').textContent);
-            if (remainingSpots <= 0) {
-                alert('Sorry, all Founder spots have been claimed!');
-                return;
-            }
-
-            try {
-                // Show loading state
-                const btn = e.target;
-                const originalText = btn.textContent;
-                btn.textContent = 'Loading...';
-                btn.disabled = true;
-
-                // Call backend to create checkout session
-                const response = await fetch(API_ENDPOINTS.founderDeal, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({})
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to create checkout session');
-                }
-
-                const data = await response.json();
-
-                // Track in Google Analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'begin_checkout', {
-                        'event_category': 'Ecommerce',
-                        'event_label': 'Founder Deal',
-                        'value': 149
-                    });
-                }
-
-                // Redirect to Stripe Checkout
-                window.location.href = data.checkoutUrl;
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Something went wrong. Please try again or contact support at support@blurts.app');
-
-                // Reset button
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
-        });
-
-        // ========================================
-        // PRO CHECKOUT HANDLER (Monthly/Annual)
-        // ========================================
-        document.querySelectorAll('.open-early-access').forEach(button => {
-            button.addEventListener('click', async (e) => {
-                const tier = button.getAttribute('data-tier');
-
-                // Only intercept Pro tier clicks
-                if (tier === 'pro') {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    try {
-                        // Show loading state
-                        const originalText = button.textContent;
-                        button.textContent = 'Loading...';
-                        button.disabled = true;
-
-                        // Call backend to create checkout session with selected plan
-                        const response = await fetch(API_ENDPOINTS.proSubscribe, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                plan: selectedPlan // 'monthly' or 'annual'
-                            })
-                        });
-
-                        if (!response.ok) {
-                            throw new Error('Failed to create checkout session');
-                        }
-
-                        const data = await response.json();
-
-                        // Track in Google Analytics
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'begin_checkout', {
-                                'event_category': 'Ecommerce',
-                                'event_label': `Pro ${selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)}`,
-                                'value': selectedPlan === 'monthly' ? 9.99 : 89
-                            });
-                        }
-
-                        // Redirect to Stripe Checkout
-                        window.location.href = data.checkoutUrl;
-                    } catch (error) {
-                        console.error('Checkout error:', error);
-                        alert('Something went wrong. Please try again or contact support at support@blurts.app');
-
-                        // Reset button
-                        button.textContent = originalText;
-                        button.disabled = false;
-                    }
-                }
-                // For 'free' tier, let original handler run (opens Early Access modal)
-            });
-        });
-
-        // Add pulse animation style
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+        <div id="successView" class="success-message"><div class="icon">&#9989;</div><h3>You're on the list!</h3><p>We'll email you at <strong id="confirmedEmail"></strong> when Team features launch.</p>
+            <a href="#" class="btn-accent close-and-open-early-access" data-tier="free" style="margin-top:16px;">Start Free Trial</a>
+        </div>
+    </div></div>
+
+    <script src="js/demo.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/modals.js"></script>
 </body>
 </html>
