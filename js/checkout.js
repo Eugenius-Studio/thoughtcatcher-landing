@@ -99,7 +99,8 @@ function initProCheckout() {
 
             try {
                 const endpoint = selectedPlan === 'lifetime' ? API_ENDPOINTS.founderDeal : API_ENDPOINTS.proSubscribe;
-                const body = selectedPlan === 'lifetime' ? {} : { plan: selectedPlan };
+                const apiPlan = selectedPlan === 'yearly' ? 'annual' : selectedPlan;
+                const body = selectedPlan === 'lifetime' ? {} : { plan: apiPlan };
 
                 const response = await fetch(endpoint, {
                     method: 'POST',
