@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blurts for Notion - Voice Notes to Organized Notion Tasks</title>
+  <meta name="description" content="Your brain is not a task manager. Turn messy voice notes into organized Notion tasks with Blurts and the Notion Command Center." />
+
+  <meta property="og:title" content="Blurts for Notion" />
+  <meta property="og:description" content="For the tasks that appear when you're too busy to capture them. Speak messy thoughts into Blurts and send them into Notion as organized tasks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/blurts-notion-og.png" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+
+  <style>
+    :root {
+      --bg: #fffaf4;
+      --surface: #ffffff;
+      --surface-soft: #fff3e6;
+      --text: #241812;
+      --muted: #6f5d52;
+      --muted-2: #8d786b;
+      --line: #ead8c8;
+      --brand: #ff7a3d;
+      --brand-dark: #e65f24;
+      --brand-soft: #ffe3d3;
+      --green: #147a52;
+      --green-soft: #e8f7ef;
+      --purple: #6f4fc8;
+      --purple-soft: #f0ebff;
+      --yellow: #ffbf47;
+      --shadow: 0 18px 60px rgba(71, 41, 20, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(255, 122, 61, 0.18), transparent 34rem), radial-gradient(circle at top right, rgba(111, 79, 200, 0.12), transparent 30rem), var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 244, 0.82);
+      border-bottom: 1px solid rgba(234, 216, 200, 0.8);
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; gap: 16px; max-width: 1200px; margin: 0 auto; }
+
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.02em; font-size: 20px; color: var(--text); }
+    .logo svg { width: 32px; height: 32px; }
+
+    .nav-links { display: flex; align-items: center; gap: 20px; font-size: 14px; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 12px 18px; border-radius: 999px; font-weight: 750;
+      border: 1px solid transparent; cursor: pointer; font-size: 16px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary { background: var(--brand); color: white; box-shadow: 0 14px 30px rgba(255, 122, 61, 0.28); }
+    .btn-primary:hover { background: var(--brand-dark); }
+
+    .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--line); box-shadow: 0 8px 24px rgba(71, 41, 20, 0.07); }
+    .btn-small { min-height: 38px; padding: 9px 14px; font-size: 14px; }
+
+    .hero { padding: 72px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 42px; align-items: center; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+      border-radius: 999px; background: var(--brand-soft); color: #9b4218;
+      font-weight: 750; font-size: 14px; margin-bottom: 18px;
+    }
+
+    .hero h1 { font-size: clamp(44px, 6.5vw, 78px); line-height: 0.94; letter-spacing: -0.075em; margin: 0 0 20px; }
+    .hero p { font-size: 20px; color: var(--muted); margin: 0 0 28px; max-width: 700px; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .tiny-note { color: var(--muted-2); font-size: 14px; }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(234, 216, 200, 0.92);
+      border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 18px; transform: rotate(1deg);
+    }
+
+    .phone-frame {
+      background: #1f1713; border-radius: 32px; padding: 12px;
+      max-width: 380px; margin: 0 auto; box-shadow: 0 24px 60px rgba(36, 24, 18, 0.18);
+    }
+
+    .phone-screen { background: #fffaf4; border-radius: 24px; overflow: hidden; min-height: 560px; padding: 18px; }
+
+    .recording-card { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 18px; margin-bottom: 14px; }
+    .recording-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px;
+      border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--green-soft); color: var(--green);
+    }
+
+    .wave {
+      height: 46px; border-radius: 14px;
+      background: linear-gradient(90deg, rgba(255, 122, 61, 0.25), rgba(255, 122, 61, 0.08)),
+        repeating-linear-gradient(90deg, transparent 0 9px, rgba(255, 122, 61, 0.65) 9px 13px, transparent 13px 20px);
+      margin: 14px 0;
+    }
+
+    .task-list { display: grid; gap: 10px; margin-top: 14px; }
+    .task-item { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
+    .task-title { font-weight: 760; margin-bottom: 6px; }
+    .task-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 12px; font-weight: 700; color: var(--muted); background: #f8eee5; padding: 4px 8px; border-radius: 999px; }
+
+    section { padding: 64px 0; }
+
+    .section-header { text-align: center; max-width: 760px; margin: 0 auto 36px; }
+    .section-header h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.02; letter-spacing: -0.055em; margin: 0 0 14px; }
+    .section-header p { font-size: 18px; color: var(--muted); margin: 0; }
+
+    .pain-band {
+      background: #241812; color: white; border-radius: var(--radius-xl);
+      padding: 46px 34px; box-shadow: var(--shadow);
+    }
+    .pain-band h2 { font-size: clamp(32px, 4.5vw, 54px); line-height: 1; letter-spacing: -0.06em; margin: 0 0 16px; }
+    .pain-band p { color: rgba(255, 255, 255, 0.76); font-size: 19px; margin: 0; max-width: 820px; }
+
+    .demo-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow); overflow: hidden; }
+    .demo-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; }
+    .demo-left, .demo-right { padding: 28px; }
+    .demo-left { background: var(--surface-soft); border-right: 1px solid var(--line); }
+
+    .label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-2); font-weight: 800; margin-bottom: 12px; }
+    .quote { font-size: 20px; line-height: 1.45; font-weight: 650; letter-spacing: -0.025em; }
+
+    .notion-table { display: grid; gap: 10px; }
+    .notion-row { display: grid; grid-template-columns: 1.4fr 0.85fr 0.65fr 0.75fr; gap: 10px; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: #fff; font-size: 14px; }
+    .notion-row.header { background: #fbf3ec; color: var(--muted); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .cards-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 26px; box-shadow: 0 14px 40px rgba(71, 41, 20, 0.08); }
+    .card h3 { margin: 0 0 10px; font-size: 24px; letter-spacing: -0.04em; }
+    .card p { color: var(--muted); margin: 0 0 18px; }
+
+    .list { display: grid; gap: 10px; margin: 18px 0 22px; padding: 0; list-style: none; }
+    .list li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); }
+    .check { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--green-soft); color: var(--green); display: grid; place-items: center; font-size: 13px; font-weight: 900; margin-top: 1px; }
+
+    .offer {
+      background: radial-gradient(circle at top left, rgba(255, 191, 71, 0.24), transparent 28rem), linear-gradient(135deg, #fff, #fff7ed);
+      border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow);
+      padding: 34px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;
+    }
+
+    .price-card { background: #241812; color: white; border-radius: 24px; padding: 26px; box-shadow: 0 24px 60px rgba(36, 24, 18, 0.22); }
+    .price-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+    .price { font-size: 56px; font-weight: 850; letter-spacing: -0.07em; line-height: 1; }
+    .launch-badge { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.18); color: #ffe3d3; border-radius: 999px; padding: 8px 10px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .price-card p { color: rgba(255, 255, 255, 0.74); margin: 0 0 18px; }
+    .price-card .btn { width: 100%; margin-top: 8px; }
+
+    .screenshot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .screenshot { min-height: 260px; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(255, 122, 61, 0.12), rgba(111, 79, 200, 0.1)), #fff; padding: 18px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); font-weight: 700; }
+
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .mini-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px; }
+    .mini-card h3 { margin: 0 0 14px; font-size: 22px; letter-spacing: -0.035em; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
+    .step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px; }
+    .step-number { width: 36px; height: 36px; border-radius: 12px; background: var(--brand-soft); color: #9b4218; display: grid; place-items: center; font-weight: 900; margin-bottom: 14px; }
+    .step h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: -0.03em; }
+    .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .faq { max-width: 840px; margin: 0 auto; display: grid; gap: 12px; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+    summary { cursor: pointer; font-weight: 800; letter-spacing: -0.02em; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    .final-cta { text-align: center; background: #241812; color: white; border-radius: var(--radius-xl); padding: 46px 24px; box-shadow: var(--shadow); }
+    .final-cta h2 { margin: 0 0 14px; font-size: clamp(32px, 4vw, 50px); line-height: 1.02; letter-spacing: -0.055em; }
+    .final-cta p { color: rgba(255, 255, 255, 0.74); margin: 0 auto 24px; max-width: 640px; font-size: 18px; }
+
+    .footer { padding: 36px 0; color: var(--muted-2); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 22px; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 48px; }
+      .hero-grid, .demo-grid, .offer, .cards-2, .who-grid { grid-template-columns: 1fr; }
+      .demo-left { border-right: 0; border-bottom: 1px solid var(--line); }
+      .screenshot-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .hero-card { transform: none; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 22px, var(--max)); }
+      .hero-actions, .btn { width: 100%; }
+      .notion-row { grid-template-columns: 1fr; }
+      .notion-row.header { display: none; }
+      .steps { grid-template-columns: 1fr; }
+      .offer, .card, .demo-left, .demo-right { padding: 20px; }
+      .phone-screen { min-height: 500px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#0f172a"/></svg>
+        <span>Blurts</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#pain" onclick="gtag('event','click',{event_category:'Nav',event_label:'Pain'});">Pain</a>
+        <a href="#demo" onclick="gtag('event','click',{event_category:'Nav',event_label:'Demo'});">Demo</a>
+        <a href="#command-center" onclick="gtag('event','click',{event_category:'Nav',event_label:'Command Center'});">Command Center</a>
+        <a href="#how-it-works" onclick="gtag('event','click',{event_category:'Nav',event_label:'How it works'});">How it works</a>
+        <a href="#faq" onclick="gtag('event','click',{event_category:'Nav',event_label:'FAQ'});">FAQ</a>
+        <a class="btn btn-primary btn-small" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Get the bundle'});">Get the bundle</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/></svg> Blurts for Notion <img src="/assets/notion-logo.webp" alt="Notion" width="18" height="18" style="vertical-align: -2px;"></div>
+
+          <h1>Your brain is not a task manager.</h1>
+
+          <p>You remember everything at the worst possible time - while holding your baby, walking outside, cooking dinner, sitting in the car, or trying to fall asleep. Blurts helps you say the messy thought out loud and sends it into Notion as organized tasks you can actually act on.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Get Command Center'});">Get the Notion Command Center - $29</a>
+            <a class="btn btn-secondary" href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Download iOS'});">Download for iOS</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Download Android'});">Download for Android</a>
+          </div>
+
+          <div class="tiny-note">Launch bundle includes the Notion Command Center + 3 months of Blurts Pro.</div>
+        </div>
+
+        <div class="hero-card" aria-label="Blurts app preview">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="recording-card">
+                <div class="recording-top">
+                  <strong>Voice brain dump</strong>
+                  <span class="pill">Recording</span>
+                </div>
+                <div class="wave" aria-hidden="true"></div>
+                <p style="color: var(--muted); margin: 0;">"Ugh, I need to call the pediatrician tomorrow, buy wipes before we run out, return that Amazon package before the deadline, and follow up on the daycare forms because I keep forgetting."</p>
+              </div>
+
+              <div class="task-list">
+                <div class="task-item">
+                  <div class="task-title">Call pediatrician</div>
+                  <div class="task-meta"><span class="tag">Health / Baby</span><span class="tag">Tomorrow</span><span class="tag">High</span></div>
+                </div>
+                <div class="task-item">
+                  <div class="task-title">Buy wipes</div>
+                  <div class="task-meta"><span class="tag">Shopping</span><span class="tag">Medium</span></div>
+                </div>
+                <div class="task-item">
+                  <div class="task-title">Return Amazon package</div>
+                  <div class="task-meta"><span class="tag">Errands</span><span class="tag">Deadline</span></div>
+                </div>
+                <div class="task-item">
+                  <div class="task-title">Follow up on daycare forms</div>
+                  <div class="task-meta"><span class="tag">Waiting On</span><span class="tag">This week</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pain">
+      <div class="container">
+        <div class="pain-band">
+          <h2>You're not forgetting because you're lazy.</h2>
+          <p>You're forgetting because your brain is constantly switching between work, family, errands, appointments, messages, forms, purchases, follow-ups, and random life admin. Blurts is for the tasks that appear when you're too busy to capture them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cards-2">
+          <div class="card">
+            <h3>The task shows up when your hands are full.</h3>
+            <p>You remember to book the appointment while carrying groceries. You remember the daycare form while changing a diaper. You remember the Amazon return while walking to the elevator. By the time you can open Notion, the thought is gone.</p>
+          </div>
+          <div class="card">
+            <h3>Then it comes back as stress.</h3>
+            <p>The forgotten task doesn't disappear. It turns into a background hum: "What was I supposed to do?" "Did I reply?" "Was that due today?" Blurts gives those thoughts somewhere to land before they become mental noise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="container">
+        <div class="section-header">
+          <h2>Say the messy version. Let Blurts organize it.</h2>
+          <p>You do not need to stop your life, open Notion, choose the right database, think of the perfect title, set the date, and categorize the task. Just say what's in your head.</p>
+        </div>
+
+        <div class="demo-box">
+          <div class="demo-grid">
+            <div class="demo-left">
+              <div class="label"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="vertical-align: -2px;"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#2D3748"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#2D3748"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#2D3748"/></svg> You say it in Blurts</div>
+              <div class="quote">"Ugh, I need to call the pediatrician tomorrow, buy wipes before we run out, return that Amazon package before the deadline, and follow up on the daycare forms because I keep forgetting."</div>
+            </div>
+            <div class="demo-right">
+              <div class="label"><img src="/assets/notion-logo.webp" alt="Notion" width="16" height="16" style="vertical-align: -2px; display: inline;"> It lands in Notion</div>
+              <div class="notion-table">
+                <div class="notion-row header"><div>Task</div><div>Area</div><div>Due</div><div>Priority</div></div>
+                <div class="notion-row"><strong>Call pediatrician</strong><span>Health / Baby</span><span>Tomorrow</span><span>High</span></div>
+                <div class="notion-row"><strong>Buy wipes</strong><span>Shopping</span><span>-</span><span>Medium</span></div>
+                <div class="notion-row"><strong>Return Amazon package</strong><span>Errands</span><span>Deadline</span><span>Medium</span></div>
+                <div class="notion-row"><strong>Follow up on daycare forms</strong><span>Waiting On</span><span>This week</span><span>High</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>Two ways to use Blurts with Notion.</h2>
+          <p>Use your own Notion setup, or start with a ready-made system designed for messy voice capture.</p>
+        </div>
+
+        <div class="cards-2">
+          <div class="card">
+            <div class="eyebrow">Option A</div>
+            <h3>Use your existing Notion database</h3>
+            <p>Already have a task database? Connect Blurts, choose your database, and start sending voice-created tasks into your own setup.</p>
+            <ul class="list">
+              <li><span class="check">&#10003;</span><span>Connect your Notion workspace</span></li>
+              <li><span class="check">&#10003;</span><span>Select your existing task database</span></li>
+              <li><span class="check">&#10003;</span><span>Record voice notes and create structured tasks</span></li>
+            </ul>
+            <a class="btn btn-secondary" href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Option A - Download iOS'});">Download for iOS</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Option A - Download Android'});">Download for Android</a>
+          </div>
+
+          <div class="card">
+            <div class="eyebrow">Option B</div>
+            <h3>Start with the Notion Command Center</h3>
+            <p>Don't have a task system you trust yet? Start with a ready-made Notion workspace built for the tiny tasks that interrupt your day, steal your focus, and disappear before you can write them down.</p>
+            <ul class="list">
+              <li><span class="check">&#10003;</span><span>Prebuilt task database and views</span></li>
+              <li><span class="check">&#10003;</span><span>Setup guide and voice command examples</span></li>
+              <li><span class="check">&#10003;</span><span>Includes 3 months of Blurts Pro</span></li>
+            </ul>
+            <a class="btn btn-primary" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Option B - Get Launch Bundle'});">Get the Launch Bundle - $29</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="command-center">
+      <div class="container">
+        <div class="offer">
+          <div>
+            <div class="eyebrow">Launch bundle</div>
+            <h2 style="font-size: clamp(32px, 4vw, 52px); line-height: 1.02; letter-spacing: -0.055em; margin: 0 0 14px;">The Blurts Notion Command Center</h2>
+            <p style="font-size: 18px; color: var(--muted); margin: 0 0 22px;">A voice-first Notion task system for people whose brain is always holding one more thing. Speak your messy thoughts into Blurts, and they land in a workspace already organized for real life.</p>
+            <ul class="list">
+              <li><span class="check">&#10003;</span><span>Master Tasks database</span></li>
+              <li><span class="check">&#10003;</span><span>Inbox, Today, This Week, Errands, and Waiting On views</span></li>
+              <li><span class="check">&#10003;</span><span>Weekly Reset page</span></li>
+              <li><span class="check">&#10003;</span><span>Blurts setup guide</span></li>
+              <li><span class="check">&#10003;</span><span>Voice command cheat sheet</span></li>
+              <li><span class="check">&#10003;</span><span>3 months of Blurts Pro included</span></li>
+            </ul>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top">
+              <div>
+                <div style="font-weight: 800; color: #ffe3d3;">Launch offer</div>
+                <div class="price">$29</div>
+              </div>
+              <div class="launch-badge">30-day test</div>
+            </div>
+            <p>Includes the Notion template, setup guide, voice examples, and 3 months of Blurts Pro so you can fully test the voice-to-Notion workflow.</p>
+            <a class="btn btn-primary" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Offer - Get Command Center'});">Get the Command Center</a>
+            <p style="font-size: 13px; margin-top: 14px;">After 3 months, continue with the free version or upgrade to a paid Blurts plan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots section - uncomment when images are ready
+    <section aria-label="Screenshots">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built for real-life brain dumps.</h2>
+          <p>Capture the tasks that show up while you're walking, cooking, commuting, parenting, working, or trying to sleep.</p>
+        </div>
+        <div class="screenshot-grid">
+          <div class="screenshot">Replace with screenshot:<br />Blurts recording screen</div>
+          <div class="screenshot">Replace with screenshot:<br />Extracted task preview</div>
+          <div class="screenshot">Replace with screenshot:<br />Notion Command Center</div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>For people whose brain is always holding one more thing.</h2>
+          <p>Blurts for Notion is for the tiny tasks that interrupt your day, steal your focus, and disappear the second you finally have time to write them down.</p>
+        </div>
+        <div class="who-grid">
+          <div class="mini-card">
+            <h3>This is for you if...</h3>
+            <ul class="list">
+              <li><span class="check">&#10003;</span><span>You remember tasks when you can't stop to type</span></li>
+              <li><span class="check">&#10003;</span><span>You use Notion, but opening it feels like too many steps</span></li>
+              <li><span class="check">&#10003;</span><span>Your mind is full of errands, follow-ups, appointments, and admin</span></li>
+              <li><span class="check">&#10003;</span><span>You want tasks out of your head before they become anxiety</span></li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>This is not for you if...</h3>
+            <ul class="list">
+              <li><span class="check">&times;</span><span>You do not use Notion</span></li>
+              <li><span class="check">&times;</span><span>You want a full project management suite</span></li>
+              <li><span class="check">&times;</span><span>You prefer typing every task manually</span></li>
+              <li><span class="check">&times;</span><span>You want a complex all-in-one second brain</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How it works.</h2>
+          <p>Set it up once. Then capture tasks by voice whenever your brain gets full.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Duplicate the template</h3>
+            <p>Start with the Blurts Notion Command Center in your own workspace.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Install Blurts</h3>
+            <p>Download Blurts on iOS or Android and connect your Notion workspace.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Start brain dumping</h3>
+            <p>Record messy thoughts and watch them become organized Notion tasks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2>Launch offer: $29</h2>
+          <p>The simplest way to test the full Blurts + Notion workflow.</p>
+        </div>
+        <div class="card" style="max-width: 720px; margin: 0 auto; text-align: center;">
+          <div class="eyebrow">Blurts Notion Command Center</div>
+          <div style="font-size: 64px; font-weight: 850; letter-spacing: -0.08em; line-height: 1;">$29</div>
+          <p style="font-size: 18px; max-width: 560px; margin: 14px auto 24px;">Includes the Notion Command Center template, setup guide, voice command examples, real-life workflows, and 3 months of Blurts Pro.</p>
+          <a class="btn btn-primary" id="pricingCTA" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Pricing - Get Launch Bundle'});">Get the Launch Bundle</a>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>FAQ</h2>
+          <p>Everything you need to know before getting started.</p>
+        </div>
+        <div class="faq">
+          <details><summary>Do I need Notion?</summary><p>Yes. This version is built specifically for Notion users who want voice task capture connected to a Notion database.</p></details>
+          <details><summary>Do I need Blurts Pro?</summary><p>The launch bundle includes 3 months of Blurts Pro so you can fully test the voice-to-Notion workflow.</p></details>
+          <details><summary>Can I use my own Notion database?</summary><p>Yes. You can use Blurts with your existing task database, or start with the included Command Center template.</p></details>
+          <details><summary>Can I customize the categories?</summary><p>Yes. You can rename areas, priorities, statuses, and views inside Notion. The template is meant to be a starting system, not a locked setup.</p></details>
+          <details><summary>Does this work on iOS and Android?</summary><p>Yes. Blurts is available on both <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" style="color: var(--brand); font-weight: 600;">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" style="color: var(--brand); font-weight: 600;">Android</a>.</p></details>
+          <details><summary>What happens after 3 months of Blurts Pro?</summary><p>You can continue with the free version of Blurts or upgrade to a paid Blurts plan.</p></details>
+          <details><summary>Is this a full life planner?</summary><p>No. It is intentionally focused on voice task capture, errands, follow-ups, and weekly task organization. It is not a giant second brain template.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="final-cta">
+          <h2>Stop carrying every tiny task in your head.</h2>
+          <p>Say it once. Let Blurts turn it into organized Notion tasks. Come back to your day without the constant "I'm forgetting something" feeling.</p>
+          <a class="btn btn-primary" href="https://buy.stripe.com/28EfZjak42eeedl2OM33W00" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'CTA',event_label:'Final CTA - Get Launch Bundle'});">Get the Launch Bundle - $29</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>&copy; 2026 Blurts. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer">iOS</a>
+        <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer">Android</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="mailto:support@blurts.app">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
