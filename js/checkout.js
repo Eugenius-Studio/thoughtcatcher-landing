@@ -13,7 +13,7 @@ let selectedPlan = 'monthly';
 const pricingData = {
     monthly: { pro: '$9.99', proLabel: 'per month', proCTA: 'Upgrade to Pro' },
     yearly: { pro: '$89', proLabel: 'per year', proCTA: 'Upgrade to Pro' },
-    lifetime: { pro: '$149', proLabel: 'one-time launch offer', proCTA: 'Claim lifetime access' }
+    lifetime: { pro: '$99', proLabel: 'one-time launch offer', proCTA: 'Claim lifetime access' }
 };
 
 function updatePricingDisplay(plan) {
@@ -71,7 +71,7 @@ function initFounderCheckout() {
             const data = await response.json();
 
             if (typeof gtag !== 'undefined') {
-                gtag('event', 'begin_checkout', { event_category: 'Ecommerce', event_label: 'Founder Deal', value: 149 });
+                gtag('event', 'begin_checkout', { event_category: 'Ecommerce', event_label: 'Founder Deal', value: 99 });
             }
 
             window.open(data.checkoutUrl, '_blank');
@@ -112,7 +112,7 @@ function initProCheckout() {
                 const data = await response.json();
 
                 if (typeof gtag !== 'undefined') {
-                    const val = selectedPlan === 'monthly' ? 9.99 : selectedPlan === 'yearly' ? 89 : 149;
+                    const val = selectedPlan === 'monthly' ? 9.99 : selectedPlan === 'yearly' ? 89 : 99;
                     gtag('event', 'begin_checkout', { event_category: 'Ecommerce', event_label: `Pro ${selectedPlan}`, value: val });
                 }
 
