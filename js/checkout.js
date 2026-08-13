@@ -1,14 +1,19 @@
 // ========================================
-// CHECKOUT.JS - Pricing toggle, checkout handlers
+// CHECKOUT.JS - Pricing toggle + RevenueCat Web Billing (Web SDK)
 // ========================================
 
-const API_BASE_URL = 'https://taskvoice-backend-qnjgdkzioq-uc.a.run.app';
-const API_ENDPOINTS = {
-    founderDeal: `${API_BASE_URL}/api/founder-deal/checkout`,
-    proSubscribe: `${API_BASE_URL}/api/pro/subscribe`
+// Public Web Billing SDK key (safe to expose in the browser).
+const RC_WEB_BILLING_KEY = 'rcb_BJhSdvfYkgXqosJSLsOhlIKaXnsz';
+const RC_ENTITLEMENT = 'pro';
+
+// Standard RevenueCat package identifiers for each plan.
+const PACKAGE_IDS = {
+    monthly: '$rc_monthly',
+    yearly: '$rc_annual',
+    lifetime: '$rc_lifetime',
 };
 
-let selectedPlan = 'monthly';
+let selectedPlan = 'lifetime';
 
 const pricingData = {
     monthly: { pro: '$9.99', proLabel: 'per month', proCTA: 'Upgrade to Pro' },
@@ -33,96 +38,85 @@ function updatePricingDisplay(plan) {
 }
 
 // ========================================
-// FOUNDER DEAL COUNTER
+// RevenueCat Web SDK
 // ========================================
-function updateFounderCounter() {
-    const el = document.getElementById('founderRemainingCount');
-    if (el) el.textContent = '92';
+let _purchases = null;   // configured SDK instance
+let _offering = null;    // current offering
+let _rcReady = null;     // init promise (deduped)
+
+// Stable anonymous id per browser so a returning visitor stays one customer.
+function getAnonAppUserId() {
+    let id = localStorage.getItem('rc_app_user_id');
+    if (!id) {
+        id = (window.crypto && crypto.randomUUID)
+            ? crypto.randomUUID()
+            : 'web_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+        localStorage.setItem('rc_app_user_id', id);
+    }
+    return id;
+}
+
+async function initRevenueCat() {
+    if (_rcReady) return _rcReady;
+    _rcReady = (async () => {
+        // Loaded from a CDN so no build step is needed on the static site.
+        const { Purchases } = await import('https://esm.sh/@revenuecat/purchases-js');
+        _purchases = Purchases.configure(RC_WEB_BILLING_KEY, getAnonAppUserId());
+        const offerings = await _purchases.getOfferings();
+        _offering = offerings.current;
+    })();
+    return _rcReady;
+}
+
+function packageFor(plan) {
+    if (!_offering) return null;
+    const id = PACKAGE_IDS[plan];
+    return _offering.availablePackages.find(p => p.identifier === id) || null;
 }
 
 // ========================================
-// FOUNDER DEAL CHECKOUT
+// CHECKOUT — opens RevenueCat's hosted purchase form (modal)
+// RevenueCat handles payment (Stripe), grants the `pro` entitlement, and
+// notifies the backend via the RevenueCat webhook. Buyer email is collected in
+// the form and reconciled to the user server-side.
 // ========================================
-function initFounderCheckout() {
-    const btn = document.getElementById('founderCTA');
-    if (!btn) return;
+async function openCheckout(button) {
+    const originalText = button ? button.textContent : '';
+    if (button) { button.textContent = 'Loading...'; button.style.pointerEvents = 'none'; }
 
-    btn.addEventListener('click', async (e) => {
-        e.preventDefault();
+    if (typeof gtag !== 'undefined') {
+        const val = selectedPlan === 'monthly' ? 9.99 : selectedPlan === 'yearly' ? 89 : 99;
+        gtag('event', 'begin_checkout', {
+            event_category: 'Ecommerce',
+            event_label: `Pro ${selectedPlan}`,
+            value: val,
+        });
+    }
 
-        const remaining = parseInt(document.getElementById('founderRemainingCount').textContent);
-        if (remaining <= 0) {
-            alert('Sorry, all Founder spots have been claimed!');
+    try {
+        await initRevenueCat();
+        const pkg = packageFor(selectedPlan);
+        if (!pkg) throw new Error(`No package for ${selectedPlan}`);
+
+        const { customerInfo } = await _purchases.purchase({ rcPackage: pkg });
+        if (customerInfo.entitlements.active[RC_ENTITLEMENT]) {
+            window.location.href = 'payment-success.html';
             return;
         }
+    } catch (error) {
+        // User cancelled the modal, or something failed — no hard error UI on cancel.
+        console.error('Checkout error:', error);
+    }
 
-        const originalText = btn.textContent;
-        btn.textContent = 'Loading...';
-        btn.style.pointerEvents = 'none';
-
-        try {
-            const response = await fetch(API_ENDPOINTS.founderDeal, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({})
-            });
-
-            if (!response.ok) throw new Error('Failed to create checkout session');
-            const data = await response.json();
-
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'begin_checkout', { event_category: 'Ecommerce', event_label: 'Founder Deal', value: 99 });
-            }
-
-            window.open(data.checkoutUrl, '_blank');
-        } catch (error) {
-            console.error('Checkout error:', error);
-            alert('Something went wrong. Please try again or contact support@blurts.app');
-            btn.textContent = originalText;
-            btn.style.pointerEvents = '';
-        }
-    });
+    if (button) { button.textContent = originalText; button.style.pointerEvents = ''; }
 }
 
-// ========================================
-// PRO CHECKOUT
-// ========================================
 function initProCheckout() {
     document.querySelectorAll('[data-checkout="pro"]').forEach(button => {
-        button.addEventListener('click', async (e) => {
+        button.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-
-            const originalText = button.textContent;
-            button.textContent = 'Loading...';
-            button.style.pointerEvents = 'none';
-
-            try {
-                const endpoint = selectedPlan === 'lifetime' ? API_ENDPOINTS.founderDeal : API_ENDPOINTS.proSubscribe;
-                const apiPlan = selectedPlan === 'yearly' ? 'annual' : selectedPlan;
-                const body = selectedPlan === 'lifetime' ? {} : { plan: apiPlan };
-
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body)
-                });
-
-                if (!response.ok) throw new Error('Failed to create checkout session');
-                const data = await response.json();
-
-                if (typeof gtag !== 'undefined') {
-                    const val = selectedPlan === 'monthly' ? 9.99 : selectedPlan === 'yearly' ? 89 : 99;
-                    gtag('event', 'begin_checkout', { event_category: 'Ecommerce', event_label: `Pro ${selectedPlan}`, value: val });
-                }
-
-                window.open(data.checkoutUrl, '_blank');
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Something went wrong. Please try again or contact support@blurts.app');
-                button.textContent = originalText;
-                button.style.pointerEvents = '';
-            }
+            openCheckout(button);
         });
     });
 }
@@ -136,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updatePricingDisplay('lifetime');
-    updateFounderCounter();
-    initFounderCheckout();
     initProCheckout();
+
+    // Warm up the SDK/offering so the first click is instant.
+    initRevenueCat().catch((e) => console.error('RevenueCat init failed:', e));
 });
