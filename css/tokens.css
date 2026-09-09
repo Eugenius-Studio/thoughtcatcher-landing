@@ -1,0 +1,51 @@
+/* Blurts — design tokens
+   Light-first. Dark redefines only.
+   Contrast fixes applied: --on-orange is ink (5.07:1), not white (2.94:1).
+   See design/foundations/color.md for the full audit. */
+
+:root {
+  --paper: #F6F0E9;
+  --surface: #FFFCF9;
+  --sunk: #EFE8DF;
+  --ink: #202737;
+  --muted: #5C6474;
+  --faint: #8B92A0;
+  --hair: #E2DACF;
+
+  --orange: #FF6338;
+  --orange-text: #D8431C;
+  --sage: #678173;
+  --on-orange: #202737;
+  --on-ink: #F6F0E9;
+  --ink-hair: #333B4D;
+  --ink-muted: #9BA3B2;
+  --shadow: rgba(32, 39, 55, .14);
+
+  --mk-voice: var(--orange);
+  --mk-handled: var(--ink);
+
+  --sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", Roboto, system-ui, sans-serif;
+  --wide: "Archivo", var(--sans);
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14171F; --surface: #1C2029; --sunk: #0F1219;
+    --ink: #EDE9E3; --muted: #9BA3B2; --faint: #6B7382;
+    --hair: #2A2F3A; --orange: #FF7A52; --orange-text: #FF8F6B;
+    --sage: #7FA38F; --on-orange: #14171F; --on-ink: #14171F;
+    --ink-hair: #CFC8C0; --ink-muted: #4A5162;
+    --shadow: rgba(0, 0, 0, .6);
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #14171F; --surface: #1C2029; --sunk: #0F1219;
+  --ink: #EDE9E3; --muted: #9BA3B2; --faint: #6B7382;
+  --hair: #2A2F3A; --orange: #FF7A52; --orange-text: #FF8F6B;
+  --sage: #7FA38F; --on-orange: #14171F; --on-ink: #14171F;
+  --ink-hair: #CFC8C0; --ink-muted: #4A5162;
+  --shadow: rgba(0, 0, 0, .6);
+}
