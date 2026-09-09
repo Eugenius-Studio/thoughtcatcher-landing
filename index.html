@@ -1,266 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blurts - Voice to Your Existing Task App</title>
-    <meta name="description" content="Messy voice memos become clean tasks with titles, dates, priorities, and categories — then land in Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='30' width='5' height='40' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='16' y='12' width='5' height='75' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='24' y='22' width='5' height='55' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='32' y='5' width='5' height='90' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='40' y='32' width='5' height='35' rx='2.5' fill='%23FF6B35'/%3E%3Crect x='55' y='28' width='37' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='47' width='30' height='5' rx='2.5' fill='%232D3748'/%3E%3Crect x='55' y='66' width='35' height='5' rx='2.5' fill='%232D3748'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/sections.css">
-    <link rel="stylesheet" href="css/sections-lower.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blurts — Say it messy. Get it back clean.</title>
+  <meta name="description" content="When something urgent hits mid-motion, speak it exactly as it comes. Blurts turns the ramble into a clear task on the right day — without another system to maintain.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4.5' y='14.5' width='5' height='19' rx='2.5' fill='%23FF6338'/%3E%3Crect x='11.5' y='8.5' width='5' height='31' rx='2.5' fill='%23FF6338'/%3E%3Crect x='18.5' y='16.5' width='5' height='15' rx='2.5' fill='%23FF6338'/%3E%3Crect x='28' y='13.5' width='16' height='5' rx='1.1' fill='%23202737'/%3E%3Crect x='28' y='21.5' width='14' height='5' rx='1.1' fill='%23202737'/%3E%3Crect x='28' y='29.5' width='12' height='5' rx='1.1' fill='%23202737'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <a href="#" class="logo">
-            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#0f172a"/></svg>
-            <span class="logo-text">Blurts</span>
-        </a>
-        <nav class="nav-links">
-            <a href="#demo" onclick="gtag('event','click',{event_category:'Nav',event_label:'Demo'});">Demo</a>
-            <a href="#integrations" onclick="gtag('event','click',{event_category:'Nav',event_label:'Integrations'});">Integrations</a>
-            <a href="#pricing" onclick="gtag('event','click',{event_category:'Nav',event_label:'Pricing'});">Pricing</a>
-            <a href="/blog/" onclick="gtag('event','click',{event_category:'Nav',event_label:'Blog'});">Blog</a>
-            <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'Nav',event_label:'Download iOS'});">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" onclick="gtag('event','click',{event_category:'Nav',event_label:'Download Android'});">Android</a>
-        </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-eyebrow"><span class="brand-eyebrow" style="color:var(--accent);">&#10024; VOICE TO YOUR EXISTING TASK APP</span></div>
-            <h1 class="brand-display">Talk once. Blurts sends it to the task app you already use.</h1>
-            <p class="subhead">Messy voice memos become clean tasks with titles, dates, priorities, and categories &mdash; then land in Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.</p>
-            <div class="hero-ctas">
-                <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'App Store - Hero'});"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="48"></a>
-                <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'Play Store - Hero'});"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" height="48"></a>
-            </div>
-            <a href="https://www.producthunt.com/products/blurts-voice-to-any-task-app?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-blurts-voice-to-any-task-app" target="_blank" rel="noopener noreferrer" style="margin-top:20px;display:inline-block;" onclick="gtag('event','click',{event_category:'CTA',event_label:'Product Hunt - Hero'});"><img alt="Blurts on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1117186&amp;theme=light&amp;t=1777396643781"></a>
-            <div class="hero-pills">
-                <span class="hero-pill">Notion</span>
-                <span class="hero-pill">Google Tasks</span>
-                <span class="hero-pill">Google Calendar</span>
-                <span class="hero-pill">Apple Reminders</span>
-                <span class="hero-pill">Apple Calendar</span>
-            </div>
-            <!-- Try a real example card -->
-            <div class="demo-picker" id="demo">
-                <div class="demo-picker-label">Try a real example</div>
-                <p class="demo-picker-desc">Click one below to see the live app flow on the phone. Then tap the red button to move through it.</p>
-                <div class="demo-tabs" id="demoTabs">
-                    <button class="demo-tab">Busy parent</button>
-                    <button class="demo-tab">Work chaos</button>
-                    <button class="demo-tab">ADHD ramble</button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <p class="hero-phone-label brand-eyebrow">You say it messy. Blurts makes it useful.</p>
-            <div class="hero-phone-wrap" id="phoneWrap">
-                <div class="float-card float-card-voice" id="floatVoice">
-                    <div class="float-card-label"><span>&#127908;</span> Voice memo</div>
-                    <p class="float-card-body">"Remind me to book Amelia's doctor appointment tomorrow morning <span class="filler">and uh</span> add grocery pickup for Friday."</p>
-                </div>
-                <div class="phone-mockup">
-                    <div class="phone-inner">
-                        <div class="phone-notch-bar"><div class="phone-notch"></div></div>
-                        <div id="phoneScreen"></div>
-                    </div>
-                </div>
-                <div class="float-card float-card-sync" id="floatSync">
-                    <div class="float-card-label" style="color:var(--mint);">Syncs to</div>
-                    <div class="sync-grid"><span class="sync-item">Notion</span><span class="sync-item">Google</span><span class="sync-item">Apple</span><span class="sync-item">Tasks</span><span class="sync-item">Calendar</span></div>
-                </div>
-            </div>
-            <div class="phone-controls" id="phoneControls" style="display:none;">
-                <button class="demo-tab" id="btnBackDefault">Back to default</button>
-                <button class="demo-tab active" id="btnSimStop" style="display:none;">Simulate stop</button>
-            </div>
-        </div>
-    </section>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 48 48">
+  <g fill="var(--mk-voice)"><rect x="4.5" y="14.5" width="5" height="19" rx="2.5"/><rect x="11.5" y="8.5" width="5" height="31" rx="2.5"/><rect x="18.5" y="16.5" width="5" height="15" rx="2.5"/></g>
+  <g fill="var(--mk-handled)"><rect x="28" y="13.5" width="16" height="5" rx="1.1"/><rect x="28" y="21.5" width="14" height="5" rx="1.1"/><rect x="28" y="29.5" width="12" height="5" rx="1.1"/></g>
+</symbol></svg>
 
-    <!-- FEATURE GRID -->
-    <div class="section-wrap">
-        <div class="feature-grid">
-            <div class="feature-card glass-card"><div class="icon-badge">&#127908;&#65039;</div><h3>Capture fast</h3><p>Record the thought before it disappears.</p></div>
-            <div class="feature-card glass-card"><div class="icon-badge">&#10024;</div><h3>AI cleans it</h3><p>Extracts tasks, dates, categories, and priority.</p></div>
-            <div class="feature-card glass-card"><div class="icon-badge">&#10145;&#65039;</div><h3>Sends it out</h3><p>Syncs to the tools you already use.</p></div>
-        </div>
+<div class="wrap">
+
+<nav>
+  <a class="logo" href="/"><svg class="mk" width="25" height="25" aria-hidden="true"><use href="#mk"/></svg>blurts</a>
+  <div class="nl">
+    <a href="#how">How it works</a>
+    <a href="#lang">Languages</a>
+    <a href="#qs">Questions</a>
+    <a href="/blog/">Blog</a>
+  </div>
+  <a class="btn" href="#start" onclick="gtag('event','click',{event_category:'Nav',event_label:'Get Blurts'});">Get Blurts</a>
+</nav>
+
+<div class="hero">
+  <div class="hcopy">
+    <span class="eyebrow">The voice-first task app</span>
+    <h1><i>Say it messy.</i><br>Get it back clean.</h1>
+    <p class="lede">When something urgent hits mid-motion, speak it exactly as it comes. Blurts turns the ramble into a clear task on the right day — without another system to maintain.</p>
+    <div class="cta">
+      <a class="btn o store" href="#start" onclick="gtag('event','click',{event_category:'CTA',event_label:'Get Blurts - Hero'});">
+        <svg width="17" height="17" viewBox="0 0 48 48" aria-hidden="true"><line x1="14" y1="17" x2="14" y2="31"/><line x1="24" y1="11" x2="24" y2="37"/><line x1="34" y1="19" x2="34" y2="29"/></svg>
+        <span class="lbl">Get Blurts</span>
+      </a>
+      <span class="tiny"><span class="dot"></span>One voice note. Multiple clean tasks.</span>
     </div>
-
-    <!-- COMPARISON -->
-    <div class="section-wrap">
-        <div class="comparison-grid">
-            <div class="comparison-col old-way">
-                <div class="comparison-col-eyebrow">Old way</div>
-                <div class="comparison-step"><div class="comparison-step-num">1</div>Open task app</div>
-                <div class="comparison-step"><div class="comparison-step-num">2</div>Find the right list</div>
-                <div class="comparison-step"><div class="comparison-step-num">3</div>Type the task</div>
-                <div class="comparison-step"><div class="comparison-step-num">4</div>Add date</div>
-                <div class="comparison-step"><div class="comparison-step-num">5</div>Add category</div>
-                <div class="comparison-step"><div class="comparison-step-num">6</div>Save</div>
-                <div class="comparison-time brand-display">~45 seconds</div>
-            </div>
-            <div class="comparison-col new-way">
-                <div class="comparison-col-eyebrow">With Blurts</div>
-                <div class="comparison-step"><div class="comparison-step-num">1</div>Tap record</div>
-                <div class="comparison-step"><div class="comparison-step-num">2</div>Say the thought</div>
-                <div class="comparison-step"><div class="comparison-step-num">3</div>Review tasks</div>
-                <div class="comparison-step"><div class="comparison-step-num">4</div>Sync</div>
-                <div class="comparison-time brand-display">~8 seconds</div>
-            </div>
-        </div>
+    <p class="alt" id="alt-hero"><a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044">iPhone</a><span class="dot2">&middot;</span><a href="https://play.google.com/store/apps/details?id=com.blurts.app">Android</a><span class="dot2">&middot;</span>Blurts lives on your phone.</p>
+  </div>
+  <div class="card">
+    <div class="crow"><span>You said</span><span>0:07</span></div>
+    <p class="quote">"remind me tomorrow—позвонить Лене before the flight, maybe around nine?"</p>
+    <div class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="reveal"><button class="btn" id="rev">See what Blurts hands back</button></div>
+    <div class="result" id="res">
+      <div class="rmeta"><b>Ready</b><span>Tomorrow &middot; 9:00</span></div>
+      <p class="rtask">Позвонить Лене before the flight</p>
+      <p class="rsub">Personal &middot; reminder set</p>
     </div>
+  </div>
+</div>
 
-    <!-- INTEGRATIONS -->
-    <div class="section-wrap" id="integrations">
-        <div class="glass-card" style="padding:32px;">
-            <div class="integrations-grid">
-                <div class="integrations-text">
-                    <p class="brand-eyebrow eyebrow">LANDS WHERE YOU ALREADY WORK</p>
-                    <h2 class="brand-display">A capture layer, not another productivity system.</h2>
-                    <p>Keep your current setup. Blurts only improves the hardest part: getting the thought out of your head and into the right place.</p>
-                </div>
-                <div class="int-cards">
-                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#2D3748" stroke-width="2.5" fill="white"/><text x="18" y="25" text-anchor="middle" font-size="18" font-weight="800" fill="#2D3748" font-family="serif">N</text></svg></div><div><div class="int-card-name">Notion</div><div class="int-card-sub">Available integration</div></div></div>
-                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><circle cx="18" cy="18" r="14" fill="#4285F4"/><path d="M12 18l4 4 8-8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="int-card-name">Google Tasks</div><div class="int-card-sub">Available integration</div></div></div>
-                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="4" fill="#4285F4"/><rect x="4" y="4" width="14" height="14" rx="2" fill="#EA4335"/><rect x="18" y="4" width="14" height="14" rx="2" fill="#FBBC04"/><rect x="4" y="18" width="14" height="14" rx="2" fill="#34A853"/><text x="18" y="25" text-anchor="middle" font-size="16" font-weight="800" fill="white">31</text></svg></div><div><div class="int-card-name">Google Calendar</div><div class="int-card-sub">Available integration</div></div></div>
-                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><circle cx="13" cy="13" r="3" fill="#FF9500"/><circle cx="13" cy="22" r="3" fill="#007AFF"/><line x1="19" y1="13" x2="28" y2="13" stroke="#64748B" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="22" x2="26" y2="22" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="int-card-name">Apple Reminders</div><div class="int-card-sub">Available integration</div></div></div>
-                    <div class="int-card"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/><rect x="4" y="4" width="28" height="10" rx="4" fill="#EF4444"/><text x="18" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#2D3748">17</text></svg></div><div><div class="int-card-name">Apple Calendar</div><div class="int-card-sub">Available integration</div></div></div>
-                    <div class="int-card int-card-soon"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><rect x="4" y="4" width="28" height="28" rx="6" fill="#E44332"/><path d="M10 12l16-4v5l-16 4z" fill="white"/><path d="M10 20l16-4v5l-16 4z" fill="white"/></svg></div><div><div class="int-card-name">Todoist</div><div class="int-card-sub">Coming soon</div></div></div>
-                    <div class="int-card int-card-soon"><div class="int-card-icon"><svg viewBox="0 0 36 36" width="28" height="28"><path d="M18 4L32 18L18 32L4 18L18 4Z" fill="#2684FF"/><path d="M18 12L24 18L18 24L12 18L18 12Z" fill="#DEEBFF"/></svg></div><div><div class="int-card-name">Jira</div><div class="int-card-sub">Coming soon</div></div></div>
-                </div>
-            </div>
-        </div>
+<div class="strip">
+  <b>Built for thoughts that arrive while life is already happening.</b>
+  <span class="sep"></span><span>Walks, commutes, elevators, school runs, between meetings.</span>
+</div>
+
+<section>
+  <div class="head">
+    <h2>Your hands are full.<br>Your task still matters.</h2>
+    <p class="sub">A complicated task manager asks you to stop, type, categorise, prioritise and maintain. Blurts asks for one thing: say what happened.</p>
+  </div>
+  <div class="three">
+    <div class="tile">
+      <span class="n">01 &middot; Mid-motion</span>
+      <div class="art"><svg width="70" height="46" viewBox="0 0 96 60" aria-hidden="true"><g stroke="var(--orange)" stroke-width="6" stroke-linecap="round"><line x1="14" y1="22" x2="14" y2="38"/><line x1="28" y1="12" x2="28" y2="48"/><line x1="42" y1="18" x2="42" y2="42"/><line x1="56" y1="6" x2="56" y2="54"/><line x1="70" y1="24" x2="70" y2="36"/><line x1="84" y1="20" x2="84" y2="40"/></g></svg></div>
+      <h3>Capture without stopping</h3>
+      <p>Speak the thought before the commute, conversation or next meeting carries it away.</p>
     </div>
-
-    <!-- PRICING -->
-    <div class="section-wrap" id="pricing">
-        <div class="section-center">
-            <p class="brand-eyebrow eyebrow">PRICING</p>
-            <h2 class="brand-display">Start free. Upgrade when Blurts becomes a habit.</h2>
-            <p>Keep pricing simple: free to try, Pro for unlimited capture, and a launch-only lifetime option for early supporters.</p>
-        </div>
-        <div class="pricing-toggle-wrap">
-            <div class="pricing-toggle">
-                <button class="pricing-toggle-btn" data-plan="monthly">Monthly</button>
-                <button class="pricing-toggle-btn" data-plan="yearly">Yearly</button>
-                <button class="pricing-toggle-btn active" data-plan="lifetime">Lifetime</button>
-            </div>
-        </div>
-        <div class="pricing-grid">
-            <div class="pricing-card"><h3>Free</h3><div class="pricing-price brand-display" id="freePrice">$0</div><div class="pricing-price-sub" id="freePeriod">to try Blurts</div><ul class="pricing-features"><li>&#10003; Limited voice entries</li><li>&#10003; Review extracted tasks</li><li>&#10003; Try one connected task app</li><li>&#10003; Basic categories and dates</li></ul><a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="btn-outline" onclick="gtag('event','click',{event_category:'CTA',event_label:'Start Free'});">Start free</a></div>
-            <div class="pricing-card featured"><div class="pricing-badge">Best value</div><h3>Blurts Pro</h3><div class="pricing-price brand-display accent" id="proPrice">$9.99</div><div class="pricing-price-sub" id="proPeriod">per month</div><ul class="pricing-features"><li>&#10003; Unlimited voice entries</li><li>&#10003; Multiple tasks from one memo</li><li>&#10003; Dates, priorities, and categories</li><li>&#10003; All available integrations</li><li>&#10003; Insights and recommendations</li><li>&#10003; Future core updates</li></ul><a href="#" class="btn-accent" data-checkout="pro" onclick="gtag('event','click',{event_category:'CTA',event_label:'Get Pro'});return true;" id="proCTA">Upgrade to Pro</a></div>
-            <div class="pricing-card"><h3>Teams / Family</h3><div class="pricing-price brand-display" id="teamsPrice">Soon</div><div class="pricing-price-sub" id="teamsPeriod">for shared systems</div><ul class="pricing-features"><li>&#10003; Shared Notion databases</li><li>&#10003; Family reminders</li><li>&#10003; Team workflows</li><li>&#10003; Admin controls</li></ul><a href="#" class="btn-outline open-waitlist" data-tier="team" onclick="gtag('event','click',{event_category:'CTA',event_label:'Join Waitlist'});">Join waitlist</a></div>
-        </div>
-        <p class="pricing-footer-note">30-day money-back guarantee. No questions asked.</p>
+    <div class="tile">
+      <span class="n">02 &middot; Code-switching</span>
+      <div class="art" style="font-size:1.5rem;font-weight:600;letter-spacing:-.02em">Hello&nbsp;&middot;&nbsp;Привет</div>
+      <h3>No translating yourself</h3>
+      <p>Use whichever language the thought chose — even when it changes halfway through.</p>
     </div>
-
-    <!-- DARK CTA -->
-    <div class="section-wrap">
-        <div class="cta-dark">
-            <div class="cta-dark-grid">
-                <div>
-                    <div class="cta-dark-eyebrow">Download Blurts</div>
-                    <h2 class="brand-display">Stop losing tasks because typing them takes too long.</h2>
-                    <p>Capture the thought now. Organize it later &mdash; or let Blurts organize it for you before it reaches your task app.</p>
-                </div>
-                <div class="cta-dark-actions">
-                    <a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'App Store - CTA'});"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="48"></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'Play Store - CTA'});"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" height="48"></a>
-                    <a href="https://www.producthunt.com/products/blurts-voice-to-any-task-app?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-blurts-voice-to-any-task-app" target="_blank" rel="noopener noreferrer"><img alt="Blurts on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1117186&amp;theme=dark&amp;t=1777397237033"></a>
-                </div>
-            </div>
-        </div>
+    <div class="tile">
+      <span class="n">03 &middot; Handled</span>
+      <div class="art"><svg width="70" height="46" viewBox="0 0 96 60" aria-hidden="true"><g fill="var(--ink)"><rect x="14" y="14" width="68" height="6" rx="1.3"/><rect x="14" y="27" width="56" height="6" rx="1.3"/><rect x="14" y="40" width="44" height="6" rx="1.3"/></g></svg></div>
+      <h3>Receive a task, not a transcript</h3>
+      <p>Blurts gives the thought back as something clear, doable and attached to the right day.</p>
     </div>
+  </div>
+</section>
 
-    <!-- ANDROID DOWNLOAD -->
-    <div class="section-wrap">
-        <div class="android-section">
-            <div class="android-grid">
-                <div class="android-text">
-                    <span class="brand-eyebrow" style="color:var(--accent);background:#fff0eb;padding:6px 14px;border-radius:var(--radius-pill);display:inline-block;margin-bottom:16px;">NOW ON ANDROID</span>
-                    <h2 class="brand-display" style="font-size:48px;">Blurts is live on Android.</h2>
-                    <p style="margin-top:16px;font-size:16px;line-height:1.6;color:var(--slate-600);">Same voice-first capture. Same AI cleanup. Same integrations. Now on the Play Store.</p>
-                    <div class="android-features">
-                        <div class="android-feat"><strong>Voice capture</strong><span>Speak instead of typing</span></div>
-                        <div class="android-feat"><strong>AI cleanup</strong><span>Dates, titles, priorities</span></div>
-                        <div class="android-feat"><strong>Your tools</strong><span>No new system to learn</span></div>
-                    </div>
-                </div>
-                <div class="android-form-wrap">
-                    <div class="android-form-card" style="text-align:center;">
-                        <h3 style="font-size:16px;font-weight:800;color:var(--slate-900);margin-bottom:20px;">Download for Android</h3>
-                        <a href="https://play.google.com/store/apps/details?id=com.blurts.app" target="_blank" rel="noopener noreferrer" class="appstore-badge" onclick="gtag('event','click',{event_category:'CTA',event_label:'Play Store - Android Section'});"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" height="56"></a>
-                        <p style="margin-top:16px;font-size:13px;color:var(--slate-400);line-height:1.5;">Built for people who already use Notion, Google Tasks, Google Calendar, Apple Reminders, or Apple Calendar.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section id="how" style="padding-top:0">
+  <div class="band">
+    <span class="eyebrow">How it works</span>
+    <div class="head" style="margin-top:20px">
+      <h2>From your head.<br>Off your mind.</h2>
+      <p class="sub">There is no system-building phase. The experience moves from spoken thought to usable task in three small steps.</p>
     </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01 &middot; Speak</span>
+        <div class="art"><svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><g stroke="var(--orange)" stroke-width="5" stroke-linecap="round"><line x1="12" y1="17" x2="12" y2="31"/><line x1="24" y1="9" x2="24" y2="39"/><line x1="36" y1="19" x2="36" y2="29"/></g></svg></div>
+        <h3>Say it as it arrives</h3>
+        <p>Corrections, fragments and mixed languages are welcome.</p>
+      </div>
+      <div class="step">
+        <span class="n">02 &middot; Blurts handles it</span>
+        <div class="art"><svg width="96" height="44" viewBox="0 0 112 48" aria-hidden="true">
+          <g stroke="var(--orange)" stroke-width="5" stroke-linecap="round"><line x1="10" y1="16" x2="10" y2="32"/><line x1="21" y1="9" x2="21" y2="39"/><line x1="32" y1="18" x2="32" y2="30"/></g>
+          <g stroke="var(--ink-muted)" stroke-width="2.5" stroke-linecap="round"><line x1="46" y1="24" x2="58" y2="24"/><polyline points="54,20 58,24 54,28" fill="none"/></g>
+          <rect x="70" y="21.5" width="32" height="5" rx="1.1" fill="var(--on-ink)"/></svg></div>
+        <h3>The ramble becomes an action</h3>
+        <p>The useful part is separated from the verbal mess around it.</p>
+      </div>
+      <div class="step">
+        <span class="n">03 &middot; Exhale</span>
+        <div class="art"><svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="var(--ink-hair)" stroke-width="2"/>
+          <polyline points="16,24 22,30 33,18" fill="none" stroke="var(--sage)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Find it on the right day</h3>
+        <p>The task comes back clean, so you can return to what you were doing.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer-dark">
-        <div class="footer-bar">
-            <div class="footer-left">
-                <a href="#" class="logo">
-                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><rect x="8" y="30" width="5" height="40" rx="2.5" fill="#ff6847"/><rect x="16" y="12" width="5" height="75" rx="2.5" fill="#ff6847"/><rect x="24" y="22" width="5" height="55" rx="2.5" fill="#ff6847"/><rect x="32" y="5" width="5" height="90" rx="2.5" fill="#ff6847"/><rect x="40" y="32" width="5" height="35" rx="2.5" fill="#ff6847"/><rect x="55" y="28" width="37" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="47" width="30" height="5" rx="2.5" fill="#0f172a"/><rect x="55" y="66" width="35" height="5" rx="2.5" fill="#0f172a"/></svg>
-                    <span class="logo-text">Blurts</span>
-                </a>
-                <span class="footer-copy">&copy; 2026 Blurts &middot; Tame the Chaos. Out Loud.</span>
-            </div>
-            <nav class="footer-links">
-                <a href="/privacy.html">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="mailto:support@blurts.app">Support</a>
-            </nav>
-        </div>
-    </footer>
+<section>
+  <div class="split">
+    <div class="mini">
+      <div class="date">Tuesday &middot; September 9</div>
+      <div class="day">Your few things</div>
+      <ul class="tasks">
+        <li><span class="ci"></span><span class="tx">Send the revised proposal to Marta</span><span class="tm">10:30</span></li>
+        <li><span class="ci"></span><span class="tx">Позвонить Лене before the flight</span><span class="tm">14:00</span></li>
+        <li><span class="ci"></span><span class="tx">Confirm Friday's dinner reservation</span><span class="tm">17:00</span></li>
+      </ul>
+    </div>
+    <div>
+      <span class="eyebrow">What "organised" should feel like</span>
+      <h2 style="margin-top:18px">Not everything captured.<br>Just enough carried.</h2>
+      <p class="sub" style="margin-top:20px">The goal is not to build the perfect productivity system. It is to stop replaying the few urgent things in your head.</p>
+      <p class="quiet">Three things need you today.<br>The rest can wait.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- EARLY ACCESS MODAL -->
-    <div id="earlyAccessModal" class="modal"><div class="modal-content">
-        <span class="modal-close" data-modal="earlyAccess">&times;</span>
-        <div id="earlyAccessFormView"><h3>Get Early Access</h3><p>Be the first to try Blurts. We'll notify you with exclusive early access.</p>
-            <form id="earlyAccessForm">
-                <div class="form-group"><label for="ea-name">Name *</label><input type="text" id="ea-name" name="name" required placeholder="Your name"></div>
-                <div class="form-group"><label for="ea-email">Email *</label><input type="email" id="ea-email" name="email" required placeholder="you@example.com"></div>
-                <div class="form-group"><label for="ea-tier">I'm interested in *</label><select id="ea-tier" name="tier" required><option value="">Select a plan</option><option value="free">Free</option><option value="pro">Pro</option></select></div>
-                <div class="form-group"><label for="ea-useCase">What will you use Blurts for?</label><select id="ea-useCase" name="useCase"><option value="">Select one...</option><option value="work">Work tasks</option><option value="personal">Personal to-dos</option><option value="adhd">Quick thought capture</option><option value="other">Other</option></select></div>
-                <div class="checkbox-group"><input type="checkbox" id="ea-betaAccess" name="betaAccess"><label for="ea-betaAccess">I want to beta test</label></div>
-                <button type="submit" class="btn-accent">Get Early Access &rarr;</button>
-            </form>
-        </div>
-        <div id="earlyAccessSuccessView" class="success-message"><div class="icon">&#9989;</div><h3>You're on the list!</h3><p>We'll email you at <strong id="earlyAccessConfirmedEmail"></strong> as soon as Blurts launches.</p></div>
-    </div></div>
+<section id="lang" style="padding-top:0">
+  <div class="band">
+    <span class="eyebrow">Whatever language you think in</span>
+    <div class="head" style="margin-top:20px">
+      <h2>Your thought doesn't need a translation step.</h2>
+      <p class="sub">Speak naturally when a sentence begins in one language and ends in another. Blurts is built around the thought as it arrived — not around forcing your brain into an English-only form.</p>
+    </div>
+    <div class="langs"><span>Say it your way</span><span>Sag es einfach so</span><span>Скажите как есть</span><span>Dilo como te salga</span></div>
+    <p class="sub" style="margin-top:26px;color:var(--ink-muted);font-size:.9rem">English, German, Spanish and Russian today. More as the people who need them arrive.</p>
+  </div>
+</section>
 
-    <!-- WAITLIST MODAL -->
-    <div id="waitlistModal" class="modal"><div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <div id="formView"><h3>Join the Waitlist</h3><p>Be the first to know when Team features launch.</p>
-            <form id="waitlistForm">
-                <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required placeholder="Your name"></div>
-                <div class="form-group"><label for="email">Work Email *</label><input type="email" id="email" name="email" required placeholder="you@company.com"></div>
-                <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Company name"></div>
-                <div class="form-group"><label for="teamSize">Team Size</label><select id="teamSize" name="teamSize"><option value="">Select</option><option value="1-5">1-5</option><option value="6-10">6-10</option><option value="11-25">11-25</option><option value="26+">26+</option></select></div>
-                <div class="form-group"><label for="interest">Interested in *</label><select id="interest" name="interest" required><option value="">Select</option><option value="team">Team tier</option><option value="business">Business tier</option><option value="enterprise">Enterprise</option><option value="not-sure">Not sure</option></select></div>
-                <div class="checkbox-group"><input type="checkbox" id="earlyAccess" name="earlyAccess"><label for="earlyAccess">I want early beta access</label></div>
-                <button type="submit" class="btn-accent">Join Waitlist &rarr;</button>
-            </form>
-        </div>
-        <div id="successView" class="success-message"><div class="icon">&#9989;</div><h3>You're on the list!</h3><p>We'll email you at <strong id="confirmedEmail"></strong> when Team features launch.</p>
-            <a href="#" class="btn-accent close-and-open-early-access" data-tier="free" style="margin-top:16px;">Start Free Trial</a>
-        </div>
-    </div></div>
+<section>
+  <div class="head">
+    <h2>Your task manager shouldn't become another task.</h2>
+    <p class="sub">Blurts is deliberately narrow. It is for the few things you need to remember and act on — not for constructing a second brain.</p>
+  </div>
+  <div class="cmp">
+    <div class="a">
+      <span class="kh">The usual maintenance tax</span>
+      <h3>Stop life.<br>Organise thought.</h3>
+      <ul><li>Choose a project before the thought is clear</li><li>Rewrite the voice transcript yourself</li><li>Maintain tags, folders, views and rules</li><li>Carry the task mentally until there's time to file it</li></ul>
+    </div>
+    <div class="b">
+      <span class="kh">The Blurts way</span>
+      <h3>Say thought.<br>Continue life.</h3>
+      <ul><li>Capture while walking or between things</li><li>Speak naturally, including corrections</li><li>Receive the action in a clean form</li><li>Keep only the urgent things in view</li></ul>
+    </div>
+  </div>
+</section>
 
-    <script src="js/demo.js"></script>
-    <script src="js/checkout.js"></script>
-    <script src="js/modals.js"></script>
+<section id="qs">
+  <span class="eyebrow">But what if…</span>
+  <div class="qs">
+    <div class="q">
+      <p>"Another subscription I'll forget to cancel."</p>
+      <p>An honest trial, one-tap cancel, and a reminder before you're ever charged. We don't make money from you forgetting.</p>
+    </div>
+    <div class="q">
+      <p>"Another complex tool I'll have to learn."</p>
+      <p>There's nothing to learn. No folders, no tags, no settings maze — you speak, and it's handled.</p>
+    </div>
+    <div class="q">
+      <p>"It'll butcher my mixed-language dictation."</p>
+      <p>Speak the way you actually think — slip between languages mid-sentence, and it keeps up.</p>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="close">
+    <h2>Try it with one real thought.</h2>
+    <p class="lede" style="max-width:38ch">Open Blurts, say the next thing on your mind, and watch it become something you'll actually do today.</p>
+    <a class="btn o store" href="#start" onclick="gtag('event','click',{event_category:'CTA',event_label:'Get Blurts - Close'});">
+      <svg width="17" height="17" viewBox="0 0 48 48" aria-hidden="true"><line x1="14" y1="17" x2="14" y2="31"/><line x1="24" y1="11" x2="24" y2="37"/><line x1="34" y1="19" x2="34" y2="29"/></svg>
+      <span class="lbl">Get Blurts</span>
+    </a>
+    <p class="alt" id="alt-close"><a href="https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044">iPhone</a><span class="dot2">&middot;</span><a href="https://play.google.com/store/apps/details?id=com.blurts.app">Android</a></p>
+    <span class="tiny"><span class="dot"></span>Free to try &middot; one tap to cancel</span>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="/"><svg class="mk" width="21" height="21" aria-hidden="true"><use href="#mk"/></svg>blurts</a>
+  <span>&copy; 2026 Blurts &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@blurts.app">Support</a></span>
+</footer>
+
+</div>
+
+<script>
+  var IOS='https://apps.apple.com/us/app/blurts-voice-to-any-task-app/id6759391044',
+      AND='https://play.google.com/store/apps/details?id=com.blurts.app',
+      ua=navigator.userAgent||'',
+      isIOS=/iPad|iPhone|iPod/.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1),
+      isAnd=/Android/.test(ua);
+  if(isIOS||isAnd){
+    var href=isIOS?IOS:AND,name=isIOS?'iPhone':'Android',other=isIOS?'Android':'iPhone',ohref=isIOS?AND:IOS;
+    [].forEach.call(document.querySelectorAll('a.store'),function(a){
+      a.href=href;a.querySelector('.lbl').textContent='Get Blurts for '+name;});
+    [].forEach.call(document.querySelectorAll('.alt'),function(p){
+      p.innerHTML='Also on <a href="'+ohref+'">'+other+'</a>.';});
+  }
+  document.getElementById('rev').addEventListener('click',function(){
+    document.getElementById('res').classList.add('show');
+    this.parentNode.style.display='none';
+  });
+</script>
 </body>
 </html>
