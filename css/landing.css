@@ -240,6 +240,29 @@ nav {
   padding: .5em 1.05em; font-size: .92rem; color: var(--on-ink);
 }
 
+/* ── pricing ─────────────────────────────────────── */
+.price {
+  display: grid; grid-template-columns: 1fr 1.35fr; gap: 0;
+  margin-top: 44px; border-top: 1px solid var(--hair);
+}
+.price > div { padding: 30px 0 }
+.price .pro { padding-left: clamp(24px, 4vw, 46px); border-left: 1px solid var(--hair) }
+.price .lab {
+  font-size: .66rem; font-weight: 650; text-transform: uppercase;
+  letter-spacing: .14em; color: var(--faint);
+}
+.price h3 { font-size: 1.34rem; letter-spacing: -.026em; margin: 14px 0 16px; font-weight: 600 }
+.price ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px }
+.price li { font-size: .94rem; line-height: 1.45; color: var(--muted) }
+.price .nums { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 18px }
+.price .nums span { font-size: .94rem; color: var(--muted) }
+.price .nums b { font-weight: 640; color: var(--ink); letter-spacing: -.014em }
+.promise {
+  margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--hair);
+  font-size: .94rem; line-height: 1.55; color: var(--muted); max-width: 58ch;
+}
+.promise b { color: var(--ink); font-weight: 620 }
+
 /* ── questions ───────────────────────────────────── */
 .qs { display: flex; flex-direction: column; gap: 32px; margin-top: 44px; max-width: 70ch }
 .qs .q { border-left: 2px solid var(--orange); padding-left: 18px; display: flex; flex-direction: column; gap: 10px }
@@ -275,6 +298,8 @@ footer a:hover { color: var(--ink) }
   .nl { display: none }
   .cmp { grid-template-columns: 1fr }
   .cmp .b { border-left: none; border-top: 1px solid var(--hair) }
+  .price { grid-template-columns: 1fr }
+  .price .pro { padding-left: 0; border-left: none; border-top: 1px solid var(--hair) }
 }
 
 @media (prefers-reduced-motion: reduce) {
