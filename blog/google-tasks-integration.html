@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-generated="blurts-content">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capture spoken tasks directly into your Google Tasks list | Blurts</title>
+<meta name="description" content="Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.">
+<link rel="canonical" href="https://blurts.app/blog/google-tasks-integration.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Blurts">
+<meta property="og:title" content="Capture spoken tasks directly into your Google Tasks list | Blurts">
+<meta property="og:description" content="Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.">
+<meta property="og:url" content="https://blurts.app/blog/google-tasks-integration.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capture spoken tasks directly into your Google Tasks list | Blurts">
+<meta name="twitter:description" content="Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.">
+<link rel="icon" type="image/svg+xml" href="/assets/blurts-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/content.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2">
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Capture spoken tasks directly into your Google Tasks list", "description": "Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.", "datePublished": "2026-11-09T12:00:00-05:00", "dateModified": "2026-11-09T12:00:00-05:00", "mainEntityOfPage": "https://blurts.app/blog/google-tasks-integration.html", "author": {"@type": "Organization", "name": "Blurts team", "url": "https://blurts.app/"}, "publisher": {"@type": "Organization", "name": "Blurts", "url": "https://blurts.app/"}, "inLanguage": "en", "articleSection": "Integration"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://blurts.app/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://blurts.app/blog/"}, {"@type": "ListItem", "position": 3, "name": "Capture spoken tasks directly into your Google Tasks list", "item": "https://blurts.app/blog/google-tasks-integration.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this a Google Calendar integration?", "acceptedAnswer": {"@type": "Answer", "text": "It connects to Google Tasks. Google may display Tasks within Calendar, but Blurts is not creating calendar events through this integration."}}, {"@type": "Question", "name": "Which details transfer?", "acceptedAnswer": {"@type": "Answer", "text": "The reviewed flow sends title, notes, and due information, and handles linked-task updates, completion, and deletion from Blurts. It does not map every Blurts classification to a native Google field."}}, {"@type": "Question", "name": "Will Google edits return to Blurts?", "acceptedAnswer": {"@type": "Answer", "text": "Do not assume reverse synchronization. Verify any future two-way behavior separately; this guide describes the supported outbound workflow."}}]}</script>
+</head>
+<body class="editorial">
+<a class="site-skip" href="#main">Skip to content</a>
+<header class="site-header">
+<nav class="site-nav" aria-label="Primary">
+<a class="site-brand" href="/" aria-label="Blurts home">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<g fill="var(--orange)">
+<rect x="4.5" y="14.5" width="5" height="19" rx="2.5"/>
+<rect x="11.5" y="8.5" width="5" height="31" rx="2.5"/>
+<rect x="18.5" y="16.5" width="5" height="15" rx="2.5"/>
+</g>
+<g fill="currentColor">
+<rect x="28" y="13.5" width="16" height="5" rx="1.1"/>
+<rect x="28" y="21.5" width="14" height="5" rx="1.1"/>
+<rect x="28" y="29.5" width="12" height="5" rx="1.1"/>
+</g>
+</svg>blurts</a>
+<div class="site-links">
+<a href="/features/">Features</a>
+<a href="/compare/">Compare</a>
+<a href="/blog/">Blog</a>
+<details class="site-menu">
+<summary>Explore</summary>
+<div class="menu-links">
+<a href="/use-cases/">Use cases</a>
+<a href="/features/#integrations">Integrations</a>
+<a href="/blog/#guides">Practical guides</a>
+<a href="/#how">How it works</a>
+<a href="/#lang">Languages</a>
+<a href="/#price">Pricing</a>
+<a href="/#qs">Questions</a>
+</div>
+</details>
+</div>
+<a class="site-cta" href="/#start" onclick="gtag('event','click',{event_category:'Nav',event_label:'Get Blurts'});">Get Blurts</a>
+</nav>
+</header>
+<main id="main" class="content-wrap">
+<div class="breadcrumbs">
+<a href="/">Home</a> / <a href="/blog/">Blog</a> / Integration</div>
+<article>
+<header class="article-head">
+<span class="eyebrow">Integration</span>
+<h1>Capture spoken tasks directly into your Google Tasks list</h1>
+<p class="intro">Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.</p>
+<div class="article-meta">
+<span>By the Blurts team</span>
+<time datetime="2026-11-09">November 9, 2026</time>
+<span>3 min read</span>
+</div>
+</header>
+<div class="article-layout">
+<div class="article-body">
+<section aria-labelledby="keep-captured-thoughts-in-your-google-task-routine">
+<h2 id="keep-captured-thoughts-in-your-google-task-routine">Keep captured thoughts in your Google task routine</h2>
+<p>Blurts can send captured tasks to a selected Google Tasks list. This is useful when you already review Google Tasks during your day but remember commitments away from Gmail or your desk. Speak the actions in Blurts, then check the resulting items in the Google list you chose.</p>
+<p>The destination is Google Tasks. A task can be visible in Google’s Calendar experience through Google Tasks, but that is different from Blurts creating a Calendar event. This integration does not promise event invitations, meeting attendees, calendar time blocks, or a direct Google Calendar connection.</p>
+</section>
+<section aria-labelledby="sign-in-and-choose-the-correct-list">
+<h2 id="sign-in-and-choose-the-correct-list">Sign in and choose the correct list</h2>
+<p>Use Google sign-in in Blurts and grant the required access. In settings, inspect the Google Tasks section and confirm its selected Task List. If you need a different destination, use Change List and choose from the lists available to that Google account. A personal account and a work account are different destinations even when you use both on the same phone.</p>
+<p>If the connection is inactive, use the available reconnect flow. The current settings can require Google sign-in before connecting Google Tasks. The free-tier integration limit can also prevent adding another destination; multiple integrations require an eligible paid tier. Follow the current in-app entitlement rather than assuming every connection is included.</p>
+<ul>
+<li>Check the Google account as well as the list name.</li>
+<li>Confirm the list before recording work you expect to share or review elsewhere.</li>
+<li>Start with a small test task whose destination you can inspect.</li>
+</ul>
+</section>
+<section aria-labelledby="what-is-sent">
+<h2 id="what-is-sent">What is sent</h2>
+<p>The integration creates a Google task with a title and can include notes and a due value. It also supports Blurts-initiated updates to the linked task’s title, notes, and date, plus completion and deletion handling. Blurts-specific area, type, and priority fields do not become equivalent native Google task fields in this flow.</p>
+<p>Date behavior deserves its own check. Do not assume that a clock time shown in Blurts will behave as an exact alarm or calendar event in Google. Inspect the destination’s displayed task date and the Google features you use for reminders. A successful task creation is not proof of every possible date-time behavior across products.</p>
+</section>
+<section aria-labelledby="an-example-from-a-normal-workday">
+<h2 id="an-example-from-a-normal-workday">An example from a normal workday</h2>
+<p>Suppose you remember, “Ask Jordan for the revised estimate tomorrow, and compare the two supplier options.” Record both actions and let Blurts save them. Open your chosen Google Tasks list and check that the two commitments appear with the wording you intend. Make sure tomorrow belongs only to the item you meant to date.</p>
+<p>If you then correct a title or complete a linked task from Blurts, inspect the Google copy while testing the connection. This helps you learn the actual update path before relying on it. Do not assume that editing a task directly in Google will automatically update Blurts; this integration does not promise full two-way synchronization.</p>
+</section>
+<section aria-labelledby="when-tasks-do-not-arrive">
+<h2 id="when-tasks-do-not-arrive">When tasks do not arrive</h2>
+<p>Check the account and selected list first. Then inspect the connection, since expired or revoked authorization can prevent delivery. A task saved in Blurts can remain available even when the external operation fails. Re-recording immediately can create duplicates, so first determine whether the issue is capture or delivery.</p>
+<p>Changing the destination list should not be treated as a migration of all previously linked tasks. Inspect older linked items separately if you change lists. Disconnecting Google Tasks preserves local Blurts tasks, but it does not mean previously delivered Google items are automatically removed. Keep your review routine clear about where active commitments are tracked.</p>
+</section>
+<section class="faq" aria-labelledby="questions">
+<h2 id="questions">Common questions</h2>
+<h3>Is this a Google Calendar integration?</h3>
+<p>It connects to Google Tasks. Google may display Tasks within Calendar, but Blurts is not creating calendar events through this integration.</p>
+<h3>Which details transfer?</h3>
+<p>The reviewed flow sends title, notes, and due information, and handles linked-task updates, completion, and deletion from Blurts. It does not map every Blurts classification to a native Google field.</p>
+<h3>Will Google edits return to Blurts?</h3>
+<p>Do not assume reverse synchronization. Verify any future two-way behavior separately; this guide describes the supported outbound workflow.</p>
+</section>
+<div class="article-cta">
+<h2>Try one real thought.</h2>
+<p>Start with something you actually need to do. Review the result and decide whether the workflow fits your day.</p>
+<a href="/#start">Get Blurts</a>
+</div>
+</div>
+<aside class="article-toc" aria-label="On this page">
+<strong>On this page</strong>
+<ol>
+<li>
+<a href="#keep-captured-thoughts-in-your-google-task-routine">Keep captured thoughts in your Google task routine</a>
+</li>
+<li>
+<a href="#sign-in-and-choose-the-correct-list">Sign in and choose the correct list</a>
+</li>
+<li>
+<a href="#what-is-sent">What is sent</a>
+</li>
+<li>
+<a href="#an-example-from-a-normal-workday">An example from a normal workday</a>
+</li>
+<li>
+<a href="#when-tasks-do-not-arrive">When tasks do not arrive</a>
+</li>
+<li>
+<a href="#questions">Common questions</a>
+</li>
+</ol>
+</aside>
+</div>
+</article>
+<section class="related">
+<h2>Keep exploring</h2>
+<div class="card-grid">
+<article class="editorial-card">
+<span class="card-kicker">Comparison</span>
+<h3>
+<a href="/blog/blurts-vs-google-tasks.html">Blurts vs Google Tasks: capture thoughts without losing your Google workflow</a>
+</h3>
+<p>Compare Blurts with Google Tasks and Gemini for task capture, Gmail and Calendar workflows, account requirements, and everyday review.</p>
+<a class="read-link" href="/blog/blurts-vs-google-tasks.html" aria-label="Read Blurts vs Google Tasks: capture thoughts without losing your Google workflow">Read the guide →</a>
+</article>
+<article class="editorial-card">
+<span class="card-kicker">Feature guide</span>
+<h3>
+<a href="/blog/natural-language-due-dates.html">Add task dates and times by speaking in Blurts</a>
+</h3>
+<p>Capture dates such as tomorrow or next week, add a clock time, and understand how Blurts groups the resulting tasks without creating calendar events.</p>
+<a class="read-link" href="/blog/natural-language-due-dates.html" aria-label="Read Add task dates and times by speaking in Blurts">Read the guide →</a>
+</article>
+</div>
+</section>
+</main>
+<footer class="discovery-footer" aria-label="Explore Blurts">
+<div class="footer-columns">
+<div class="footer-column">
+<h2>Compare</h2>
+<ul>
+<li>
+<a href="/blog/blurts-vs-todoist.html">vs Todoist</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-ticktick.html">vs TickTick</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-apple-reminders.html">vs Apple Reminders</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-google-tasks.html">vs Google Tasks</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-microsoft-to-do.html">vs Microsoft To Do</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-notion.html">vs Notion</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-otter.html">vs Otter</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Features</h2>
+<ul>
+<li>
+<a href="/features/">All Blurts features</a>
+</li>
+<li>
+<a href="/blog/voice-to-tasks.html">Voice capture</a>
+</li>
+<li>
+<a href="/blog/multilingual-task-capture.html">Multilingual capture</a>
+</li>
+<li>
+<a href="/blog/live-transcription.html">Live transcription preview</a>
+</li>
+<li>
+<a href="/blog/natural-language-due-dates.html">Due dates and times</a>
+</li>
+<li>
+<a href="/blog/automatic-task-organization.html">Task organization</a>
+</li>
+<li>
+<a href="/blog/lens-task-filters.html">Lens filters and sorting</a>
+</li>
+<li>
+<a href="/blog/edit-complete-tasks.html">Edit and complete tasks</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Integrations</h2>
+<ul>
+<li>
+<a href="/blog/notion-integration.html">Notion integration</a>
+</li>
+<li>
+<a href="/blog/google-tasks-integration.html">Google Tasks integration</a>
+</li>
+<li>
+<a href="/blog/microsoft-planner-integration.html">Microsoft Planner integration</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Use cases & guides</h2>
+<ul>
+<li>
+<a href="/use-cases/">Find your workflow</a>
+</li>
+<li>
+<a href="/blog/how-to-break-down-tasks-adhd-executive-dysfunction.html">Break down an overwhelming task</a>
+</li>
+<li>
+<a href="/blog/how-to-build-a-neurodivergent-friendly-productivity-system.html">Build a workable task system</a>
+</li>
+<li>
+<a href="/blog/how-to-capture-tasks-before-you-forget-them.html">Capture before you forget</a>
+</li>
+<li>
+<a href="/blog/how-to-finish-tasks-instead-of-leaving-them-almost-done.html">Finish the last step</a>
+</li>
+<li>
+<a href="/blog/how-to-stay-focused-on-tasks-neurodivergent.html">Return your focus to a task</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<span>© 2026 Blurts · Say it messy. Get it back clean.</span>
+<span>
+<a href="/privacy.html">Privacy</a> · <a href="mailto:support@blurts.app">Support</a>
+</span>
+</div>
+</footer>
+</body>
+</html>

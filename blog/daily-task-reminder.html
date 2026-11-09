@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-generated="blurts-content">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set up the Blurts daily task reminder | Blurts</title>
+<meta name="description" content="Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.">
+<link rel="canonical" href="https://blurts.app/blog/daily-task-reminder.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Blurts">
+<meta property="og:title" content="Set up the Blurts daily task reminder | Blurts">
+<meta property="og:description" content="Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.">
+<meta property="og:url" content="https://blurts.app/blog/daily-task-reminder.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Set up the Blurts daily task reminder | Blurts">
+<meta name="twitter:description" content="Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.">
+<link rel="icon" type="image/svg+xml" href="/assets/blurts-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/content.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2">
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Set up the Blurts daily task reminder", "description": "Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.", "datePublished": "2026-11-09T12:00:00-05:00", "dateModified": "2026-11-09T12:00:00-05:00", "mainEntityOfPage": "https://blurts.app/blog/daily-task-reminder.html", "author": {"@type": "Organization", "name": "Blurts team", "url": "https://blurts.app/"}, "publisher": {"@type": "Organization", "name": "Blurts", "url": "https://blurts.app/"}, "inLanguage": "en", "articleSection": "Feature guide"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://blurts.app/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://blurts.app/blog/"}, {"@type": "ListItem", "position": 3, "name": "Set up the Blurts daily task reminder", "item": "https://blurts.app/blog/daily-task-reminder.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I choose a different reminder time?", "acceptedAnswer": {"@type": "Answer", "text": "The current implementation uses 9:30am and does not expose a custom-time picker."}}, {"@type": "Question", "name": "Will I be alerted at each task’s due time?", "acceptedAnswer": {"@type": "Answer", "text": "No. The daily notification and task due times are separate features."}}, {"@type": "Question", "name": "Why can the count differ from the list?", "acceptedAnswer": {"@type": "Answer", "text": "Notification content is based on local task state when scheduled, not a fresh server query at delivery time. Open the app to review the current list."}}]}</script>
+</head>
+<body class="editorial">
+<a class="site-skip" href="#main">Skip to content</a>
+<header class="site-header">
+<nav class="site-nav" aria-label="Primary">
+<a class="site-brand" href="/" aria-label="Blurts home">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<g fill="var(--orange)">
+<rect x="4.5" y="14.5" width="5" height="19" rx="2.5"/>
+<rect x="11.5" y="8.5" width="5" height="31" rx="2.5"/>
+<rect x="18.5" y="16.5" width="5" height="15" rx="2.5"/>
+</g>
+<g fill="currentColor">
+<rect x="28" y="13.5" width="16" height="5" rx="1.1"/>
+<rect x="28" y="21.5" width="14" height="5" rx="1.1"/>
+<rect x="28" y="29.5" width="12" height="5" rx="1.1"/>
+</g>
+</svg>blurts</a>
+<div class="site-links">
+<a href="/features/">Features</a>
+<a href="/compare/">Compare</a>
+<a href="/blog/">Blog</a>
+<details class="site-menu">
+<summary>Explore</summary>
+<div class="menu-links">
+<a href="/use-cases/">Use cases</a>
+<a href="/features/#integrations">Integrations</a>
+<a href="/blog/#guides">Practical guides</a>
+<a href="/#how">How it works</a>
+<a href="/#lang">Languages</a>
+<a href="/#price">Pricing</a>
+<a href="/#qs">Questions</a>
+</div>
+</details>
+</div>
+<a class="site-cta" href="/#start" onclick="gtag('event','click',{event_category:'Nav',event_label:'Get Blurts'});">Get Blurts</a>
+</nav>
+</header>
+<main id="main" class="content-wrap">
+<div class="breadcrumbs">
+<a href="/">Home</a> / <a href="/blog/">Blog</a> / Feature guide</div>
+<article>
+<header class="article-head">
+<span class="eyebrow">Feature guide</span>
+<h1>Set up the Blurts daily task reminder</h1>
+<p class="intro">Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.</p>
+<div class="article-meta">
+<span>By the Blurts team</span>
+<time datetime="2026-11-09">November 9, 2026</time>
+<span>3 min read</span>
+</div>
+</header>
+<div class="article-layout">
+<div class="article-body">
+<section aria-labelledby="bring-the-task-list-back-into-your-day">
+<h2 id="bring-the-task-list-back-into-your-day">Bring the task list back into your day</h2>
+<p>Capturing a thought is useful only if you encounter the task again. Blurts offers an optional daily notification to help you return to the list. The current reminder is scheduled for 9:30am in your device’s local time and uses the task information available when the schedule is prepared.</p>
+<p>This is a daily review prompt. It is not an alarm for each task’s due time, a location reminder, or an escalation that keeps ringing until an item is complete. Knowing that distinction helps you decide where a morning nudge fits and where you still need a separate time-critical reminder.</p>
+</section>
+<section aria-labelledby="enable-the-reminder-after-a-successful-capture">
+<h2 id="enable-the-reminder-after-a-successful-capture">Enable the reminder after a successful capture</h2>
+<p>After your first successful save, Blurts may ask whether you want a daily reminder. Choose the affirmative option and allow notifications in the operating-system prompt. The phone ultimately controls delivery, so allowing the in-app prompt alone is not enough if notification permission is denied by the system.</p>
+<p>If you choose Not now, the app postpones asking again. If you deny the system permission, it avoids repeatedly prompting you. To change a system-level denial later, use your phone’s notification settings for Blurts. The current flow does not provide a custom reminder-time picker; this guide describes the existing 9:30am schedule.</p>
+<ul>
+<li>Allow Blurts notifications in your phone settings.</li>
+<li>Open the app after changing tasks so its local schedule can refresh.</li>
+<li>Use a dedicated alarm elsewhere for a critical exact-time commitment.</li>
+</ul>
+</section>
+<section aria-labelledby="what-the-notification-can-say">
+<h2 id="what-the-notification-can-say">What the notification can say</h2>
+<p>When there are pending tasks for today or items past their date, the reminder can show counts and open the task list. When today’s tasks are complete, it can offer a prompt to capture more. With no tasks, it can suggest recording thoughts; those no-task nudges are capped rather than scheduled without limit.</p>
+<p>The content is prepared from the local task store, then scheduled ahead. It is not a live server calculation at the moment the phone displays the notification. If your task state changes elsewhere or the app has not refreshed, the count in a scheduled notification can be older than the list you see when you open the app.</p>
+</section>
+<section aria-labelledby="use-it-as-the-start-of-a-short-review">
+<h2 id="use-it-as-the-start-of-a-short-review">Use it as the start of a short review</h2>
+<p>Imagine you captured three follow-ups yesterday and have not opened your list this morning. The notification is a cue to check what is still pending. Open the list, review dates and priorities, complete anything already finished, and decide which item you will act on next. The value comes from that review, not from collecting another notification.</p>
+<p>If the notification says you have nothing pending but you remember a commitment, open Blurts and inspect the list before assuming the task is gone. Check folded sections and the archive as well. Notification text is a convenient summary, while the task list is where you examine the actual records.</p>
+</section>
+<section aria-labelledby="troubleshoot-a-missing-or-surprising-reminder">
+<h2 id="troubleshoot-a-missing-or-surprising-reminder">Troubleshoot a missing or surprising reminder</h2>
+<p>Check notification permission first, then whether your phone is suppressing alerts through its normal notification controls. Android delivery uses the operating system’s inexact scheduling behavior, so do not treat the reminder as a precision alarm. The schedule is prepared for a limited period ahead and is refreshed through app activity.</p>
+<p>If the text is stale, open the app and refresh your task state. If you need a different time or one notification per task, those are different capabilities from the current daily reminder. Keep their absence explicit when deciding how to handle appointments or deadlines that require an exact alert.</p>
+</section>
+<section class="faq" aria-labelledby="questions">
+<h2 id="questions">Common questions</h2>
+<h3>Can I choose a different reminder time?</h3>
+<p>The current implementation uses 9:30am and does not expose a custom-time picker.</p>
+<h3>Will I be alerted at each task’s due time?</h3>
+<p>No. The daily notification and task due times are separate features.</p>
+<h3>Why can the count differ from the list?</h3>
+<p>Notification content is based on local task state when scheduled, not a fresh server query at delivery time. Open the app to review the current list.</p>
+</section>
+<div class="article-cta">
+<h2>Try one real thought.</h2>
+<p>Start with something you actually need to do. Review the result and decide whether the workflow fits your day.</p>
+<a href="/#start">Get Blurts</a>
+</div>
+</div>
+<aside class="article-toc" aria-label="On this page">
+<strong>On this page</strong>
+<ol>
+<li>
+<a href="#bring-the-task-list-back-into-your-day">Bring the task list back into your day</a>
+</li>
+<li>
+<a href="#enable-the-reminder-after-a-successful-capture">Enable the reminder after a successful capture</a>
+</li>
+<li>
+<a href="#what-the-notification-can-say">What the notification can say</a>
+</li>
+<li>
+<a href="#use-it-as-the-start-of-a-short-review">Use it as the start of a short review</a>
+</li>
+<li>
+<a href="#troubleshoot-a-missing-or-surprising-reminder">Troubleshoot a missing or surprising reminder</a>
+</li>
+<li>
+<a href="#questions">Common questions</a>
+</li>
+</ol>
+</aside>
+</div>
+</article>
+<section class="related">
+<h2>Keep exploring</h2>
+<div class="card-grid">
+<article class="editorial-card">
+<span class="card-kicker">Feature guide</span>
+<h3>
+<a href="/blog/natural-language-due-dates.html">Add task dates and times by speaking in Blurts</a>
+</h3>
+<p>Capture dates such as tomorrow or next week, add a clock time, and understand how Blurts groups the resulting tasks without creating calendar events.</p>
+<a class="read-link" href="/blog/natural-language-due-dates.html" aria-label="Read Add task dates and times by speaking in Blurts">Read the guide →</a>
+</article>
+<article class="editorial-card">
+<span class="card-kicker">Feature guide</span>
+<h3>
+<a href="/blog/task-archive.html">Find older Blurts tasks in the archive</a>
+</h3>
+<p>Understand Blurts’ automatic archive, how older pending tasks are selected, and how to review them without confusing archive with completion.</p>
+<a class="read-link" href="/blog/task-archive.html" aria-label="Read Find older Blurts tasks in the archive">Read the guide →</a>
+</article>
+</div>
+</section>
+</main>
+<footer class="discovery-footer" aria-label="Explore Blurts">
+<div class="footer-columns">
+<div class="footer-column">
+<h2>Compare</h2>
+<ul>
+<li>
+<a href="/blog/blurts-vs-todoist.html">vs Todoist</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-ticktick.html">vs TickTick</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-apple-reminders.html">vs Apple Reminders</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-google-tasks.html">vs Google Tasks</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-microsoft-to-do.html">vs Microsoft To Do</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-notion.html">vs Notion</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-otter.html">vs Otter</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Features</h2>
+<ul>
+<li>
+<a href="/features/">All Blurts features</a>
+</li>
+<li>
+<a href="/blog/voice-to-tasks.html">Voice capture</a>
+</li>
+<li>
+<a href="/blog/multilingual-task-capture.html">Multilingual capture</a>
+</li>
+<li>
+<a href="/blog/live-transcription.html">Live transcription preview</a>
+</li>
+<li>
+<a href="/blog/natural-language-due-dates.html">Due dates and times</a>
+</li>
+<li>
+<a href="/blog/automatic-task-organization.html">Task organization</a>
+</li>
+<li>
+<a href="/blog/lens-task-filters.html">Lens filters and sorting</a>
+</li>
+<li>
+<a href="/blog/edit-complete-tasks.html">Edit and complete tasks</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Integrations</h2>
+<ul>
+<li>
+<a href="/blog/notion-integration.html">Notion integration</a>
+</li>
+<li>
+<a href="/blog/google-tasks-integration.html">Google Tasks integration</a>
+</li>
+<li>
+<a href="/blog/microsoft-planner-integration.html">Microsoft Planner integration</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Use cases & guides</h2>
+<ul>
+<li>
+<a href="/use-cases/">Find your workflow</a>
+</li>
+<li>
+<a href="/blog/how-to-break-down-tasks-adhd-executive-dysfunction.html">Break down an overwhelming task</a>
+</li>
+<li>
+<a href="/blog/how-to-build-a-neurodivergent-friendly-productivity-system.html">Build a workable task system</a>
+</li>
+<li>
+<a href="/blog/how-to-capture-tasks-before-you-forget-them.html">Capture before you forget</a>
+</li>
+<li>
+<a href="/blog/how-to-finish-tasks-instead-of-leaving-them-almost-done.html">Finish the last step</a>
+</li>
+<li>
+<a href="/blog/how-to-stay-focused-on-tasks-neurodivergent.html">Return your focus to a task</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<span>© 2026 Blurts · Say it messy. Get it back clean.</span>
+<span>
+<a href="/privacy.html">Privacy</a> · <a href="mailto:support@blurts.app">Support</a>
+</span>
+</div>
+</footer>
+</body>
+</html>

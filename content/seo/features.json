@@ -1,0 +1,1007 @@
+[
+  {
+    "slug": "voice-to-tasks",
+    "title": "Turn a spoken brain dump into tasks with Blurts",
+    "description": "Capture several intentions in one short recording, then review clean tasks with useful details in Blurts. Learn the flow and its limits.",
+    "feature": "Voice capture and multiple tasks",
+    "navTitle": "Voice capture",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Get the intentions out before they disappear",
+        "paragraphs": [
+          "A thought rarely arrives as a perfectly organized checklist. You remember a work follow-up, then an errand, then a conversation you need to have. Blurts lets you speak those intentions in one short recording and extracts actionable items into separate tasks. You can keep your attention on what you mean to do rather than composing a polished note first.",
+          "The current mobile capture flow records audio, processes it online, and saves the extracted tasks before showing the results. The results screen is a summary of what has been captured. Editing happens in your task list afterward. This distinction matters: you do not need to select each generated task and press a second save button to create it."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Make your first capture",
+        "paragraphs": [
+          "Open Blurts and tap the recording control. Allow microphone access when your phone asks. Speak the actions you want to remember, then stop. A recording can run for up to two minutes; the app stops at that limit. Give a short recording enough time to contain clear speech rather than immediately tapping start and stop.",
+          "Wait for processing and inspect the resulting tasks. Blurts can add a concise title, supporting description, task type, area, priority, and a due date when you mention one. These are interpretations of your words, so check the details that change what you will do. If you connected another destination, distinguish the saved tasks from the separate delivery result."
+        ],
+        "bullets": [
+          "Start with a few ordinary actions rather than a long meeting.",
+          "Name the action explicitly: “ask for the quote” is clearer than “the quote.”",
+          "Open the task list to correct wording, timing, or classification."
+        ]
+      },
+      {
+        "heading": "An example worth trying",
+        "paragraphs": [
+          "You might say: “Send Lena the revised outline tomorrow, pick up printer paper, and check whether the meeting room is available.” The intended outcome is three distinct commitments. Check that the room item remains a request to check availability, rather than an instruction to book it. This example illustrates what to inspect; it is not a guarantee of identical output every time.",
+          "You do not have to assign every item a date. An undated task is often more accurate than a fabricated deadline. If your thought is only an idea, say what decision or next action you intend to make. AI extraction can interpret vague remarks as tasks, so remove an item that does not represent a commitment you want to keep."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What to do when capture is interrupted",
+        "paragraphs": [
+          "Task extraction needs an internet connection. Recording and online processing are different stages, and a network error is not proof that the result reached the task list. Check the list before repeating a capture so you do not unintentionally create duplicates. The current flow is designed to survive ordinary backgrounding, but a fully terminated app can interrupt an in-flight operation.",
+          "If the app reports no speech, try a short clear phrase and check microphone permission. If the result is saved but an integration fails, address that destination connection rather than re-recording the entire thought. Capture limits follow your account’s current plan; use the in-app offer and allowance as the source for entitlement details."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does one recording create only one task?",
+        "a": "No. The extraction flow can create several tasks from a single recording when your speech contains several actionable items."
+      },
+      {
+        "q": "Can I edit before saving?",
+        "a": "The current flow saves extracted tasks before presenting its results. Open the task list and use Edit afterward to correct them."
+      },
+      {
+        "q": "Does voice capture work entirely offline?",
+        "a": "No. Audio is processed online to produce tasks. Previously cached tasks can remain visible, but that is different from offline extraction."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "voice-to-tasks"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-recording.png",
+        "alt": "Blurts recording sheet with Recording indicator and Stop control.",
+        "caption": "Genuine iPhone simulator capture. The recording indicator is shown; live words are unavailable in this simulator.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "multilingual-task-capture",
+    "title": "Capture tasks in the language you think in",
+    "description": "Use Blurts for multilingual task capture, understand language preservation, and review names, dates, and mixed-language recordings carefully.",
+    "feature": "Multilingual capture",
+    "navTitle": "Multilingual capture",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Keep the thought in your own words",
+        "paragraphs": [
+          "Translating a fleeting thought before recording it adds another step at the moment you are trying to remember it. Blurts uses automatic language detection during transcription and asks its task extraction system to preserve the language of the input. The intended result is a useful task in the language you spoke, rather than a compulsory English rewrite.",
+          "That is a product behavior, not a promise that every accent, phrase, or language combination will be recognized perfectly. Speech recognition, task interpretation, and the interface language are separate matters. A task title can remain in Spanish, for example, while the app’s field labels continue to display their existing interface text."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "How to start",
+        "paragraphs": [
+          "Open the recording control and speak a short set of actions in the language you normally use for those tasks. The capture flow does not require a language picker before recording. Stop the recording, allow online processing to finish, and inspect the task titles and descriptions. Correct any name or instruction whose spelling or meaning is important.",
+          "Use a complete action when possible. A brief phrase can be enough, but a person’s name or a project nickname alone may not communicate what you intend to do. For a first test, choose familiar everyday actions and verify the result before relying on the same pattern for important commitments."
+        ],
+        "bullets": [
+          "Check the action, not just whether the words look fluent.",
+          "Review personal names, place names, product names, and abbreviations.",
+          "Verify a date separately when you use a relative expression."
+        ]
+      },
+      {
+        "heading": "Working with more than one language",
+        "paragraphs": [
+          "Many people switch languages within a sentence or use English project terms while speaking another language. You can try that natural style, but the feature does not establish a guarantee of perfect code-switching or word-for-word preservation of every language boundary. Treat a mixed-language recording as something to verify with your own examples.",
+          "For example, you might describe a family errand in Spanish and then refer to a work document by its English title. Inspect whether those became the correct separate tasks and whether the document name survived intact. If the combined recording repeatedly produces an incorrect title, a shorter recording or a quick title edit may be the more reliable workflow."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Understand the limits of the result",
+        "paragraphs": [
+          "The task output is a concise interpretation, not a certified translation or a verbatim transcript. A fluent-looking sentence can still omit an important condition. Check phrases such as “after they confirm” or “ask whether,” because changing them can change the commitment. Do not infer that a natural-language feature understands every cultural or regional date convention without review.",
+          "Live words shown during recording are also separate from the final processing. The live preview depends on speech support on your device, while the final task extraction uses the processed recording. If the preview looks incomplete, wait for the actual result before deciding that the capture failed. If the final meaning is wrong, edit the task or retry with clearer wording."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do I need to select a language first?",
+        "a": "The reviewed recording flow uses automatic language detection and has no required language-selection step."
+      },
+      {
+        "q": "Will Blurts translate all my tasks into English?",
+        "a": "The extraction instructions ask for titles and descriptions in the input language. Review the result, especially with mixed-language speech."
+      },
+      {
+        "q": "Is there a verified number of supported languages?",
+        "a": "This guide does not claim a tested language count. Try your own language, accent, and common task vocabulary, and check the output before depending on it."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "multilingual-task-capture"
+    ]
+  },
+  {
+    "slug": "live-transcription",
+    "title": "See live words while recording in Blurts",
+    "description": "Understand Blurts’ live transcription preview, device requirements, fallback behavior, and why the final tasks can differ from the live words.",
+    "feature": "Live transcription preview",
+    "navTitle": "Live transcription preview",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "See feedback while you speak",
+        "paragraphs": [
+          "Live transcription gives you visual feedback during a recording. When your device supports it, words appear as you talk, helping you see that the app is receiving speech. This can be useful when you are capturing several thoughts and want a quick cue that the recording is still active.",
+          "The live words are a preview, not the final task extraction. Blurts processes the saved audio separately after you stop. The resulting tasks may be shorter, split into separate actions, or worded differently from the live transcript. Review the task list as the output you will use rather than treating the live display as the saved task record."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Use it as part of an ordinary capture",
+        "paragraphs": [
+          "Start recording from Blurts and allow the permissions requested by your device. Where on-device speech recognition is available, the preview runs alongside the audio recording. Speak naturally and stop when you have captured the actions. You do not need to copy the live text or send it through a second entry field.",
+          "If live words are unavailable, the recording flow can continue with a recording indicator. Availability depends on your device’s speech-recognition support and permissions. The current implementation intentionally disables this preview in the iOS simulator, so an absence of live text there is not evidence that audio capture is broken."
+        ],
+        "bullets": [
+          "Watch the recording state and timer as well as the words.",
+          "Wait for final processing after stopping.",
+          "Edit the resulting task if the action or a name needs correction."
+        ]
+      },
+      {
+        "heading": "A useful example",
+        "paragraphs": [
+          "Suppose you are listing three small follow-ups and briefly pause to remember the last one. The live display helps you see the words recognized so far while the recording continues. You can finish the thought without opening a notes app or trying to memorize the exact sentence you already spoke.",
+          "After processing, compare the tasks with your intended commitments. A preview containing your whole spoken sentence may become several task titles. That is expected when the sentence contains several actions. Conversely, seeing words appear does not mean every detail has been interpreted correctly; verify dates, conditions, and who needs to do what in the final output."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "When the preview is blank or stops updating",
+        "paragraphs": [
+          "First check whether audio recording is still active. The app is designed to let audio continue if live recognition is unavailable or encounters repeated errors. You can stop normally and inspect the final result. Do not repeatedly restart solely because the preview is blank; that can fragment one useful capture into several partial recordings.",
+          "On a physical device, check the permissions and speech support available to the app. A network connection is still required for final task extraction even though the preview requests on-device recognition. The existence of local preview text does not make the complete workflow offline, and it does not mean the final processing has already saved a task."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is the live transcript the text used to create tasks?",
+        "a": "No. The live text provides feedback. Blurts separately transcribes the recorded audio for the final extraction."
+      },
+      {
+        "q": "Can I capture without live words appearing?",
+        "a": "Yes. The implementation lets audio recording continue when live recognition is unavailable. Check the recording state, then inspect the final result."
+      },
+      {
+        "q": "Why is there no live preview in the simulator?",
+        "a": "The current app disables this component in the iOS simulator because the native speech engine is unsuitable there. A genuine simulator screenshot should show the fallback state, not invented live text."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "live-transcription"
+    ]
+  },
+  {
+    "slug": "natural-language-due-dates",
+    "title": "Add task dates and times by speaking in Blurts",
+    "description": "Capture dates such as tomorrow or next week, add a clock time, and understand how Blurts groups the resulting tasks without creating calendar events.",
+    "feature": "Due dates, times, and week preferences",
+    "navTitle": "Due dates and times",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Keep timing attached to the right action",
+        "paragraphs": [
+          "A useful task often needs more than a title. Blurts can interpret a date or time you mention while recording and attach it to the relevant task. If you do not mention a date, the extraction is instructed to leave the task undated. This helps preserve the difference between a real deadline and something you simply want to remember.",
+          "Date interpretation uses the current local date and time sent by the mobile app. Relative week phrases also use your start-of-week preference. The result can be an all-day date or a date with a clock time. It remains a task due date; this feature does not create a calendar invitation or reserve time with other people."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Speak the action and its timing together",
+        "paragraphs": [
+          "Start a recording and say what needs doing, followed by when it matters. For example, “Call the supplier tomorrow at 3pm, and compare the two quotes next week.” Stop, allow processing, and check that the two different timings are attached to the correct tasks. A date is useful only if it belongs to the intended action.",
+          "Open Edit on a task to correct the date or add a time using the date and time controls. A time requires a date. You can remove the time to make the task all-day, or clear the date when no deadline is appropriate. Review the displayed result after saving rather than assuming every relative phrase has one obvious interpretation."
+        ],
+        "bullets": [
+          "Use an explicit date when a deadline must be unambiguous.",
+          "Use a clock time when “morning” or “later” would be too vague.",
+          "Set your preferred week start before relying on “next week.”"
+        ]
+      },
+      {
+        "heading": "How relative phrases are handled",
+        "paragraphs": [
+          "The current extraction rules resolve “tomorrow” from today and “next week” to the first day of the next week according to the stored week-start preference. A named weekday is interpreted as its next occurrence. A time without a date is intended to mean today, or tomorrow when that time has already passed.",
+          "These rules help with ordinary capture but do not replace review. “Next Friday” can carry different meanings in different conversations. If an event has a fixed external deadline, use its actual date and verify it. The app can reject malformed calendar values, but a valid date can still be the wrong interpretation of your intention."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What appears in the list and connected tools",
+        "paragraphs": [
+          "Blurts uses due dates to organize tasks into date groups and show times on timed items. Tasks with earlier dates can appear under “Still on your list.” You can adjust priority separately; a clock time does not by itself tell the app how important the task is compared with other work.",
+          "Connected services have their own date semantics. In particular, a task sent to Google Tasks is not a Google Calendar event, and you should not assume that every destination preserves a due-time value identically. Likewise, the Blurts daily reminder is a separate morning notification, not an alarm scheduled for every spoken task time."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does every task get a due date?",
+        "a": "No. Dates are optional and the extraction is instructed to add one only when timing is mentioned."
+      },
+      {
+        "q": "Does saying 3pm create a 3pm notification?",
+        "a": "A task time and a notification are separate features. The reviewed notification service provides a daily morning reminder; it is not a per-task alarm scheduler."
+      },
+      {
+        "q": "Why should I set the first day of my week?",
+        "a": "That preference affects week grouping and how relative phrases such as “next week” are resolved. Review an exact date whenever the distinction matters."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "natural-language-due-dates"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-edit-task.png",
+        "alt": "Blurts task editor with Due Date and Time controls.",
+        "caption": "Genuine simulator screenshot of the task editor. The demo task is undated; a date is required before adding a time.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "automatic-task-organization",
+    "title": "See tasks organized by date, type, area, and priority",
+    "description": "Learn how Blurts classifies captured tasks and groups errands, waiting items, appointments, and completed work without requiring a filing session.",
+    "feature": "Automatic task organization",
+    "navTitle": "Task organization",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Let the list supply an initial structure",
+        "paragraphs": [
+          "A mixed recording can contain work, errands, appointments, and things you are waiting for. Blurts gives those tasks an initial structure so they do not all arrive as identical lines. It identifies a type, an area, and a priority, then uses those details alongside dates to organize the task list.",
+          "The classifications are suggestions based on your words. They are useful when they reduce the work needed to review a capture, but they are not a judgment about your life or an automatic decision about what you should do. You can correct them through Edit when the initial interpretation is wrong."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Understand the available fields",
+        "paragraphs": [
+          "The current task types are Task, Routine, Waiting On, Appointment, and Errand. Areas are Business, Health, Work, and Family. Priority is low, medium, or high. When urgency is unclear, the extraction defaults to medium priority. These are a defined set of fields rather than a custom tagging system where you create unlimited new categories.",
+          "After capture, open the list and examine a few representative items. An errand should describe an action you would do while out; an appointment should correspond to scheduled activity; a waiting item should represent something dependent on another person. If a task crosses areas, choose the classification that makes it easiest to find in your own review."
+        ],
+        "bullets": [
+          "Use Edit to change Type, Area, or Priority.",
+          "Keep a due date only when it reflects the intended timing.",
+          "Treat Routine as a label, not a guarantee of automatic repetition."
+        ]
+      },
+      {
+        "heading": "How the list changes shape",
+        "paragraphs": [
+          "The default order considers priority, then timing, then capture order. Several errands can be grouped under “While you’re out,” while waiting items collect in a folded section. Completed tasks have their own fold. A timed appointment can display its time prominently so you can recognize it quickly among the other items.",
+          "Area headings are used when there are enough open tasks across multiple areas to make grouping useful. Small lists can stay flat, with the area shown in each task’s details. This means two people with different task counts can see different amounts of structure without having enabled different features."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Try it with a real mixed capture",
+        "paragraphs": [
+          "Imagine recording a document follow-up, two shopping errands, and a note that you are waiting for a colleague’s reply. Once the tasks appear, inspect the types and areas. The useful outcome is a list where you can recognize what you can do now, what belongs to a trip outside, and what depends on someone else.",
+          "If the waiting item was interpreted as a normal task, edit its type. If everything appears equally important, set priorities based on your actual commitments instead of adding urgency words to every recording. Classification is a starting point for deciding what to do, not a substitute for that decision."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Avoid reading extra automation into the labels",
+        "paragraphs": [
+          "An Appointment label does not create a calendar event. A Routine label does not create an endless series of recurring tasks. Waiting On does not send a message to the person you named. These fields describe the task so the list can present it more usefully.",
+          "If you want a narrower view, use Lens to filter the existing areas or change the order. That changes what you see without moving the underlying tasks. If an item appears missing, check folded sections, the active Lens, and the archive before recording it again."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I create custom task areas?",
+        "a": "The reviewed editor provides Business, Health, Work, and Family. This guide does not claim arbitrary custom areas."
+      },
+      {
+        "q": "Will a Routine task automatically repeat?",
+        "a": "No recurrence-generation behavior was found in the reviewed implementation. Routine is a classification."
+      },
+      {
+        "q": "Why do I see “While you’re out” only sometimes?",
+        "a": "The organizer batches errands when multiple errands occur in a date group. A single errand can remain in the ordinary list."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "automatic-task-organization"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-tasks.png",
+        "alt": "Blurts task list with two Work tasks and a This Week section.",
+        "caption": "Genuine simulator screenshot using the demo tasks added for this walkthrough. Grouping changes with the tasks in the list.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "lens-task-filters",
+    "title": "Use Lens to focus your Blurts task list",
+    "description": "Filter Blurts tasks by area, switch between priority and time order, and bring waiting items into view without moving the underlying tasks.",
+    "feature": "Lens filters and sorting",
+    "navTitle": "Lens filters and sorting",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Look at the part of your list that matters now",
+        "paragraphs": [
+          "Lens changes the view of your Blurts tasks without moving or refiling them. You can focus on one area, change the order within each day, or bring things you are waiting on into the main view. It is useful when you want to examine a particular part of your life without creating a separate task system for it.",
+          "For example, you may want to review work commitments before leaving your desk, then see family tasks when planning the evening. The tasks keep their original details and dates. Lens supplies a temporary perspective on the same list, so changing a filter does not change the actual commitment."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Open and apply the Lens",
+        "paragraphs": [
+          "Once you have tasks in your list, open the Lens control. Choose an order and, if useful, one of the available areas. The sheet shows area choices represented in your tasks. Use the waiting-on toggle when you want those items visible alongside other work, then tap Done to apply the changes.",
+          "Changes in the sheet are a working selection until you tap Done. Reset returns the selection to the default view. If you dismiss the sheet without applying it, do not expect the task list behind it to adopt an unfinished selection. This makes it possible to explore a view without reorganizing your list."
+        ],
+        "bullets": [
+          "Choose Everything to remove an area filter.",
+          "Choose What matters for priority-led ordering.",
+          "Choose When it’s due for time-led ordering within each date group."
+        ]
+      },
+      {
+        "heading": "Understand what each order means",
+        "paragraphs": [
+          "What matters puts higher-priority tasks ahead of lower-priority ones, then considers timing and capture order. When it’s due brings timed tasks into chronological order, followed by untimed work. Neither mode changes a task’s due date or priority; it changes the sequence in which you encounter the items.",
+          "The area filter narrows the list to Business, Health, Work, or Family, depending on what is present. It is not a full-text search and does not introduce custom saved filters. If a task is assigned to the wrong area, edit the task itself rather than looking for a Lens setting that can correct its underlying classification."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "A practical review before your next block of work",
+        "paragraphs": [
+          "Suppose you have a timed appointment, a high-priority follow-up, a shopping errand, and a reply you are waiting for. Start with Everything to see the whole picture. Then filter to Work and choose the order that matches your immediate decision: importance when deciding what to prioritize, or timing when checking the sequence of the day.",
+          "Turn on the waiting-on view when you want to review dependencies. A waiting task remains something dependent on another person; showing it beside your own actions does not mean the dependency is resolved. Use the resulting view to decide whether you need a separate follow-up task or simply need to keep waiting."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Why a filter can disappear",
+        "paragraphs": [
+          "Lens is a temporary view. Its state is not stored as a permanent preference or synchronized as a shared view. It resets on a fresh app start and when the app checks it after the local day changes. This helps prevent yesterday’s narrow view from hiding today’s commitments without you noticing.",
+          "If you think a task has vanished, return to Everything or use Reset, then check the date groups and folded sections. A filter does not delete tasks. If the control is absent on an empty list, capture a task first; Lens is useful once there is something to narrow or reorder."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does Lens move tasks between lists?",
+        "a": "No. It changes the presentation of the same tasks. Editing a task’s fields is a separate action."
+      },
+      {
+        "q": "Can I save a permanent Lens view?",
+        "a": "The current Lens is session-based and resets across a fresh start or day change. It is not a library of saved filters."
+      },
+      {
+        "q": "Why is one area missing from the choices?",
+        "a": "The sheet shows the areas represented in the current task counts. Check the task’s Area field if you expected it to appear under another area."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "lens-task-filters"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-lens.png",
+        "alt": "Lens sheet with What matters, When it is due, waiting-on toggle, Reset and Done.",
+        "caption": "Genuine simulator screenshot of Lens on a populated list. Area choices depend on the areas represented in your tasks.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "edit-complete-tasks",
+    "title": "Edit, complete, reopen, and delete tasks in Blurts",
+    "description": "Keep captured tasks accurate with Blurts’ task editor, completion controls, undo, and clear behavior for connected destinations.",
+    "feature": "Task editing and completion",
+    "navTitle": "Edit and complete tasks",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Make the captured task match the real commitment",
+        "paragraphs": [
+          "Speech capture is a starting point. You may need to correct a name, make a vague action more specific, or change a date after your plans move. Blurts gives you a task editor so that the item you review tomorrow reflects what you actually intend to do, rather than an imperfect first interpretation.",
+          "The current capture flow saves before showing its results. That means editing belongs in the main task list. You can also complete a task, reopen a completed item, or delete something you do not want to keep. Each action has a different meaning, so choose the one that matches what happened."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Use the task menu to edit details",
+        "paragraphs": [
+          "Open the task’s menu and choose Edit. You can change the title, optional description, type, area, priority, date, and time. Use the title for the action you will recognize at a glance, and the description for supporting context. A blank title cannot be saved, so leave a clear action even when you remove unnecessary detail.",
+          "For example, “Talk to Alex” may become “Ask Alex to confirm the venue.” Add the date only if there is a genuine deadline. Change the type to Waiting On when the next step belongs to someone else, or back to Task when you have an action of your own. Save and inspect the item in its list context."
+        ],
+        "bullets": [
+          "Use the menu for Edit; tapping the task row can change completion.",
+          "Use a date first when adding a clock time.",
+          "Review the list again after changing a field that affects grouping."
+        ]
+      },
+      {
+        "heading": "Complete work and correct an accidental completion",
+        "paragraphs": [
+          "You can complete a task using its completion control or the supported swipe action. Completed work moves into a folded done section. A brief Undo action appears after completion; use it immediately if the gesture was accidental. You can also reopen a completed item by toggling it back to pending.",
+          "Completing a task is a record of work you consider done. It does not perform the action described in the title. Marking “Email the supplier” complete will not send an email. If the work is still needed but the wording is wrong, edit it rather than completing it just to clear the visible list."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Delete deliberately",
+        "paragraphs": [
+          "Use Delete when a task should no longer exist, such as an accidental duplicate or an action you have decided not to keep. Blurts asks you to confirm deletion. This is different from completing a task or finding an old item in the archive. Do not rely on a completion Undo control as a general recovery mechanism for deletion.",
+          "For tasks linked to Notion or Google Tasks, Blurts attempts corresponding changes in those destinations: edits, completion changes, and deletion handling. Notion deletion is handled by archiving the linked page. These external operations can fail separately from the change inside Blurts, so inspect the destination if consistency matters."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Know where synchronization ends",
+        "paragraphs": [
+          "The current Microsoft Planner workflow delivers newly captured tasks; this guide does not promise that later Blurts edits, completion, or deletion update Planner. Manage a delivered Planner task there when needed. Likewise, an outbound update to Notion or Google does not establish that edits made in those tools automatically return to Blurts.",
+          "If a change appears locally but a connected copy differs, check the connection and the destination. Avoid repeatedly deleting and recreating tasks as a substitute for diagnosing a failed update. Keeping a single place where you decide whether work is complete helps prevent conflicting copies from becoming a second task to manage."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I type corrections?",
+        "a": "Yes. The editor includes title and description text fields. That does not mean there is a separate typed-new-task capture screen."
+      },
+      {
+        "q": "What if I complete the wrong task?",
+        "a": "Use the brief Undo action or open the done section and toggle the item back to pending."
+      },
+      {
+        "q": "Do changes in Notion automatically return to Blurts?",
+        "a": "No reverse-sync guarantee is established here. The documented flow is Blurts-initiated updates to linked destinations, subject to connection success."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "edit-complete-tasks"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-edit-task.png",
+        "alt": "Edit Task sheet showing title, description, type, area, priority, date and time.",
+        "caption": "Genuine simulator screenshot of an editable demo task. No task changes were saved while capturing this image.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "daily-task-reminder",
+    "title": "Set up the Blurts daily task reminder",
+    "description": "Get a morning prompt to review your tasks, understand the 9:30am schedule, and distinguish the daily reminder from individual deadline alarms.",
+    "feature": "Daily notifications",
+    "navTitle": "Daily notifications",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Bring the task list back into your day",
+        "paragraphs": [
+          "Capturing a thought is useful only if you encounter the task again. Blurts offers an optional daily notification to help you return to the list. The current reminder is scheduled for 9:30am in your device’s local time and uses the task information available when the schedule is prepared.",
+          "This is a daily review prompt. It is not an alarm for each task’s due time, a location reminder, or an escalation that keeps ringing until an item is complete. Knowing that distinction helps you decide where a morning nudge fits and where you still need a separate time-critical reminder."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Enable the reminder after a successful capture",
+        "paragraphs": [
+          "After your first successful save, Blurts may ask whether you want a daily reminder. Choose the affirmative option and allow notifications in the operating-system prompt. The phone ultimately controls delivery, so allowing the in-app prompt alone is not enough if notification permission is denied by the system.",
+          "If you choose Not now, the app postpones asking again. If you deny the system permission, it avoids repeatedly prompting you. To change a system-level denial later, use your phone’s notification settings for Blurts. The current flow does not provide a custom reminder-time picker; this guide describes the existing 9:30am schedule."
+        ],
+        "bullets": [
+          "Allow Blurts notifications in your phone settings.",
+          "Open the app after changing tasks so its local schedule can refresh.",
+          "Use a dedicated alarm elsewhere for a critical exact-time commitment."
+        ]
+      },
+      {
+        "heading": "What the notification can say",
+        "paragraphs": [
+          "When there are pending tasks for today or items past their date, the reminder can show counts and open the task list. When today’s tasks are complete, it can offer a prompt to capture more. With no tasks, it can suggest recording thoughts; those no-task nudges are capped rather than scheduled without limit.",
+          "The content is prepared from the local task store, then scheduled ahead. It is not a live server calculation at the moment the phone displays the notification. If your task state changes elsewhere or the app has not refreshed, the count in a scheduled notification can be older than the list you see when you open the app."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Use it as the start of a short review",
+        "paragraphs": [
+          "Imagine you captured three follow-ups yesterday and have not opened your list this morning. The notification is a cue to check what is still pending. Open the list, review dates and priorities, complete anything already finished, and decide which item you will act on next. The value comes from that review, not from collecting another notification.",
+          "If the notification says you have nothing pending but you remember a commitment, open Blurts and inspect the list before assuming the task is gone. Check folded sections and the archive as well. Notification text is a convenient summary, while the task list is where you examine the actual records."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Troubleshoot a missing or surprising reminder",
+        "paragraphs": [
+          "Check notification permission first, then whether your phone is suppressing alerts through its normal notification controls. Android delivery uses the operating system’s inexact scheduling behavior, so do not treat the reminder as a precision alarm. The schedule is prepared for a limited period ahead and is refreshed through app activity.",
+          "If the text is stale, open the app and refresh your task state. If you need a different time or one notification per task, those are different capabilities from the current daily reminder. Keep their absence explicit when deciding how to handle appointments or deadlines that require an exact alert."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I choose a different reminder time?",
+        "a": "The current implementation uses 9:30am and does not expose a custom-time picker."
+      },
+      {
+        "q": "Will I be alerted at each task’s due time?",
+        "a": "No. The daily notification and task due times are separate features."
+      },
+      {
+        "q": "Why can the count differ from the list?",
+        "a": "Notification content is based on local task state when scheduled, not a fresh server query at delivery time. Open the app to review the current list."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "daily-task-reminder"
+    ]
+  },
+  {
+    "slug": "home-screen-widgets",
+    "title": "Capture and review Blurts tasks from home-screen widgets",
+    "description": "Use Blurts Record and task-list widgets for quicker access, understand the four-task snapshot, and know which items the widget leaves out.",
+    "feature": "Home-screen widgets",
+    "navTitle": "Home-screen widgets",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Put the entrance to your list where you notice it",
+        "paragraphs": [
+          "Blurts includes home-screen widgets for starting a capture and glancing at tasks. A widget can remove the step of finding the app icon when an intention arrives, and a task snapshot can keep a few upcoming items visible between app visits. The widget is an entrance to the workflow, not a separate task manager.",
+          "The current iPhone widgets include a small Blurts Record widget and a medium Blurts Tasks widget. Android also includes recording and task-list widget components. Their layouts and the system’s widget picker differ by platform, but both are designed around quick access to the same mobile app."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Add a widget and confirm the shortcut",
+        "paragraphs": [
+          "Use your phone’s home-screen widget picker and find Blurts. Add the recording widget where it is easy to reach, or choose the task-list widget when a visible reminder of upcoming work is more useful. Open Blurts at least once and ensure the tasks you expect are available in the app.",
+          "Tap the recording shortcut to open the capture flow. Microphone permission and the normal recording requirements still apply. The task-list surface opens the task list, and its recording affordance can start a new capture. You review and manage the result inside Blurts rather than editing all task fields on the widget itself."
+        ],
+        "bullets": [
+          "Choose the recording widget for quick entry.",
+          "Choose the task-list widget for a small upcoming-work snapshot.",
+          "Use the app for editing, completion, and a full review."
+        ]
+      },
+      {
+        "heading": "Understand the four-task snapshot",
+        "paragraphs": [
+          "The widget receives up to four pending, non-archived tasks from the local task store. Items with a due date before today are excluded. Dated tasks are ordered ahead of undated ones, with due date and priority used in the selection. As a result, the widget is not a complete display of everything you still owe.",
+          "This is especially important when your list contains overdue work. The main app can show those items under “Still on your list,” while the widget deliberately omits them. An empty or short widget therefore should not be interpreted as proof that every commitment is complete. Open the full list when making a plan."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "A useful everyday setup",
+        "paragraphs": [
+          "Suppose you often remember an errand while switching between messages and your calendar. Put the capture widget on that same home screen. Tap it, record the action, and check the saved result. You have made the capture route easier to find without creating a different inbox.",
+          "If your aim is reviewing upcoming work, place the task-list widget where you see it before opening a distracting app. Treat the visible items as a prompt to choose or inspect a task. If the item you expected is absent, check whether it is completed, archived, overdue, or simply outside the four-item snapshot."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "When the widget looks out of date",
+        "paragraphs": [
+          "Widget content is a snapshot, and the operating system controls when it redraws. Open Blurts, let the local list update, and return to the home screen before concluding that data is missing. A widget refresh is not the same as a live connection to every integrated service.",
+          "If a recording tap does not start the expected flow, open the app directly and check microphone access. Do not use widget behavior to infer that audio has already been captured or processed. The saved task in the app is the result to verify, and online extraction is still required after recording."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I see every task in the widget?",
+        "a": "No. The current snapshot contains at most four eligible pending tasks and excludes overdue and archived items."
+      },
+      {
+        "q": "Can I edit a task directly in the widget?",
+        "a": "The reviewed widgets link into the app. Use the task list and editor for changes."
+      },
+      {
+        "q": "Does a widget make capture work offline?",
+        "a": "No. It gives you a quicker entrance to the recording flow. The final speech-to-task processing still needs a connection."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "home-screen-widgets"
+    ]
+  },
+  {
+    "slug": "task-archive",
+    "title": "Find older Blurts tasks in the archive",
+    "description": "Understand Blurts’ automatic archive, how older pending tasks are selected, and how to review them without confusing archive with completion.",
+    "feature": "Task archive",
+    "navTitle": "Task archive",
+    "category": "Feature guide",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "An older task can move without being completed",
+        "paragraphs": [
+          "Blurts includes an archive section for older pending tasks. The current automatic rule uses the age of the capture: a pending task captured more than seven days ago can be archived during a list refresh. Archiving does not mean you completed the work, and it is different from deliberately deleting a task.",
+          "This behavior is worth understanding before relying on the visible daily list alone. The age rule does not exclude a task because it has a future due date. A commitment recorded well in advance can therefore appear in the archive when you return later. Use the archive as part of your review when looking for an older item."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Open and inspect archived work",
+        "paragraphs": [
+          "Open your task list and expand the archive section when it contains items. Review the titles and details just as you would any other task. If you cannot find a previously captured commitment in the usual date groups, check here before recording it again. A second capture can create another record without resolving what happened to the first.",
+          "You can inspect an archived task’s context and use its available task controls. Treat a title as a reminder of the intention you recorded at that time, then decide whether it is still relevant. Do not mark an unfinished task complete merely to make the archive look tidy."
+        ],
+        "bullets": [
+          "Check the archive when an older task is absent from the active list.",
+          "Distinguish no longer relevant from actually completed.",
+          "Verify the task’s date if it was captured far ahead of time."
+        ]
+      },
+      {
+        "heading": "A concrete example",
+        "paragraphs": [
+          "Suppose you record “Confirm the workshop equipment in three weeks.” You may not need to act immediately, but the task has already entered the system. If it remains pending beyond the archive threshold, its capture age can move it into the archive even though the due date is still ahead.",
+          "That example explains why an archive review should be part of checking future commitments. The archive is not a completed-work history and should not be read as a list of obligations you intentionally dismissed. The current rule is automatic; it does not ask whether each older commitment still matters to you."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "How this affects widgets and integrations",
+        "paragraphs": [
+          "The home-screen task snapshot excludes archived tasks, so an older item can also disappear from that small view. Open the full app when checking whether all commitments are accounted for. A widget showing a few upcoming items cannot substitute for reviewing the archive when something seems missing.",
+          "Automatic Blurts archiving should also be distinguished from deletion handling for a linked Notion page or Google task. The archive operation changes the Blurts task record. This guide does not claim that it automatically archives, completes, or deletes every linked item in every external destination."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Review without creating extra maintenance",
+        "paragraphs": [
+          "Use an archive check to recover context and decide what still deserves attention. If a task is finished, record that honestly. If it no longer represents a commitment, use the appropriate delete control after checking what connected copies may be affected. If its date or wording is wrong, edit it rather than creating a near-duplicate.",
+          "For an important future deadline, keep a review routine that includes older captured tasks. The archive behavior is a constraint to account for, not a reason to assume the system will remind you of every future obligation in the active list. If an item remains difficult to locate, inspect the active Lens and folded sections as well."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does archived mean completed?",
+        "a": "No. The automatic archive specifically selects older pending tasks. Completion is a separate status."
+      },
+      {
+        "q": "Does a future date prevent archiving?",
+        "a": "The current rule uses capture age and does not exempt a future due date."
+      },
+      {
+        "q": "Does the widget include archived items?",
+        "a": "No. Its snapshot excludes archived tasks. Review the archive inside the app when looking for older work."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "task-archive"
+    ]
+  },
+  {
+    "slug": "notion-integration",
+    "title": "Send spoken tasks from Blurts to a Notion database",
+    "description": "Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.",
+    "feature": "Notion integration",
+    "navTitle": "Notion integration",
+    "category": "Integration",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Capture on your phone and keep the task in Notion",
+        "paragraphs": [
+          "When Notion is where you review work, a voice note left elsewhere creates a second inbox. Blurts can turn a recording into tasks and send them to a selected Notion database. The useful result is a task page in the workspace you already use, with structured details where the destination supports them.",
+          "Blurts saves the captured tasks first, then handles Notion delivery as a separate step. A saved task and a successfully delivered Notion page are therefore different outcomes. If the connection needs attention, you can still inspect the captured task in Blurts instead of assuming the whole recording has disappeared."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Connect and choose the destination",
+        "paragraphs": [
+          "Open Blurts settings, choose Notion, and complete the authorization flow. Grant access to the pages or databases you intend to use. A database that your Notion account can see is not necessarily available to the integration until the appropriate access is granted.",
+          "When a destination has not been selected, Blurts can offer candidate task databases, let you identify a database by name, or create a new task database under an accessible page. If a selected destination lacks the expected properties, the flow can ask whether to add them. Read that prompt before changing an established workspace database."
+        ],
+        "bullets": [
+          "Start with a database where you are comfortable testing new tasks.",
+          "Confirm the selected database in the Notion section of settings.",
+          "Use Reset Database when you need to choose the destination again."
+        ]
+      },
+      {
+        "heading": "Understand the property mapping",
+        "paragraphs": [
+          "Blurts sends a task title and can map Type, Priority, Area or Category, Due Date, Status, and Description to compatible properties. Mapping depends on recognized property names and types. The current behavior is not an arbitrary schema mapper: a property with the same purpose but an incompatible type may not receive the value you expect.",
+          "For example, a newly created Blurts task database uses select fields for type, area, priority, and status, a date field for due date, and a text field for description. An existing Notion project database may use different conventions. Inspect a small test task before relying on a filtered view that requires additional relations, owners, or custom fields."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "A useful first test",
+        "paragraphs": [
+          "Record a simple action such as “Check the draft with Sam tomorrow.” Once Blurts shows the saved task, open the selected Notion database and inspect the new page. Check its title, due date, status, and any mapped details. Then check the exact view where you normally review tasks; a page can exist in the database while being hidden by that view’s filters.",
+          "After confirming creation, try a harmless title correction from Blurts and inspect the linked page. Blurts also attempts to propagate completion and deletion handling for linked Notion tasks. Deletion archives the Notion page. These operations depend on a valid connection, so treat destination inspection as part of setup rather than proof supplied by a connected badge alone."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Troubleshoot the handoff",
+        "paragraphs": [
+          "If no database appears, check that you authorized the correct workspace and shared an accessible page or database. If a property is missing, inspect its name and type before adding duplicate fields. If the task is saved locally but delivery fails, address the Notion connection or database selection rather than immediately repeating the recording.",
+          "The integration is a Blurts-to-Notion workflow. This guide does not promise that changes made directly in Notion flow back automatically, nor that every custom database property is supported. The current free-tier flow allows one integration, while multiple integrations require an eligible paid tier; check the current in-app entitlement before adding another destination."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I use an existing Notion database?",
+        "a": "Yes, when it is accessible and its properties are compatible. Inspect the field mapping with a small test task."
+      },
+      {
+        "q": "Why is a task missing from my usual Notion view?",
+        "a": "Check the underlying database and the view’s filters. A newly created task may lack a custom relation, owner, or other property required by your view."
+      },
+      {
+        "q": "Does a connected badge prove tasks were delivered?",
+        "a": "No. It indicates connection state. Verify the actual task page and handle any delivery error separately."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "notion-integration"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-integrations.png",
+        "alt": "Blurts settings showing Notion connected and Main Tasks selected as its database.",
+        "caption": "Genuine simulator screenshot: Notion is connected and Main Tasks is selected. This settings view shows configuration, not proof that a new task was delivered.",
+        "afterSection": 1
+      }
+    ]
+  },
+  {
+    "slug": "google-tasks-integration",
+    "title": "Capture spoken tasks directly into your Google Tasks list",
+    "description": "Connect Blurts with Google Tasks, choose a list, understand task fields and update behavior, and distinguish Google Tasks from Calendar events.",
+    "feature": "Google Tasks integration",
+    "navTitle": "Google Tasks integration",
+    "category": "Integration",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Keep captured thoughts in your Google task routine",
+        "paragraphs": [
+          "Blurts can send captured tasks to a selected Google Tasks list. This is useful when you already review Google Tasks during your day but remember commitments away from Gmail or your desk. Speak the actions in Blurts, then check the resulting items in the Google list you chose.",
+          "The destination is Google Tasks. A task can be visible in Google’s Calendar experience through Google Tasks, but that is different from Blurts creating a Calendar event. This integration does not promise event invitations, meeting attendees, calendar time blocks, or a direct Google Calendar connection."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Sign in and choose the correct list",
+        "paragraphs": [
+          "Use Google sign-in in Blurts and grant the required access. In settings, inspect the Google Tasks section and confirm its selected Task List. If you need a different destination, use Change List and choose from the lists available to that Google account. A personal account and a work account are different destinations even when you use both on the same phone.",
+          "If the connection is inactive, use the available reconnect flow. The current settings can require Google sign-in before connecting Google Tasks. The free-tier integration limit can also prevent adding another destination; multiple integrations require an eligible paid tier. Follow the current in-app entitlement rather than assuming every connection is included."
+        ],
+        "bullets": [
+          "Check the Google account as well as the list name.",
+          "Confirm the list before recording work you expect to share or review elsewhere.",
+          "Start with a small test task whose destination you can inspect."
+        ]
+      },
+      {
+        "heading": "What is sent",
+        "paragraphs": [
+          "The integration creates a Google task with a title and can include notes and a due value. It also supports Blurts-initiated updates to the linked task’s title, notes, and date, plus completion and deletion handling. Blurts-specific area, type, and priority fields do not become equivalent native Google task fields in this flow.",
+          "Date behavior deserves its own check. Do not assume that a clock time shown in Blurts will behave as an exact alarm or calendar event in Google. Inspect the destination’s displayed task date and the Google features you use for reminders. A successful task creation is not proof of every possible date-time behavior across products."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "An example from a normal workday",
+        "paragraphs": [
+          "Suppose you remember, “Ask Jordan for the revised estimate tomorrow, and compare the two supplier options.” Record both actions and let Blurts save them. Open your chosen Google Tasks list and check that the two commitments appear with the wording you intend. Make sure tomorrow belongs only to the item you meant to date.",
+          "If you then correct a title or complete a linked task from Blurts, inspect the Google copy while testing the connection. This helps you learn the actual update path before relying on it. Do not assume that editing a task directly in Google will automatically update Blurts; this integration does not promise full two-way synchronization."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "When tasks do not arrive",
+        "paragraphs": [
+          "Check the account and selected list first. Then inspect the connection, since expired or revoked authorization can prevent delivery. A task saved in Blurts can remain available even when the external operation fails. Re-recording immediately can create duplicates, so first determine whether the issue is capture or delivery.",
+          "Changing the destination list should not be treated as a migration of all previously linked tasks. Inspect older linked items separately if you change lists. Disconnecting Google Tasks preserves local Blurts tasks, but it does not mean previously delivered Google items are automatically removed. Keep your review routine clear about where active commitments are tracked."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is this a Google Calendar integration?",
+        "a": "It connects to Google Tasks. Google may display Tasks within Calendar, but Blurts is not creating calendar events through this integration."
+      },
+      {
+        "q": "Which details transfer?",
+        "a": "The reviewed flow sends title, notes, and due information, and handles linked-task updates, completion, and deletion from Blurts. It does not map every Blurts classification to a native Google field."
+      },
+      {
+        "q": "Will Google edits return to Blurts?",
+        "a": "Do not assume reverse synchronization. Verify any future two-way behavior separately; this guide describes the supported outbound workflow."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "google-tasks-integration"
+    ]
+  },
+  {
+    "slug": "microsoft-planner-integration",
+    "title": "Send spoken follow-ups to a Microsoft Planner plan",
+    "description": "Connect Blurts to Microsoft Planner with a work or school account, choose a plan and bucket, and understand assignment and delivery limitations.",
+    "feature": "Microsoft Planner integration",
+    "navTitle": "Microsoft Planner integration",
+    "category": "Integration",
+    "status": "current",
+    "preview": false,
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Put a spoken follow-up where the team manages work",
+        "paragraphs": [
+          "Blurts can deliver captured tasks to a selected Microsoft Planner plan and bucket. This is useful when commitments arise in a conversation but the team’s work is tracked in Planner. The goal is a new Planner task in the chosen destination, rather than a voice note that you still need to rewrite later.",
+          "This is a Microsoft Planner integration, not a Microsoft To Do integration or a general connection to every Microsoft 365 service. The current flow requires an eligible Blurts paid account, a supported Microsoft work or school account, and access to an available Planner destination. Organization permissions can affect whether connection succeeds."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Connect and choose the plan and bucket",
+        "paragraphs": [
+          "Open Blurts settings and select Microsoft Planner. Complete Microsoft authorization using the work or school account that has access to the relevant plan. In Choose Planner destination, select a plan, wait for its buckets to load, choose a bucket, and use the destination confirmation control.",
+          "After connecting, settings shows the selected plan and bucket and offers Change plan or bucket. Check those names before sending real work. If the app reports that no plans are available, confirm the account and plan access. If it reports Reconnect required, address authorization before interpreting the saved destination name as evidence of a live connection."
+        ],
+        "bullets": [
+          "Use the account that belongs to the intended organization.",
+          "Choose a specific plan and bucket before testing delivery.",
+          "Confirm a newly created task in Planner after a small test capture."
+        ]
+      },
+      {
+        "heading": "What a delivered task can contain",
+        "paragraphs": [
+          "The current delivery path sends the title, description, due information, and mapped priority. It can include the captured area as context in the description. Explicit assignment language can also supply a requested person’s name; simply mentioning someone in the task does not mean the task should be assigned to them.",
+          "Assignment requires a unique exact match against available group-member identity details. If the requested person cannot be matched uniquely, the request is preserved as description context rather than silently choosing a different person. Check the actual assignee in Planner when ownership matters, and use a sufficiently specific identity in your spoken instruction."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Test a team follow-up without assuming the result",
+        "paragraphs": [
+          "For example, record a harmless action to review a draft and explicitly name the intended assignee only if you want assignment. Inspect the Blurts result and the Planner delivery state, then open the chosen plan and bucket. Confirm the title, owner, priority, and due information there. This is a setup exercise, not a claim that a connected settings screen proves successful delivery.",
+          "The capture flow can also let you exclude individual tasks from Planner when the connection is available. That matters for a recording containing both work and personal intentions. Check those choices before completing the delivery step so a household errand does not become a team task merely because it was spoken in the same session."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Keep the synchronization boundary clear",
+        "paragraphs": [
+          "The current Planner path creates tasks from captured Blurts items. Later Blurts edits, completion changes, and deletions are not promised to update Planner. Manage those delivered tasks in Planner when needed. Likewise, this guide does not claim that Planner changes return automatically to Blurts.",
+          "If a delivery fails, check authorization, entitlement, and the selected destination. A task can remain saved in Blurts even if Planner delivery fails. An expired authorization message means reconnecting is necessary; repeatedly recording the same intention is not a substitute. Start with one test item after reconnecting and inspect the actual Planner result before relying on the workflow for a batch of commitments."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does this also connect Microsoft To Do?",
+        "a": "No. This feature targets Microsoft Planner plans and buckets. Microsoft To Do is a different product."
+      },
+      {
+        "q": "Can I use a personal Microsoft account?",
+        "a": "The current flow is designed for supported work or school accounts with Planner access and applicable organization permissions."
+      },
+      {
+        "q": "Does completing a task in Blurts complete it in Planner?",
+        "a": "The Planner integration delivers new tasks. Later completion, edits, and deletions in Blurts do not update Planner, and Planner changes do not automatically return to Blurts."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "microsoft-planner-integration"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-integrations.png",
+        "alt": "Blurts settings showing Microsoft Planner connected with a selected plan and bucket.",
+        "caption": "Genuine simulator screenshot: Microsoft Planner has the Blurts Integration Testing plan and Monitoring and controlling bucket selected. A saved connection is separate from successful delivery.",
+        "afterSection": 1
+      },
+      {
+        "src": "/assets/screenshots/planner-reconnect.png",
+        "alt": "Planner destination picker displaying Reconnect required and a disabled confirmation button.",
+        "caption": "The same simulator session requested reconnection when opening the destination picker. No successful delivery is claimed from this session.",
+        "afterSection": 4
+      }
+    ]
+  }
+]

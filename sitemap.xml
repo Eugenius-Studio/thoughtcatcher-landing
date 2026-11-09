@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blurts.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://blurts.app/notion.html</loc>
@@ -14,6 +15,7 @@
     <loc>https://blurts.app/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://blurts.app/blog/why-completing-tasks-is-hard-for-neurodivergent-people.html</loc>
@@ -66,5 +68,97 @@
     <loc>https://blurts.app/delete-account.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://blurts.app/features/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/compare/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/use-cases/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-todoist.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-ticktick.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-apple-reminders.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-google-tasks.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-microsoft-to-do.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-notion.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/blurts-vs-otter.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/voice-to-tasks.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/multilingual-task-capture.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/live-transcription.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/natural-language-due-dates.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/automatic-task-organization.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/lens-task-filters.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/edit-complete-tasks.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/daily-task-reminder.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/home-screen-widgets.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/task-archive.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/notion-integration.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/google-tasks-integration.html</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blurts.app/blog/microsoft-planner-integration.html</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
 </urlset>

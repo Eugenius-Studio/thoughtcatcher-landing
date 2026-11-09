@@ -1,0 +1,835 @@
+{
+  "verifiedAt": "2026-11-09",
+  "scope": "Read-only review of current mobile and backend source. User production availability confirmation supersedes default flag for Planner and Lens. No competitor or external task mutations performed.",
+  "features": [
+    {
+      "id": "voice-to-tasks",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 68,
+          "excerpt": "static const int maxRecordingDuration = 120;",
+          "claim": "Maximum recording duration is 120 seconds."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 44,
+          "excerpt": "/// Save-first: `/api/tasks/capture` persists the tasks before they're shown, so",
+          "claim": "Tasks saved before summary; no select/edit gate in results."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/capture/route.ts",
+          "line": 107,
+          "excerpt": "const extractedTasks = await extractTasksFromText(transcription.text, {",
+          "claim": "Audio transcribed then task extraction called."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 116,
+          "excerpt": "1. Extract every actionable item — short phrases count",
+          "claim": "Multiple actions can yield separate tasks."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 51,
+          "excerpt": "/// is authoritative). Full app-kill is out of scope (in-flight HTTP dies).",
+          "claim": "Ordinary backgrounding intended; app termination is not durable processing."
+        }
+      ],
+      "limitations": [
+        "Online processing required.",
+        "Source implementation is not a measured quality/latency benchmark.",
+        "Capture limits follow account/server entitlement; no numerical plan claim made."
+      ]
+    },
+    {
+      "id": "multilingual-task-capture",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/app/api/tasks/capture/route.ts",
+          "line": 87,
+          "excerpt": "const detectedLanguage = transcription.language || 'en';",
+          "claim": "Automatic transcription language detected; no required manual language picker."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 111,
+          "excerpt": "LANGUAGE: Respond in the same language as the user's input. If the user speaks in Spanish, write task titles and descriptions in Spanish. If in Japanese, respond in Japanese. Always preserve the user's language.",
+          "claim": "Extraction instructed to preserve input language."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/capture/route.ts",
+          "line": 53,
+          "excerpt": "whisperForm.append('response_format', 'verbose_json');",
+          "claim": "Transcription request has no forced English language or translation parameter."
+        }
+      ],
+      "limitations": [
+        "No tested language count verified.",
+        "Mixed-language recognition quality is not guaranteed by the same-language prompt.",
+        "Interface localization is distinct from task language."
+      ]
+    },
+    {
+      "id": "live-transcription",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/services/live_transcription_service.dart",
+          "line": 13,
+          "excerpt": "/// coexist). The text is purely for on-screen feedback — Whisper still produces",
+          "claim": "Live preview is separate from authoritative final transcription."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/live_transcription_service.dart",
+          "line": 80,
+          "excerpt": "if (await isSimulator()) {",
+          "claim": "Explicitly disabled on iOS simulator."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/live_transcription_service.dart",
+          "line": 113,
+          "excerpt": "onDevice: true,",
+          "claim": "Requests on-device preview recognition."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/live_transcription_service.dart",
+          "line": 19,
+          "excerpt": "/// simply stops — the audio recording is never affected.",
+          "claim": "Preview may degrade without interrupting audio."
+        }
+      ],
+      "limitations": [
+        "Device/permission dependent.",
+        "Cannot truthfully show live preview from connected iOS simulator.",
+        "Final extraction still online."
+      ]
+    },
+    {
+      "id": "natural-language-due-dates",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 120,
+          "excerpt": "5. Due dates are OPTIONAL — only set if explicitly mentioned. Use null otherwise",
+          "claim": "Date only if explicitly mentioned."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 168,
+          "excerpt": "Date calculations (only when mentioned). The week starts on ${weekStart}:",
+          "claim": "Relative weeks resolved using stored week preference."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 126,
+          "excerpt": "- If a time is mentioned with no date, assume today (or tomorrow if that time has already passed today)` : `",
+          "claim": "Clock times resolved using client local date/time."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/edit_task_sheet.dart",
+          "line": 303,
+          "excerpt": "labelText: 'Time',",
+          "claim": "Date and time editor provided."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/edit_task_sheet.dart",
+          "line": 261,
+          "excerpt": "labelText: 'Due Date',",
+          "claim": "Date picker and clearing provided."
+        }
+      ],
+      "limitations": [
+        "Date/time metadata is not a per-task alarm.",
+        "No calendar event creation.",
+        "Destinations may not preserve due-time semantics.",
+        "Date picker currently begins today and extends one year; editing past dates may expose UI edge cases."
+      ]
+    },
+    {
+      "id": "automatic-task-organization",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 117,
+          "excerpt": "2. Classify TYPE: Task (default one-off action), Routine (recurring/habitual), Waiting On (depends on someone else), Appointment (scheduled meeting/visit), Errand (quick physical outing)",
+          "claim": "Types Task/Routine/Waiting On/Appointment/Errand."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 118,
+          "excerpt": "3. Classify AREA: Business, Health, Work, Family — pick the best fit, default to Work",
+          "claim": "Areas Business/Health/Work/Family."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/task_organizer.dart",
+          "line": 89,
+          "excerpt": "/// \"What matters\": priority desc → time asc (untimed last) → captured asc.",
+          "claim": "Default order priority, time, capture."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/task_organizer.dart",
+          "line": 187,
+          "excerpt": "// 2+ errands batch under \"While you're out\"; a single errand stays inline.",
+          "claim": "At least two errands create While you’re out batch."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/task_organizer.dart",
+          "line": 204,
+          "excerpt": "// Area subheads appear only when a date has 6+ open (non-waiting) items",
+          "claim": "Area subheads require enough open tasks across areas."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/task_organizer.dart",
+          "line": 253,
+          "excerpt": "if (waiting.isNotEmpty) items.add(WaitingFoldItem(waiting));",
+          "claim": "Waiting and completed folds."
+        }
+      ],
+      "limitations": [
+        "Routine is only classification, not recurrence scheduler.",
+        "Appointment type not calendar integration.",
+        "No custom categories verified."
+      ]
+    },
+    {
+      "id": "lens-task-filters",
+      "status": "current",
+      "availabilityEvidence": "User explicitly confirmed production availability to parent on 2026-11-09; source default flag is not deployed Remote Config state.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/lens_sheet.dart",
+          "line": 65,
+          "excerpt": "Text('Changes what you see. Nothing is moved or refiled.',",
+          "claim": "Lens changes presentation only."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/lens_sheet.dart",
+          "line": 198,
+          "excerpt": "cell('What matters', LensOrder.whatMatters),",
+          "claim": "Priority-led and time-led order options."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/models/lens_state.dart",
+          "line": 16,
+          "excerpt": "/// \"Everything\". Area is the only filter dimension.",
+          "claim": "Only area filter; no text search or custom saved filters."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/models/lens_state.dart",
+          "line": 7,
+          "excerpt": "/// Session-only — never persisted, never synced. A fresh instance is created on",
+          "claim": "Not persisted/synced; resets cold start and after day change."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/feature_flag_service.dart",
+          "line": 24,
+          "excerpt": "'lens_enabled': false,",
+          "claim": "Default off but availability superseded by user confirmation."
+        }
+      ],
+      "limitations": [
+        "Requires tasks to show meaningful view.",
+        "Not full-text search or permanent saved view."
+      ]
+    },
+    {
+      "id": "edit-complete-tasks",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/edit_task_sheet.dart",
+          "line": 123,
+          "excerpt": "'Edit Task',",
+          "claim": "Editor changes title/description/type/area/priority/date/time."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/task_tile.dart",
+          "line": 263,
+          "excerpt": "if (value == 'edit') widget.onEdit?.call();",
+          "claim": "Overflow menu has Edit and Delete."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/task_tile.dart",
+          "line": 103,
+          "excerpt": "onTap: _handleToggle,",
+          "claim": "Tapping row toggles completion, not editor."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/task_list_screen.dart",
+          "line": 294,
+          "excerpt": "label: 'Undo',",
+          "claim": "Undo completion offered briefly."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/[taskId]/route.ts",
+          "line": 61,
+          "excerpt": "// Notion update (non-fatal)",
+          "claim": "Edits propagate outbound to linked Notion and Google."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/[taskId]/status/route.ts",
+          "line": 69,
+          "excerpt": "// Attempt Google Tasks sync if connected",
+          "claim": "Completion update attempts Google and Notion."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/[taskId]/route.ts",
+          "line": 160,
+          "excerpt": "// Archive Notion page (non-fatal)",
+          "claim": "Deletion archives linked Notion page; Google task deletion attempted."
+        }
+      ],
+      "limitations": [
+        "No reverse external-to-Blurts synchronization verified.",
+        "Planner omitted from edit/status/delete paths.",
+        "Brief Undo applies completion, not a general delete recovery mechanism."
+      ]
+    },
+    {
+      "id": "daily-task-reminder",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 101,
+          "excerpt": "static const int _hour = 9;",
+          "claim": "Daily time 09:30 local, next seven days."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 102,
+          "excerpt": "static const int _minute = 30;",
+          "claim": "Fixed minute 30."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 92,
+          "excerpt": "/// Local daily notifications (PN-1/PN-2/PN-3). No backend push — content is",
+          "claim": "Local cached-state-derived content."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 253,
+          "excerpt": "final content = selectNotificationContent(",
+          "claim": "One content snapshot scheduled ahead, not recomputed per fire time."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 345,
+          "excerpt": "androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,",
+          "claim": "Android inexact notification scheduling."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 104,
+          "excerpt": "static const int _maxNudgesPerWeek = 3;",
+          "claim": "No-task nudges capped three/week."
+        }
+      ],
+      "limitations": [
+        "Not per-task deadline alarms.",
+        "No user-configurable time found.",
+        "Counts can be stale because schedule content is a snapshot.",
+        "No guaranteed indefinitely renewed schedule without app activity."
+      ]
+    },
+    {
+      "id": "home-screen-widgets",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/ios/BlurtsWidget/BlurtsWidget.swift",
+          "line": 108,
+          "excerpt": ".configurationDisplayName(\"Blurts Record\")",
+          "claim": "Small iOS capture widget."
+        },
+        {
+          "file": "thoughtCatcher-mobile/ios/BlurtsWidget/BlurtsTaskListWidget.swift",
+          "line": 199,
+          "excerpt": ".configurationDisplayName(\"Blurts Tasks\")",
+          "claim": "Medium iOS task widget."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/widget_sync_service.dart",
+          "line": 37,
+          "excerpt": "LIMIT 4",
+          "claim": "Snapshot limited to four tasks."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/widget_sync_service.dart",
+          "line": 20,
+          "excerpt": "// Pending, non-archived, not overdue (due today or later, or no due date)",
+          "claim": "Overdue and archived tasks excluded."
+        },
+        {
+          "file": "thoughtCatcher-mobile/android/app/src/main/AndroidManifest.xml",
+          "line": 81,
+          "excerpt": "<receiver android:name=\".BlurtsWidgetProvider\"",
+          "claim": "Android capture widget registered."
+        },
+        {
+          "file": "thoughtCatcher-mobile/android/app/src/main/AndroidManifest.xml",
+          "line": 92,
+          "excerpt": "<receiver android:name=\".BlurtsTaskListWidgetProvider\"",
+          "claim": "Android list widget registered."
+        },
+        {
+          "file": "thoughtCatcher-mobile/ios/BlurtsWidget/BlurtsTaskListWidget.swift",
+          "line": 127,
+          "excerpt": ".widgetURL(URL(string: \"blurts://tasks\"))",
+          "claim": "Widget links into task list; capture affordance links record flow."
+        }
+      ],
+      "limitations": [
+        "Snapshot not complete task list.",
+        "No interactive editing/completion in widget verified.",
+        "Native sources and app wiring inspected; no physical-device widget test performed."
+      ]
+    },
+    {
+      "id": "task-archive",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/app/api/tasks/archive/route.ts",
+          "line": 15,
+          "excerpt": "const result = await TaskService.archiveOldTasks(userId, 7);",
+          "claim": "Archive invoked with seven-day age."
+        },
+        {
+          "file": "thoughtCatcher/lib/firestore/tasks.ts",
+          "line": 181,
+          "excerpt": ".where('capturedAt', '<', cutoff)",
+          "claim": "Criteria use capture age, not due date."
+        },
+        {
+          "file": "thoughtCatcher/lib/firestore/tasks.ts",
+          "line": 179,
+          "excerpt": ".where('status', '==', 'pending')",
+          "claim": "Selects pending unarchived tasks."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/task_list_screen.dart",
+          "line": 221,
+          "excerpt": "await TaskApiService.instance.archiveOldTasks();",
+          "claim": "Archive attempted during task-list refresh."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/task_list_screen.dart",
+          "line": 859,
+          "excerpt": "Widget _buildArchivedSection(ThemeData theme, List<Task> archived) {",
+          "claim": "Archive section available in mobile list."
+        }
+      ],
+      "limitations": [
+        "Future due date does not exempt older task.",
+        "Archive is not completion/deletion.",
+        "Potential product behavior concern: advance-scheduled future tasks can disappear from active list after seven days."
+      ]
+    },
+    {
+      "id": "notion-integration",
+      "status": "current",
+      "availabilityEvidence": "Parent observed Notion Connected with database Main Tasks in genuine simulator. Connection state observed, no successful fresh capture delivery asserted by this audit.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/notion_settings_screen.dart",
+          "line": 911,
+          "excerpt": "label: 'Notion',",
+          "claim": "Notion authorization entry in settings."
+        },
+        {
+          "file": "thoughtCatcher/lib/notion/syncTasksToNotion.ts",
+          "line": 7,
+          "excerpt": "export const PROPERTY_VARIATIONS: Record<string, { variations: string[], type: string }> = {",
+          "claim": "Recognized property names and exact expected types."
+        },
+        {
+          "file": "thoughtCatcher/lib/notion/syncTasksToNotion.ts",
+          "line": 221,
+          "excerpt": "export function buildTaskProperties(",
+          "claim": "Title/type/priority/area/description/date/status mapping."
+        },
+        {
+          "file": "thoughtCatcher/lib/notion/syncTasksToNotion.ts",
+          "line": 271,
+          "excerpt": "| { status: 'needsSchemaUpdate'; databaseId: string; databaseName: string; missingProperties: string[] }",
+          "claim": "Missing schema can prompt update."
+        },
+        {
+          "file": "thoughtCatcher/lib/notion/syncTasksToNotion.ts",
+          "line": 333,
+          "excerpt": "const newDb = await notion.databases.create({",
+          "claim": "Can create destination under accessible page."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/recording_half_sheet.dart",
+          "line": 142,
+          "excerpt": "case OnSaveStatus.needsDatabaseSelection:",
+          "claim": "Capture delivery prompts for database selection."
+        }
+      ],
+      "limitations": [
+        "No arbitrary schema/property mapper.",
+        "Status/area/type/priority matching uses select field expectations; Notion status-type field differs.",
+        "No inbound Notion-to-Blurts updates verified."
+      ]
+    },
+    {
+      "id": "google-tasks-integration",
+      "status": "current",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/notion_settings_screen.dart",
+          "line": 429,
+          "excerpt": "content: Text('Sign in with Google first to connect Google Tasks'),",
+          "claim": "Google sign-in required for connection flow."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/notion_settings_screen.dart",
+          "line": 1004,
+          "excerpt": "label: 'Change List',",
+          "claim": "Selected list can be changed."
+        },
+        {
+          "file": "thoughtCatcher/lib/integrations/google-tasks.ts",
+          "line": 1,
+          "excerpt": "const TASKS_API = 'https://tasks.googleapis.com/tasks/v1';",
+          "claim": "Destination is Google Tasks API, not Google Calendar."
+        },
+        {
+          "file": "thoughtCatcher/lib/integrations/google-tasks.ts",
+          "line": 59,
+          "excerpt": "export async function createTask(",
+          "claim": "Creates title/notes/due."
+        },
+        {
+          "file": "thoughtCatcher/lib/integrations/google-tasks.ts",
+          "line": 111,
+          "excerpt": "export async function updateTaskStatus(",
+          "claim": "Outbound completion update."
+        },
+        {
+          "file": "thoughtCatcher/app/api/integrations/connect/route.ts",
+          "line": 45,
+          "excerpt": "// Free tier: max 1 integration",
+          "claim": "Free integration limit; paid multi-integration behavior."
+        }
+      ],
+      "limitations": [
+        "No direct Google Calendar events API.",
+        "No reverse sync verified.",
+        "No destination migration when changing list verified.",
+        "Google task native dates should not be advertised as exact-time event/notification semantics."
+      ]
+    },
+    {
+      "id": "microsoft-planner-integration",
+      "status": "current",
+      "availabilityEvidence": "User explicitly confirmed production rollout via Remote Config on 2026-11-09. Parent saw selected plan Blurts Integration Testing and bucket Monitoring and controlling; destination picker reports Reconnect required, so end-to-end sync remains unverified.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/microsoft_planner_destination_screen.dart",
+          "line": 96,
+          "excerpt": "labelText: 'Plan',",
+          "claim": "Plan and bucket selected before connection."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/microsoft_planner_destination_screen.dart",
+          "line": 117,
+          "excerpt": "labelText: 'Bucket',",
+          "claim": "Destination requires bucket selection."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/onSave/route.ts",
+          "line": 254,
+          "excerpt": "if (!isPaid(user.tier)) return { status: 'paused', error: 'Microsoft Planner requires Pro' };",
+          "claim": "Pro/founder entitlement checked server-side."
+        },
+        {
+          "file": "thoughtCatcher/lib/integrations/microsoft-config.ts",
+          "line": 1,
+          "excerpt": "const DEFAULT_AUTHORITY_TENANT = 'organizations';",
+          "claim": "Organization accounts; tenant allowlist/configuration applies."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/onSave/route.ts",
+          "line": 8,
+          "excerpt": "import { accessTokenFor, exactMemberMatch, isPaid } from '@/lib/integrations/microsoft-planner';",
+          "claim": "Assignment unique exact matching; unmatched request preserved in description."
+        },
+        {
+          "file": "thoughtCatcher/lib/integrations/microsoft-graph.ts",
+          "line": 17,
+          "excerpt": "export async function createPlannerTask(t:string,i:{planId:string;bucketId?:string;title:string;description?:string;dueDate?:string;priority:'low'|'medium'|'high';assigneeId?:string}){const b:any={planId:i.planId,title:i.title.substring(0,255),priority:{high:3,medium:5,low:9}[i.priority]};if(i.bucketId)b.bucketId=i.bucketId;if(i.dueDate)b.dueDateTime=plannerDueDate(i.dueDate);if(i.assigneeId)b.assignments={[i.assigneeId]:{'@odata.type':'#microsoft.graph.plannerAssignment',orderHint:' !'}};const c=await graph<{id:string}>(t,'/planner/tasks',{method:'POST',body:JSON.stringify(b)});if(!c.success||!i.description)return c;const d=await graph<any>(t,`/planner/tasks/${c.value.id}/details`);if(!d.success)return d;const u=await graph<any>(t,`/planner/tasks/${c.value.id}/details`,{method:'PATCH',headers:{'If-Match':d.value['@odata.etag']},body:JSON.stringify({description:i.description.substring(0,4000)})});return u.success?c:u;}",
+          "claim": "Creates task with title/description/due/priority/optional assignee."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 101,
+          "excerpt": "void setSendTaskToPlanner(String taskId, bool send) {",
+          "claim": "Per-task Planner exclusions in capture results."
+        },
+        {
+          "file": "thoughtCatcher/app/api/tasks/onSave/route.ts",
+          "line": 271,
+          "excerpt": "} catch { return { status: 'failed', error: 'Microsoft Planner authorization expired', reconnectRequired: true }; }",
+          "claim": "Expired authorization reports reconnect required."
+        }
+      ],
+      "limitations": [
+        "Planner is not Microsoft To Do.",
+        "No edit/status/delete/reverse sync path for Planner found.",
+        "No successful fresh delivery tested; selected destination alone is insufficient proof.",
+        "Tenant access restrictions may block some work/school accounts."
+      ]
+    },
+    {
+      "id": "insights-preview",
+      "status": "preview",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/services/feature_flag_service.dart",
+          "line": 18,
+          "excerpt": "'insights_enabled': false,",
+          "claim": "Insights defaults off; no user production confirmation."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/task_list_screen.dart",
+          "line": 522,
+          "excerpt": "if (FeatureFlagService.instance.insightsEnabled)",
+          "claim": "Insights card gated."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/insights_service.dart",
+          "line": 24,
+          "excerpt": "static const int thresholdTaskCount = 15;",
+          "claim": "Fifteen tasks threshold."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/insights_service.dart",
+          "line": 28,
+          "excerpt": "static const int thresholdDays = 7;",
+          "claim": "Seven days history threshold."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/insights/insights_preview_card.dart",
+          "line": 83,
+          "excerpt": "return _isPro ? 'pro_preview' : 'free_preview';",
+          "claim": "Paid vs free views."
+        }
+      ],
+      "limitations": [
+        "Keep out of current feature index and live SEO until availability confirmed.",
+        "Not a validated productivity score."
+      ]
+    },
+    {
+      "id": "task-breakdown-preview",
+      "status": "preview",
+      "availabilityEvidence": "Source reviewed; not a claim of a completed end-to-end device test.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/insights/cards/recurring_thoughts_card.dart",
+          "line": 114,
+          "excerpt": "final steps = await TaskBreakdownService.instance.suggest(_t.label);",
+          "claim": "Only user-facing call site found inside recurring-thought card."
+        },
+        {
+          "file": "thoughtCatcher/lib/tasks/breakDownTask.ts",
+          "line": 30,
+          "excerpt": "Break it into 2 to 4 SMALL, CONCRETE next physical steps — each a single action they can finish in one sitting (e.g. \"Find the dentist's phone number\", not \"Sort out the dentist\"). Keep each step under 8 words. Respond in the SAME LANGUAGE as the task above. Return ONLY JSON: {\"steps\":[{\"title\":\"...\"}]}`,",
+          "claim": "Two to four small next steps requested in original language."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/insights/cards/recurring_thoughts_card.dart",
+          "line": 149,
+          "excerpt": "Text(_loc('breakDownSubtitle', 'Pick the steps to add to your list'),",
+          "claim": "User selects suggestions before saving."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/insights/cards/recurring_thoughts_card.dart",
+          "line": 208,
+          "excerpt": "excludeFromPlanner: true,",
+          "claim": "Breakdown-created tasks excluded from Planner."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/task_save_service.dart",
+          "line": 130,
+          "excerpt": "Future<OnSaveResult> createTasks(",
+          "claim": "Selected suggestions saved as new task records."
+        }
+      ],
+      "limitations": [
+        "Depends on unavailable/unconfirmed Insights surface.",
+        "Not ordinary-task menu action.",
+        "Not parent-child hierarchy, dependency planner, or auto-execution."
+      ]
+    }
+  ],
+  "unsupported": [
+    {
+      "capability": "Typed new-task capture",
+      "status": "unsupported_in_current_ui",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/widgets/edit_task_sheet.dart",
+          "line": 131,
+          "excerpt": "TextField(",
+          "claim": "Text entry exists for edits."
+        }
+      ],
+      "search": "rg TextField/TextFormField/hintText across lib found only edit task, email, database name, feedback; no new-task text capture entry point. Backend onSave accepts plain titles for breakdown, which is not equivalent to a typed capture UI."
+    },
+    {
+      "capability": "Apple Reminders / Apple Calendar direct integration",
+      "status": "not_implemented_in_reviewed_sources",
+      "evidence": [],
+      "search": "No EventKit/EKEvent/EKReminder usage in mobile lib or Swift sources. No corresponding integration connector routes."
+    },
+    {
+      "capability": "Google Calendar event integration",
+      "status": "not_implemented_in_reviewed_sources",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/lib/integrations/google-tasks.ts",
+          "line": 1,
+          "excerpt": "const TASKS_API = 'https://tasks.googleapis.com/tasks/v1';",
+          "claim": "Google integration is Tasks API only."
+        }
+      ],
+      "search": "No Calendar events endpoint/scope or event creation found. Google Tasks displayed inside Calendar is distinct."
+    },
+    {
+      "capability": "Microsoft To Do integration",
+      "status": "not_implemented_in_reviewed_sources",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/lib/integrations/microsoft-graph.ts",
+          "line": 17,
+          "excerpt": "export async function createPlannerTask(t:string,i:{planId:string;bucketId?:string;title:string;description?:string;dueDate?:string;priority:'low'|'medium'|'high';assigneeId?:string}){const b:any={planId:i.planId,title:i.title.substring(0,255),priority:{high:3,medium:5,low:9}[i.priority]};if(i.bucketId)b.bucketId=i.bucketId;if(i.dueDate)b.dueDateTime=plannerDueDate(i.dueDate);if(i.assigneeId)b.assignments={[i.assigneeId]:{'@odata.type':'#microsoft.graph.plannerAssignment',orderHint:' !'}};const c=await graph<{id:string}>(t,'/planner/tasks',{method:'POST',body:JSON.stringify(b)});if(!c.success||!i.description)return c;const d=await graph<any>(t,`/planner/tasks/${c.value.id}/details`);if(!d.success)return d;const u=await graph<any>(t,`/planner/tasks/${c.value.id}/details`,{method:'PATCH',headers:{'If-Match':d.value['@odata.etag']},body:JSON.stringify({description:i.description.substring(0,4000)})});return u.success?c:u;}",
+          "claim": "Microsoft API path is /planner/tasks."
+        }
+      ],
+      "search": "Planner is the verified Microsoft destination; no /me/todo task route found."
+    },
+    {
+      "capability": "Apple Watch standalone recording or functional remote capture",
+      "status": "blocked_incomplete_wiring",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/ios/watchApp Watch App/WatchConnectivityManager.swift",
+          "line": 42,
+          "excerpt": "let message = [\"action\": \"start_recording\"]",
+          "claim": "Watch sends control message to reachable iPhone; no on-watch audio recorder."
+        },
+        {
+          "file": "thoughtCatcher-mobile/ios/Runner/WatchConnectivityHandler.swift",
+          "line": 100,
+          "excerpt": "channel.invokeMethod(\"startRecording\", arguments: nil) { result in",
+          "claim": "Native bridge calls Flutter method."
+        },
+        {
+          "file": "thoughtCatcher-mobile/ios/Runner/SceneDelegate.swift",
+          "line": 83,
+          "excerpt": "name: \"com.blurts.watch_connectivity\",",
+          "claim": "Native channel exists."
+        }
+      ],
+      "search": "No com.blurts.watch_connectivity, watchChannel, or corresponding Dart setMethodCallHandler found anywhere in current lib. AppShell uses DeepLinkService for capture. Native watch target embedding alone cannot establish functional end-to-end capture. Excluded from feature article set."
+    },
+    {
+      "capability": "Automatic recurring tasks from Routine classification",
+      "status": "not_implemented_in_reviewed_sources",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/lib/tasks/extractTasks.ts",
+          "line": 117,
+          "excerpt": "2. Classify TYPE: Task (default one-off action), Routine (recurring/habitual), Waiting On (depends on someone else), Appointment (scheduled meeting/visit), Errand (quick physical outing)",
+          "claim": "Routine type classification exists."
+        }
+      ],
+      "search": "No recurrence schedule/next-instance creation found in capture, status, or task data model."
+    },
+    {
+      "capability": "Per-task alarms, location reminders, custom notification time",
+      "status": "not_implemented_in_reviewed_sources",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/services/notification_service.dart",
+          "line": 101,
+          "excerpt": "static const int _hour = 9;",
+          "claim": "Fixed daily notification service."
+        }
+      ],
+      "search": "Only local daily schedule found; no due-date-specific alarm or location scheduling path."
+    },
+    {
+      "capability": "Fully offline AI extraction / durable queued capture",
+      "status": "not_supported",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/app/api/tasks/capture/route.ts",
+          "line": 56,
+          "excerpt": "const whisperPromise = fetch('https://api.openai.com/v1/audio/transcriptions', {",
+          "claim": "Online transcription request."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 51,
+          "excerpt": "/// is authoritative). Full app-kill is out of scope (in-flight HTTP dies).",
+          "claim": "No durable app-kill capture promise."
+        }
+      ],
+      "search": "Cached task list is not offline AI processing; no robust offline queued extraction claim justified."
+    },
+    {
+      "capability": "General two-way external task synchronization",
+      "status": "not_verified",
+      "evidence": [
+        {
+          "file": "thoughtCatcher/app/api/tasks/[taskId]/status/route.ts",
+          "line": 42,
+          "excerpt": "// Attempt Notion sync if connected",
+          "claim": "Outbound changes from Blurts."
+        }
+      ],
+      "search": "No external webhook/polling ingestion for Notion/Google/Planner task edits found. Existing fetchTasks refreshes Blurts backend, not external sources."
+    },
+    {
+      "capability": "Audio-file import / meeting recording product",
+      "status": "no_user_facing_entry_verified",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/half_sheet_controller.dart",
+          "line": 68,
+          "excerpt": "static const int maxRecordingDuration = 120;",
+          "claim": "Mobile capture designed for short recordings."
+        }
+      ],
+      "search": "Backend accepts certain audio MIME types but no user-facing file-import picker or meeting bot is verified."
+    }
+  ],
+  "publication": {
+    "currentArticles": 13,
+    "previewDrafts": 2,
+    "screenshots": "No screenshot assertions created. Parent handles genuine connected simulator captures.",
+    "wordCounts": "All articles 572–678 words including headings and FAQ at generation time."
+  }
+}
