@@ -32,7 +32,7 @@ The mobile source reviewed was `thoughtCatcher-mobile` at `44821d39c900bab15ed34
 
 The product owner confirmed Microsoft Planner and Lens are in production. Planner uses remote configuration; Lens appears when tasks exist. The owner explicitly requested that Insights and task breakdown remain unpublished drafts. Those drafts were delivered separately and are not included in the website's public content files or sitemap.
 
-The feature inventory does not establish direct Apple Reminders, Apple Calendar, Google Calendar-event, Microsoft To Do, or Apple Watch support. It also does not establish typed-new-task capture, recurring task generation, per-task due-time alarms, fully offline extraction, or general two-way synchronization. These claims are not introduced by the new guides. The homepage's unsupported integration list and individual-reminder demo label were corrected.
+The feature inventory does not establish direct Apple Calendar, Google Calendar-event, Microsoft To Do, or Apple Watch support. It also does not establish typed-new-task capture, recurring task generation, per-task due-time alarms, fully offline extraction, or general two-way synchronization. These claims are not introduced by the new guides. The homepage's integration list and individual-reminder demo label were corrected. Apple Reminders was initially omitted because it was not found in the inspected checkout; the product owner subsequently confirmed support, and its destination listing and comparison have been corrected. The dedicated Apple Reminders walkthrough is pending the actual setup entry point or build, so no unobserved controls, field mappings, entitlement, or synchronization behavior are described.
 
 Planner creates delivered tasks; later Blurts edits, completion, and deletion are not claimed to update Planner. Notion/Google changes can be sent from Blurts, but reverse synchronization is not promised. Google Tasks inside Calendar is distinguished from creating Calendar events. Planner is presented as a paid integration, not a free-tier destination.
 
@@ -50,7 +50,7 @@ The local checks cover rendered content and links, not search-engine indexing or
 
 ## Validation
 
-- Static validator: 32 pages, 1,728 internal links/assets, 35 sitemap URLs; zero errors.
+- Static validator: 32 pages, 1,761 internal links/assets, 35 sitemap URLs; zero errors.
 - Browser checks: eight representative routes at 390px and 1280px; one H1, shared navigation/footer, and no horizontal page overflow in all 16 checks.
 - Visual review: desktop/mobile index, comparison article, integration screenshot, existing homepage, and discovery footer. Menu and table-of-contents navigation verified; no browser console errors observed.
 - External citations: 20 of 22 official URLs returned HTTP 200 to the link check. Otter Help and the Microsoft product page rejected the automated HTTP client with 403, but both were successfully retrieved through web browsing; no missing source was found.

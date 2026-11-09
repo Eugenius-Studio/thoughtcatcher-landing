@@ -63,7 +63,7 @@ def footer():
     guide_labels = {'how-to-break-down-tasks-adhd-executive-dysfunction':'Break down an overwhelming task','how-to-build-a-neurodivergent-friendly-productivity-system':'Build a workable task system','how-to-capture-tasks-before-you-forget-them':'Capture before you forget','how-to-finish-tasks-instead-of-leaving-them-almost-done':'Finish the last step','how-to-stay-focused-on-tasks-neurodivergent':'Return your focus to a task'}
     groups = [('Compare', [(href(p), 'vs ' + p['competitor']) for p in comparisons]),
               ('Features', [('/features/', 'All Blurts features')] + [(href(p), p.get('navTitle', p['title'].split(':')[0])) for p in features if not integration(p)][:7]),
-              ('Integrations', [(href(p), p.get('navTitle', p['title'].split(':')[0])) for p in features if integration(p)]),
+              ('Integrations', [('/blog/blurts-vs-apple-reminders.html', 'Apple Reminders')] + [(href(p), p.get('navTitle', p['title'].split(':')[0])) for p in features if integration(p)]),
               ('Use cases & guides', [('/use-cases/', 'Find your workflow')] + [(href(p), guide_labels.get(p['slug'],p['title'])) for p in GUIDES[:5]])]
     cols = ''.join('<div class="footer-column"><h2>' + label + '</h2><ul>' + ''.join(f'<li><a href="{url}">{E(text)}</a></li>' for url,text in links) + '</ul></div>' for label,links in groups)
     return '<footer class="discovery-footer" aria-label="Explore Blurts"><div class="footer-columns">' + cols + '</div><div class="footer-base"><span>© 2026 Blurts · Say it messy. Get it back clean.</span><span><a href="/privacy.html">Privacy</a> · <a href="mailto:support@blurts.app">Support</a></span></div></footer>'
@@ -197,8 +197,10 @@ def shared_existing(file, home=False):
     if 'rel="canonical"' not in t:
         t = t.replace('</head>',f'<link rel="canonical" href="{canonical}"></head>')
     if home:
-        t = t.replace('Apple Reminders, Apple Calendar, Google Tasks, Google Calendar or Notion','Notion, Google Tasks or Microsoft Planner')
+        t = t.replace('Apple Reminders, Apple Calendar, Google Tasks, Google Calendar or Notion','Apple Reminders, Notion, Google Tasks or Microsoft Planner')
         t = t.replace('Apple Reminders, Apple Calendar, Google Tasks, Google Calendar','Google Tasks or Microsoft Planner')
+        t = t.replace('Notion, Google Tasks or Microsoft Planner —','Apple Reminders, Notion, Google Tasks or Microsoft Planner —')
+        t = t.replace('Apple Reminders, Apple Reminders,','Apple Reminders,')
         t = t.replace('Personal &middot; reminder set','Personal &middot; date captured')
         t = t.replace('Personal &middot; date captured','Task &middot; date captured')
         t = t.replace('<li>Lands in <b style="color:var(--ink);font-weight:600">Google Tasks or Microsoft Planner</b> or <b style="color:var(--ink);font-weight:600">Notion</b></li>','<li>Connect one destination: Notion or Google Tasks</li>')
@@ -216,7 +218,7 @@ def main():
     collection('/features/','A thought, then a task.', 'Explore Blurts features for voice capture, task review, daily planning, and the tools where your work already lives.', 'Blurts features',
       '<div class="jump-links"><a href="#capture">Capture & organize</a><a href="#integrations">Integrations</a><a href="#daily">Your daily workflow</a></div>'
       + section('capture','Capture it while it is still on your mind.','Speak naturally, review the result, and keep the useful details.',[p for p in features if not integration(p) and not any(t in p['slug'] for t in ('archive','widget','notification','reminder'))])
-      + section('integrations','Keep your existing destination.','Connect the destination you use. Each guide explains account requirements, delivery behavior, and what stays separate.',[p for p in features if integration(p)])
+      + section('integrations','Keep your existing destination.','Supported destinations include Apple Reminders, Notion, Google Tasks, and Microsoft Planner. Explore the workflow that fits the tool you already use.',[p for p in features if integration(p)]) + '<p class="section-intro"><a href="/blog/blurts-vs-apple-reminders.html">Explore Blurts with Apple Reminders and Siri →</a></p>'
       + section('daily','Return to the things that matter.','A smaller view of your commitments, with clear limits on reminders and history.',[p for p in features if any(t in p['slug'] for t in ('archive','widget','notification','reminder'))]),features)
     collection('/compare/','Choose the workflow you will use.','Seven detailed Blurts comparisons, with competitor strengths, practical trade-offs, and a way to test each choice in your own day.','Compare task capture',
       '<section class="index-section"><h2>Start with the app you already use.</h2><p class="section-intro">Voice capture is available in several of these products. The useful question is what happens to the task after you speak.</p>'+cards(comparisons)+'</section>',comparisons)
