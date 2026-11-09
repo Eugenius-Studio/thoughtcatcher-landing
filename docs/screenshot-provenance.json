@@ -61,5 +61,14 @@
     "capturedDate": "2026-11-09",
     "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
     "altered": false
+  },
+  {
+    "file": "/assets/screenshots/notion-delivered-tasks.png",
+    "width": 681,
+    "height": 289,
+    "sha256": "a65cac4d4960c3cb1e7f27a1891b09e7652e2739392743805b63f86cf00eac25",
+    "capturedDate": "2026-11-09",
+    "source": "Product-owner-supplied screenshot of the actual Notion destination after Blurts task capture",
+    "altered": false
   }
 ]

@@ -121,7 +121,8 @@ def decision_table(p):
     return '<div class="table-scroll" role="region" aria-label="Comparison overview" tabindex="0"><table><thead><tr><th scope="col">Decision</th><th scope="col">Blurts</th><th scope="col">' + E(p['competitor']) + '</th></tr></thead><tbody>' + ''.join('<tr>' + ''.join('<td>'+E(c)+'</td>' for c in row) + '</tr>' for row in rows) + '</tbody></table></div>'
 
 def figure(image):
-    return f'<figure class="screenshot"><a href="{image["src"]}" aria-label="Open full-size screenshot"><img src="{image["src"]}" alt="{E(image["alt"])}" width="{image.get("width",1206)}" height="{image.get("height",2622)}" loading="lazy" decoding="async"></a><figcaption>{E(image["caption"])}</figcaption></figure>'
+    layout = 'screenshot screenshot-wide' if image.get('width',1206) > image.get('height',2622) else 'screenshot'
+    return f'<figure class="{layout}"><a href="{image["src"]}" aria-label="Open full-size screenshot"><img src="{image["src"]}" alt="{E(image["alt"])}" width="{image.get("width",1206)}" height="{image.get("height",2622)}" loading="lazy" decoding="async"></a><figcaption>{E(image["caption"])}</figcaption></figure>'
 
 def article(p):
     path = href(p)

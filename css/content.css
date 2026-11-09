@@ -38,3 +38,4 @@ body.editorial{margin:0;background:var(--paper);color:var(--ink);font-family:var
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}
 .editorial .site-brand{color:var(--ink)}.editorial .site-links a{color:var(--muted)}.editorial .site-links a:hover,.editorial .site-links a[aria-current=page]{color:var(--orange-text)}
 .screenshot img{width:300px;max-height:none;aspect-ratio:1206/2622;object-fit:contain}
+.screenshot-wide img{width:100%;aspect-ratio:auto;border-radius:4px}

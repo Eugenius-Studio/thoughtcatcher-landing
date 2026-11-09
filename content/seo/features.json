@@ -837,6 +837,14 @@
         "alt": "Blurts settings showing Notion connected and Main Tasks selected as its database.",
         "caption": "Genuine simulator screenshot: Notion is connected and Main Tasks is selected. This settings view shows configuration, not proof that a new task was delivered.",
         "afterSection": 1
+      },
+      {
+        "src": "/assets/screenshots/notion-delivered-tasks.png",
+        "width": 681,
+        "height": 289,
+        "alt": "Notion database showing three delivered tasks with Captured status, including the landing-page update and expense-check demo tasks.",
+        "caption": "Tasks delivered from Blurts appear in Notion with Captured status. This genuine destination screenshot was supplied by the product owner after the capture.",
+        "afterSection": 3
       }
     ]
   },

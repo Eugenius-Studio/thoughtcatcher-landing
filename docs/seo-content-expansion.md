@@ -40,9 +40,9 @@ Competitor claims use official sources reviewed on November 9, 2026. Todoist Ram
 
 ## Screenshot and verification limits
 
-The connected iPhone 17 Pro simulator showed Notion connected to Main Tasks and Microsoft Planner configured with a plan and bucket. Opening the Planner destination picker showed **Reconnect required**. The article shows that real state; successful delivery is not inferred from a connected badge. No end-to-end Notion or Planner delivery test was completed in this session.
+The connected iPhone 17 Pro simulator showed Notion connected to Main Tasks and Microsoft Planner configured with a plan and bucket. Opening the Planner destination picker showed **Reconnect required**. The article shows that real state; successful delivery is not inferred from a connected badge. The product owner subsequently confirmed successful Notion delivery and supplied a screenshot of the actual destination showing the matching demo tasks with Captured status. That screenshot is now included in the Notion guide. Notion task creation is confirmed by this user-supplied evidence; subsequent edit/deletion propagation and other field mappings remain untested. Planner delivery remains untested.
 
-The owner added non-sensitive demo tasks. The resulting task list, Lens, and task editor were captured without changing those tasks. A screenshot-only recording was discarded without submission. Screen captures are unaltered; their hashes and provenance are in `screenshot-provenance.json`.
+The owner added non-sensitive demo tasks. The resulting task list, Lens, and task editor were captured without changing those tasks. A screenshot-only recording was discarded without submission. The separate Notion destination screenshot is user-supplied, not a simulator capture. Screen captures are unaltered; their hashes and provenance are in `screenshot-provenance.json`.
 
 No connected Google Tasks account or widget setup was available for a genuine demonstration screenshot. Live transcription is intentionally disabled in the iOS simulator. Those guides describe verified code behavior without fabricated visual proof. The archive and daily reminder guides similarly avoid manufactured populated screens or notifications.
 
@@ -50,7 +50,7 @@ The local checks cover rendered content and links, not search-engine indexing or
 
 ## Validation
 
-- Static validator: 32 pages, 1,726 internal links/assets, 35 sitemap URLs; zero errors.
+- Static validator: 32 pages, 1,728 internal links/assets, 35 sitemap URLs; zero errors.
 - Browser checks: eight representative routes at 390px and 1280px; one H1, shared navigation/footer, and no horizontal page overflow in all 16 checks.
 - Visual review: desktop/mobile index, comparison article, integration screenshot, existing homepage, and discovery footer. Menu and table-of-contents navigation verified; no browser console errors observed.
 - External citations: 20 of 22 official URLs returned HTTP 200 to the link check. Otter Help and the Microsoft product page rejected the automated HTTP client with 403, but both were successfully retrieved through web browsing; no missing source was found.

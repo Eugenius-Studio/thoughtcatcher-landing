@@ -444,7 +444,7 @@
     {
       "id": "notion-integration",
       "status": "current",
-      "availabilityEvidence": "Parent observed Notion Connected with database Main Tasks in genuine simulator. Connection state observed, no successful fresh capture delivery asserted by this audit.",
+      "availabilityEvidence": "Notion Connected with database Main Tasks was observed in the genuine simulator. On November 9, 2026, the product owner confirmed delivery and supplied a genuine Notion destination screenshot showing the matching landing-page and expense-check demo tasks with Captured status. This verifies task creation; edit propagation, deletion, and other property mappings were not exercised.",
       "evidence": [
         {
           "file": "thoughtCatcher-mobile/lib/screens/notion_settings_screen.dart",
