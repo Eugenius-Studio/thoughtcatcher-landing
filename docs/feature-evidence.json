@@ -1,6 +1,6 @@
 {
   "verifiedAt": "2026-11-09",
-  "scope": "Read-only review of current mobile and backend source. User production availability confirmation supersedes default flag for Planner and Lens. No competitor or external task mutations performed. Product owner confirmed Apple Reminders integration support on November 9, 2026; setup and delivery behavior still require inspection.",
+  "scope": "Read-only review of current mobile and backend source. User production availability confirmation supersedes default flag for Planner and Lens. No competitor or external task mutations performed.",
   "features": [
     {
       "id": "voice-to-tasks",
@@ -683,14 +683,34 @@
       ]
     },
     {
-      "id": "apple-reminders-integration",
+      "id": "sign-in-with-apple",
       "status": "current",
-      "availabilityEvidence": "Product owner explicitly confirmed Apple Reminders integration support on November 9, 2026. The inspected checkout and simulator do not expose its setup flow. Availability is accepted from the owner; implementation details are not inferred.",
-      "evidence": [],
+      "availabilityEvidence": "Apple is visible under SIGN IN in the connected simulator. The owner identified this entry point. The settings handler calls AuthService.signInWithApple; Apple authorization itself was not completed during this audit.",
+      "evidence": [
+        {
+          "file": "thoughtCatcher-mobile/lib/screens/notion_settings_screen.dart",
+          "line": 172,
+          "claim": "Apple row invokes account sign-in and shows Signed in with Apple on success."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/auth_service.dart",
+          "line": 52,
+          "claim": "Requests Apple email/fullName identity scopes and calls _linkAuth; no Reminders connection is initiated."
+        },
+        {
+          "file": "thoughtCatcher-mobile/lib/services/auth_service.dart",
+          "line": 112,
+          "claim": "Google separately auto-connects Google Tasks, illustrating why the options differ."
+        },
+        {
+          "file": "thoughtCatcher/app/api/user/link-auth/route.ts",
+          "line": 93,
+          "claim": "Endpoint links a device account to an authenticated Apple/Google account; it is not a Reminders task-delivery endpoint."
+        }
+      ],
       "limitations": [
-        "Setup entry point/build, entitlement, property mapping, and update behavior remain to be confirmed.",
-        "No Apple Reminders screenshot or delivery test has been captured.",
-        "Dedicated setup guide is pending the actual flow; comparison and destination listings acknowledge support."
+        "Apple authorization and account recovery/merging were not exercised.",
+        "The identified Apple option does not establish Apple Reminders task delivery."
       ]
     }
   ],
@@ -709,10 +729,10 @@
       "search": "rg TextField/TextFormField/hintText across lib found only edit task, email, database name, feedback; no new-task text capture entry point. Backend onSave accepts plain titles for breakdown, which is not equivalent to a typed capture UI."
     },
     {
-      "capability": "Apple Calendar direct integration",
-      "status": "not_implemented_in_reviewed_sources",
+      "capability": "Apple Reminders / Apple Calendar direct integration",
+      "status": "not_established_by_identified_apple_flow",
       "evidence": [],
-      "search": "No EventKit/EKEvent usage or corresponding Calendar connector was found in the reviewed source. This is a source limitation, not evidence against the separately owner-confirmed Apple Reminders integration."
+      "search": "The owner identified Settings > Apple as the integration entry point. Tracing that exact control shows Apple identity authentication (name/email) and /api/user/link-auth only. No Reminders connection/delivery or EventKit permission/code was found in the inspected sources. Availability beyond this flow remains unverified, rather than inferred from the Apple logo."
     },
     {
       "capability": "Google Calendar event integration",

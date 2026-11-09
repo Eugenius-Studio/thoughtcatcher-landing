@@ -26,7 +26,7 @@
         "heading": "Where Blurts belongs in the decision",
         "paragraphs": [
           "Blurts focuses on speaking a ramble and turning it into clean tasks. That is a useful starting point for someone who avoids typing small commitments into a planner. However, a focused capture experience must earn its place beside a tool that already performs the same broad function. The test is whether you capture more of the tasks you actually mean to keep, with less correction and less effort afterward.",
-          "Blurts can send captured tasks to Apple Reminders, Notion, Google Tasks, or Microsoft Planner, so it is most relevant when one of those is already your destination. It also keeps an editable task list with date groups and Lens filters. There is no direct Todoist connector: using Blurts as an input to Todoist would require an additional transfer step. If your work already lives in Todoist, that is a meaningful disadvantage to weigh against any preference for Blurts capture. Compare the [supported destinations](/features/#integrations) and [current Blurts plans](/#price) before adding a subscription."
+          "Blurts can send captured tasks to Notion, Google Tasks, or Microsoft Planner, so it is most relevant when one of those is already your destination. It also keeps an editable task list with date groups and Lens filters. There is no direct Todoist connector: using Blurts as an input to Todoist would require an additional transfer step. If your work already lives in Todoist, that is a meaningful disadvantage to weigh against any preference for Blurts capture. Compare the [supported destinations](/features/#integrations) and [current Blurts plans](/#price) before adding a subscription."
         ],
         "bullets": []
       },
@@ -129,7 +129,7 @@
         "heading": "What a focused Blurts workflow should improve",
         "paragraphs": [
           "Blurts is designed around the initial handoff from a spoken ramble to clean tasks. For a person who remembers obligations while changing context, that can be the part worth optimizing. The meaningful benefit is fewer intentions left unrecorded and less cleanup before the tasks are usable. That is something to verify in your own routine, rather than assume from a narrower feature set.",
-          "Blurts gives a captured task a title, optional description, type, area, priority, and date when one is mentioned. You can correct these afterward, use date groups to review the list, and narrow it with [Lens](/blog/lens-task-filters.html). Its connected destinations include Apple Reminders, Notion, Google Tasks, and Microsoft Planner. A direct TickTick connection is not supported here, so maintaining TickTick as your main list would add a transfer step. Choose Blurts for its capture and review workflow only if that complete path works better for you; it does not replace TickTick’s habit and focus tools."
+          "Blurts gives a captured task a title, optional description, type, area, priority, and date when one is mentioned. You can correct these afterward, use date groups to review the list, and narrow it with [Lens](/blog/lens-task-filters.html). Its connected destinations are Notion, Google Tasks, and Microsoft Planner. A direct TickTick connection is not supported here, so maintaining TickTick as your main list would add a transfer step. Choose Blurts for its capture and review workflow only if that complete path works better for you; it does not replace TickTick’s habit and focus tools."
         ],
         "bullets": []
       },
@@ -211,8 +211,8 @@
   },
   {
     "slug": "blurts-vs-apple-reminders",
-    "title": "Blurts vs Apple Reminders and Siri: improve capture, keep your lists",
-    "description": "Compare Blurts with Apple Reminders and Siri for voice capture, and learn when to use the Blurts integration while keeping your existing reminder workflow.",
+    "title": "Blurts vs Apple Reminders and Siri: when built-in capture is enough",
+    "description": "Compare Blurts with Apple Reminders and Siri for everyday reminders, spoken task capture, shared lists, and a sensible way to test an alternative.",
     "competitor": "Apple Reminders",
     "verifiedAt": "2026-11-09",
     "sections": [
@@ -236,7 +236,7 @@
         "heading": "Where a separate capture app may help",
         "paragraphs": [
           "Blurts focuses on one spoken ramble becoming clean tasks. That may suit the moment when you know several things need doing but do not want to stop and formulate each as a separate entry. The value to look for is not merely a transcript. It is a set of tasks whose wording still matches your intentions and which you can review without replaying the whole recording.",
-          "Blurts records up to two minutes of speech, extracts separate tasks, and saves them before showing the results. It offers date groups, editable fields, and [Lens filters](/blog/lens-task-filters.html). Blurts also supports an Apple Reminders integration, so the choice does not have to involve replacing your existing lists. You can evaluate Blurts for the capture step while continuing to use Reminders as your destination. Blurts’ own [daily reminder](/blog/daily-task-reminder.html) remains a separate morning review prompt; it should not be confused with the alerts you configure in Apple Reminders."
+          "Blurts records up to two minutes of speech, extracts separate tasks, and saves them before showing the results. It offers date groups, editable fields, and [Lens filters](/blog/lens-task-filters.html), with connected destinations in Notion, Google Tasks, and Microsoft Planner. The [Apple option in settings](/blog/sign-in-with-apple.html) signs you in to Blurts; it does not itself connect a Reminders list. Direct Reminders delivery has not been verified here. Blurts’ [daily reminder](/blog/daily-task-reminder.html) is a morning review prompt, not a substitute for a time-specific or location-based reminder you already rely on."
         ],
         "bullets": []
       },
@@ -263,8 +263,8 @@
       {
         "heading": "Make a small trial before moving your lists",
         "paragraphs": [
-          "Keep shared groceries, recurring chores, and established reminders where they already work. Try the Blurts integration with a small set of new tasks and inspect the result in Apple Reminders. At the end of each day, check whether you can find and act on each captured commitment. Judge the capture step and the destination together before changing a routine you depend on.",
-          "Support for Apple Reminders does not by itself establish that every field, recurrence rule, alert, or later edit is synchronized. Inspect a simple delivered item first, then test any date and update behavior you rely on. A successful new reminder and a fully synchronized task lifecycle are different outcomes. Keep an existing time-critical reminder in place until you have checked the exact behavior you need."
+          "Keep shared groceries, recurring chores, and established reminders where they already work. Try Blurts with a bounded set of new personal tasks. At the end of each day, check whether you can find and act on every captured commitment. This exposes the cost of a second inbox before you move anything important.",
+          "If your intended workflow is to capture in Blurts and review in Apple Reminders, verify that exact integration and its behavior in the current app. Do not infer automatic synchronization from an Apple logo or general integration language. A clear handoff lets you improve capture while preserving a routine that works. An unclear handoff is a reason to keep the simpler setup until you have tested it."
         ],
         "bullets": []
       }
@@ -283,8 +283,8 @@
         "a": "Start with a small trial. Preserve shared lists and recurring reminders until you have verified the features and handoff you need, and confirmed that the new workflow reduces effort."
       },
       {
-        "q": "Can I use Blurts with Apple Reminders?",
-        "a": "Yes. Blurts supports an Apple Reminders integration, so you can evaluate its voice capture without replacing Reminders. Check the delivered task and any date or update behavior you depend on."
+        "q": "Does the Apple option in Blurts settings connect Reminders?",
+        "a": "That option runs Sign in with Apple to identify your Blurts account. It does not itself request Reminders access or send tasks to a Reminders list."
       }
     ],
     "sources": [
@@ -315,8 +315,8 @@
       ],
       [
         "Connection between them",
-        "Apple Reminders integration is supported",
-        "Keep using Reminders as the task destination"
+        "Direct Reminders export is not verified",
+        "Keep existing lists while testing a separate workflow"
       ]
     ]
   },
@@ -676,7 +676,7 @@
         "heading": "What Blurts is being evaluated for",
         "paragraphs": [
           "Blurts focuses on turning a spoken ramble into clean tasks. The relevant input may be a short set of personal intentions rather than an entire meeting. For example, after reading a document you may already know what you want to do and simply need to preserve those actions before moving on.",
-          "Blurts is built around recordings of up to two minutes and the tasks extracted from them. It saves the resulting tasks, lets you edit their details, and can send them to Apple Reminders, Notion, Google Tasks, or Microsoft Planner. Its [voice capture guide](/blog/voice-to-tasks.html) explains the review and delivery steps. That is a different scope from retaining a long meeting with speaker context and a searchable transcript. There is no direct Otter connector documented here. Use Blurts for a short personal follow-up when that is the missing step; retain a meeting tool when the conversation itself must remain available."
+          "Blurts is built around recordings of up to two minutes and the tasks extracted from them. It saves the resulting tasks, lets you edit their details, and can send them to Notion, Google Tasks, or Microsoft Planner. Its [voice capture guide](/blog/voice-to-tasks.html) explains the review and delivery steps. That is a different scope from retaining a long meeting with speaker context and a searchable transcript. There is no direct Otter connector documented here. Use Blurts for a short personal follow-up when that is the missing step; retain a meeting tool when the conversation itself must remain available."
         ],
         "bullets": []
       },

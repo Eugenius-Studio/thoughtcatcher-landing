@@ -1011,5 +1011,83 @@
         "afterSection": 4
       }
     ]
+  },
+  {
+    "slug": "sign-in-with-apple",
+    "title": "Sign in to Blurts with Apple",
+    "description": "Find the Apple sign-in option in Blurts settings, understand account linking, and distinguish signing in from connecting a task destination.",
+    "feature": "Sign in with Apple",
+    "navTitle": "Apple sign-in",
+    "category": "Account guide",
+    "status": "current",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Use Apple to identify your Blurts account",
+        "paragraphs": [
+          "The Apple option in Blurts settings is a way to sign in to your Blurts account. It appears under Sign In alongside the other available account options. Using a familiar identity can make it easier to recognize which account you are using when you return to the app.",
+          "Account identity and task destination are separate choices. Signing in with Apple does not itself send captured tasks to Apple Reminders or create Apple Calendar events. Start with the account step when you want to identify your Blurts account; use a supported destination connection when you want tasks delivered to another tool."
+        ]
+      },
+      {
+        "heading": "Find the Apple option in settings",
+        "paragraphs": [
+          "Open Blurts, tap Settings from the home screen, and find the Sign In section. Tap Apple to begin the Apple sign-in flow. Follow the Apple authorization screen using the identity you intend to use for Blurts, then return to the app.",
+          "The current flow requests your name and email as identity information. After a successful sign-in, Blurts shows a “Signed in with Apple” confirmation and the Apple row changes to “Signed in.” Check the account details shown in settings so you know which identity is attached to this session. A row that simply says Apple is an entry point, not a success indicator."
+        ],
+        "bullets": [
+          "Open Settings and locate Apple under Sign In.",
+          "Complete the Apple authorization flow for your intended account.",
+          "Look for the signed-in state and review the account details in settings."
+        ]
+      },
+      {
+        "heading": "What changes after signing in",
+        "paragraphs": [
+          "Blurts links the current device account to the authenticated identity and refreshes the account information it uses, including the account’s plan and capture allowance. This is why the account shown after sign-in matters: changing an identity is a different action from choosing where a new task should be delivered.",
+          "If you already have a Blurts account, use its established sign-in method when returning to it. If the account details or plan look unexpected, inspect the displayed identity and contact support before repeatedly switching providers. This guide does not claim that every account-recovery or account-merging scenario has been tested."
+        ]
+      },
+      {
+        "heading": "Understand why Google and Apple behave differently",
+        "paragraphs": [
+          "The settings list groups several choices in one place, but they do not all perform identical actions. In the current Blurts flow, Google sign-in requests access for Google Tasks and can connect a task list. The Apple sign-in flow requests identity information and links the Blurts account; there is no corresponding Reminders connection step in that flow.",
+          "Similarly, a Notion connection has its own database destination, and Microsoft Planner has its own plan and bucket. Their connected states describe those integrations. Apple’s “Signed in” state describes authentication. Read the [Google Tasks guide](/blog/google-tasks-integration.html) or [Notion guide](/blog/notion-integration.html) when task delivery is the outcome you need."
+        ]
+      },
+      {
+        "heading": "If the option is unavailable or sign-in fails",
+        "paragraphs": [
+          "Some free accounts with another provider already connected show the other sign-in options as disabled. Check the current account and plan state before interpreting an inactive Apple row as a missing task destination. If a sign-in attempt fails, the app shows an Apple sign-in failure message rather than confirming that the account is linked.",
+          "When asking for help, describe whether the Apple screen opened, whether you completed it, and whether Blurts displayed the signed-in state afterward. Include the visible error message, but never send a password or authorization code. For task-delivery problems, separately name the destination and inspect whether the task exists there; a successful sign-in alone cannot establish delivery."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does signing in with Apple connect Apple Reminders?",
+        "a": "Not by itself. The Apple option described here signs you in to Blurts. The identified flow does not request Reminders access or deliver tasks to a Reminders list."
+      },
+      {
+        "q": "How do I know Apple sign-in succeeded?",
+        "a": "Blurts shows a confirmation and changes the Apple row to Signed in. Review the account details in settings as well."
+      },
+      {
+        "q": "Why is Apple under the same section as Notion?",
+        "a": "The settings screen groups these options together, but account sign-in and a task-destination connection have different effects. The label or logo alone does not establish task delivery."
+      }
+    ],
+    "sources": [],
+    "evidenceIds": [
+      "sign-in-with-apple"
+    ],
+    "images": [
+      {
+        "src": "/assets/screenshots/blurts-integrations.png",
+        "alt": "Blurts Settings with Apple under the Sign In heading, above Google, Notion, and Microsoft Planner.",
+        "caption": "Genuine simulator screenshot: Apple appears under Sign In. This shows the entry point, not a completed Apple authorization or a Reminders connection.",
+        "afterSection": 1
+      }
+    ]
   }
 ]
