@@ -253,7 +253,8 @@ def main():
         mod = el.find('{'+ns+'}lastmod')
         if mod is None:
             mod = ET.SubElement(el,'{'+ns+'}lastmod')
-        mod.text=DATE
+        # Preserve newer dates from homepage or other manual content edits.
+        mod.text=max(mod.text or '', DATE)
     ET.indent(tree,space='  ')
     tree.write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
     (DATA/'generated-paths.json').write_text(json.dumps(['/','/blog/','/features/','/compare/','/use-cases/']+[href(p) for p in articles],indent=2)+'\n')
