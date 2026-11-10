@@ -5,6 +5,7 @@ Run from any directory. JSON in content/seo is the source of truth for new
 articles. Existing article bodies and the homepage design are retained.
 """
 import html
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'content/seo'
 ORIGIN = 'https://blurts.app'
 DATE = '2026-11-09'
+CSS_VERSION = hashlib.sha256((ROOT/'css/content.css').read_bytes()).hexdigest()[:10]
 E = html.escape
 
 def load(name):
@@ -44,7 +46,7 @@ LOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="var(--orange)"><rec
 
 def header(current=''):
     links = ''.join(f'<a href="{url}"' + (' aria-current="page"' if current == url else '') + f'>{label}</a>' for url, label in [('/features/', 'Features'), ('/compare/', 'Compare'), ('/blog/', 'Blog')])
-    return '<header class="site-header"><nav class="site-nav" aria-label="Primary"><a class="site-brand" href="/" aria-label="Blurts home">' + LOGO + 'blurts</a><div class="site-links">' + links + '<details class="site-menu"><summary>Explore</summary><div class="menu-links"><a href="/use-cases/">Use cases</a><a href="/features/#integrations">Integrations</a><a href="/blog/#guides">Practical guides</a><a href="/#how">How it works</a><a href="/#lang">Languages</a><a href="/#price">Pricing</a><a href="/#qs">Questions</a></div></details></div><a class="site-cta" href="/#start" onclick="gtag(\'event\',\'click\',{event_category:\'Nav\',event_label:\'Get Blurts\'});">Get Blurts</a></nav></header>'
+    return '<header class="site-header"><nav class="site-nav" aria-label="Primary"><a class="site-brand" href="/" aria-label="Blurts home">' + LOGO + 'blurts</a><div class="site-links">' + links + '<details class="site-menu"><summary>Explore<svg class="menu-caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="menu-links"><a href="/use-cases/">Use cases</a><a href="/features/#integrations">Integrations</a><a href="/blog/#guides">Practical guides</a><a href="/#how">How it works</a><a href="/#lang">Languages</a><a href="/#price">Pricing</a><a href="/#qs">Questions</a></div></details></div><a class="site-cta" href="/#start" onclick="gtag(\'event\',\'click\',{event_category:\'Nav\',event_label:\'Get Blurts\'});">Get Blurts</a></nav></header>'
 
 def integration(p):
     return any(t in p['slug'] for t in ('notion', 'google-tasks', 'microsoft-planner'))
@@ -86,7 +88,7 @@ def head(title, desc, path, kind='website', extra=''):
 <link rel="icon" type="image/svg+xml" href="/assets/blurts-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/content.css">
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/content.css?v={CSS_VERSION}">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
 {extra}</head><body class="editorial"><a class="site-skip" href="#main">Skip to content</a>{header(path)}'''
@@ -191,9 +193,10 @@ def shared_existing(file, home=False):
         t = re.sub(r'<!-- discovery-footer:start -->.*?<!-- discovery-footer:end -->',lambda _:foot,t,flags=re.S)
     else:
         t = re.sub(r'<footer\b[^>]*>.*?</footer>',lambda _:foot,t,count=1,flags=re.S)
-    if 'href="/css/content.css"' not in t:
+    if 'href="/css/content.css' not in t:
         tokens = '' if 'css/tokens.css' in t else '<link rel="stylesheet" href="/css/tokens.css">'
         t = t.replace('</head>',tokens+'<link rel="stylesheet" href="/css/content.css"></head>')
+    t = re.sub(r'href="/css/content\.css(?:\?[^"]*)?"', f'href="/css/content.css?v={CSS_VERSION}"', t)
     canonical = ORIGIN + ('/' if home else '/blog/'+file.name)
     if 'rel="canonical"' not in t:
         t = t.replace('</head>',f'<link rel="canonical" href="{canonical}"></head>')
