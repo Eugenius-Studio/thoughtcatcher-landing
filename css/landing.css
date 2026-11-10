@@ -118,12 +118,15 @@ nav {
 .wv i:nth-child(7) { animation-delay: .27s }
 @keyframes pl { 0%, 100% { height: 7px } 50% { height: 22px } }
 
-.reveal { margin-top: 20px }
-.reveal .btn { width: 100%; justify-content: center }
-.result { display: none; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--hair) }
-.result.show { display: block; animation: rz .5s cubic-bezier(.2, .9, .25, 1) both }
+.voice-demo { margin-top: 20px }
+.voice-demo summary { width: 100%; justify-content: center; list-style: none }
+.voice-demo summary::-webkit-details-marker { display: none }
+.voice-demo .demo-hide, .voice-demo[open] .demo-show { display: none }
+.voice-demo[open] .demo-hide { display: inline }
+.result { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--hair) }
+.voice-demo[open] .result { animation: rz .5s cubic-bezier(.2, .9, .25, 1) both }
 @keyframes rz { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
-.rmeta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px }
+.rmeta { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 12px; flex-wrap: wrap; margin-bottom: 9px }
 .rmeta b {
   font-size: .68rem; font-weight: 650; text-transform: uppercase;
   letter-spacing: .13em; color: var(--sage);
@@ -131,6 +134,9 @@ nav {
 .rmeta span { font-family: var(--mono); font-size: .68rem; color: var(--faint) }
 .rtask { font-size: 1.14rem; font-weight: 600; letter-spacing: -.018em }
 .rsub { font-size: .86rem; color: var(--muted); margin-top: 4px }
+.result-tasks { list-style: none; margin: 0; padding: 0 }
+.result-tasks li { padding: 12px 0; border-bottom: 1px solid var(--hair) }
+.demo-note { margin-top: 14px; font-size: .8rem; color: var(--muted) }
 
 /* ── strip ───────────────────────────────────────── */
 .strip {
@@ -158,6 +164,8 @@ nav {
 }
 .tile .art { height: 78px; display: flex; align-items: center; justify-content: center }
 .tile p { color: var(--muted); font-size: .92rem; line-height: 1.55 }
+.tile p a { color: inherit; text-underline-offset: 3px }
+.tile p a:hover { color: var(--orange-text) }
 
 /* ── dark band ───────────────────────────────────── */
 .band {
@@ -304,5 +312,5 @@ footer a:hover { color: var(--ink) }
 
 @media (prefers-reduced-motion: reduce) {
   .wv i { animation: none; height: 15px }
-  .result.show { animation: none }
+  .voice-demo[open] .result { animation: none }
 }

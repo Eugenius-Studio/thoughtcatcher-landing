@@ -24,7 +24,18 @@ python3 scripts/check-content.py
 
 The builder updates marked header/footer regions without replacing existing article bodies. It preserves existing sitemap URLs and updates modification dates only for the changed library and homepage paths. The validator checks headings, unique metadata, canonical URLs, structured data, image metadata, all internal links/assets/fragments, and sitemap coverage.
 
-GitHub Pages currently publishes `main` from the repository root. The implementation is on a separate review branch; merging it into `main` publishes the changes through the existing Pages workflow.
+GitHub Pages currently publishes `main` from the repository root. The initial content expansion was merged in PR #4. Further changes use separate review branches; merging into `main` publishes through the existing Pages workflow.
+
+## Homepage SEO update — November 10, 2026
+
+- The homepage targets the descriptive category “voice to-do list app,” with the title `Voice To-Do List App – Turn Speech Into Tasks | Blurts` and matching description and Open Graph/Twitter text.
+- The brand H1 remains “Say it messy. Get it back clean.” The supporting H2 is “A voice to-do list app for thoughts that won't wait.” The hero explains one recording becoming multiple tasks with dates and times when mentioned.
+- The illustrative demo is labeled “Example recording” and expands into three tasks. It uses a native HTML disclosure, supports keyboard operation, and does not require JavaScript. It is not presented as a genuine app screenshot or a live extraction test.
+- The homepage links directly to the Notion, Google Tasks, and Microsoft Planner guides and retains its iPhone/Android store links. No duplicate `/voice-to-do-app/` page was created.
+- The homepage sitemap modification date is November 10; rebuilding preserves newer modification dates rather than reverting them to the original content-library date. The changed landing stylesheet has a content-hash URL to refresh cached styles.
+- Validation: all 33 checked pages, 1,828 internal links/assets, and 36 sitemap URLs pass. Desktop (1280px) and mobile (390px) layouts have no horizontal page overflow. The demo opens and closes using the keyboard, metadata matches the rendered page, and no browser console errors were observed. Rebuilding is deterministic.
+
+The category wording is an approved positioning choice, not a claim about measured keyword volume or future rankings.
 
 ## Evidence and claim boundaries
 
