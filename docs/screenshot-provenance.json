@@ -1,0 +1,74 @@
+[
+  {
+    "file": "/assets/screenshots/blurts-tasks.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "3200d28ea4d46f4421cb92de9c4f601dd1f4f26b0a69fe45e0be0710fa512140",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/blurts-recording.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "9427e641b1ab5977eb98417ac214d091c4afa3e5bd2f510ca1b90f62f92f5a76",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/blurts-edit-task.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "c50df49670e4a1f51dbebd72e6f826b89f1336079df5845a0affbcca4ffac22a",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/blurts-home.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "083cddfb4e790dcd445b63bcd025dbeb065377e764ec0aeb368688f85e10422f",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/planner-reconnect.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "30eeaddcac4e1841b851f9d7bbc5b3cda5b1c56e0c0d24a0be734b0b5e9dda13",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/blurts-lens.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "318c01c695251dbacda305e80c260d344f7a37aa70590f7ef3a99ddc7a2def31",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/blurts-integrations.png",
+    "width": 1206,
+    "height": 2622,
+    "sha256": "7bf93eb09ec9e2de51390d74e012faa70334d10312b6fb3948066b80054ac8e4",
+    "capturedDate": "2026-11-09",
+    "source": "Connected iPhone 17 Pro simulator, iOS 26.5",
+    "altered": false
+  },
+  {
+    "file": "/assets/screenshots/notion-delivered-tasks.png",
+    "width": 681,
+    "height": 289,
+    "sha256": "a65cac4d4960c3cb1e7f27a1891b09e7652e2739392743805b63f86cf00eac25",
+    "capturedDate": "2026-11-09",
+    "source": "Product-owner-supplied screenshot of the actual Notion destination after Blurts task capture",
+    "altered": false
+  }
+]

@@ -1,0 +1,767 @@
+[
+  {
+    "slug": "blurts-vs-todoist",
+    "title": "Blurts vs Todoist: choosing a voice capture workflow",
+    "description": "Compare Blurts with Todoist and Ramble for spoken task capture, daily planning, existing workflows, and the real cost of switching.",
+    "competitor": "Todoist",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "The choice starts with where you finish your work",
+        "paragraphs": [
+          "If you already organize your day in Todoist, try its native Ramble feature before adding another capture app. Ramble turns spoken thoughts into structured tasks, so voice capture alone is not a reason to switch. Blurts is worth evaluating when your main difficulty is getting a scattered set of intentions out of your head and into usable tasks on your phone.",
+          "The useful comparison is the complete journey: start recording, express several intentions, review the result, and find the tasks when it is time to act. A pleasant recording screen is only part of that journey. The better choice leaves less correction and less searching afterward. This article compares documented capabilities and offers a practical evaluation; it does not claim a measured speed or accuracy winner."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Todoist Ramble is a direct alternative",
+        "paragraphs": [
+          "[Todoist documents Ramble](https://www.todoist.com/help/todoist/todoist-and-ai/dictate-to-add-tasks-with-ramble-P1Raq7vVF) as speech-to-task capture that recognizes multiple actions and attributes such as dates, priorities, and durations. Its current instructions cover project and label selection, review before adding, and ways to launch capture on mobile. It requires an internet connection. Treat comparisons that describe Todoist as keyboard-only as outdated.",
+          "[Todoist’s plans](https://www.todoist.com/pricing) combine capture with a larger task-management system: projects, list and board layouts, reminders, filters, and additional planning features on paid tiers. Ramble has limited sessions on the free plan and unlimited sessions on current Pro and Business plans, subject to the vendor’s stated conditions. That combination can be compelling when Todoist already contains your commitments."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Where Blurts belongs in the decision",
+        "paragraphs": [
+          "Blurts focuses on speaking a ramble and turning it into clean tasks. That is a useful starting point for someone who avoids typing small commitments into a planner. However, a focused capture experience must earn its place beside a tool that already performs the same broad function. The test is whether you capture more of the tasks you actually mean to keep, with less correction and less effort afterward.",
+          "Blurts can send captured tasks to Notion, Google Tasks, or Microsoft Planner, so it is most relevant when one of those is already your destination. It also keeps an editable task list with date groups and Lens filters. There is no direct Todoist connector: using Blurts as an input to Todoist would require an additional transfer step. If your work already lives in Todoist, that is a meaningful disadvantage to weigh against any preference for Blurts capture. Compare the [supported destinations](/features/#integrations) and [current Blurts plans](/#price) before adding a subscription."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Try a realistic mixed-task example",
+        "paragraphs": [
+          "Imagine you have just finished a project discussion and also remembered two personal errands. Your test input might be: “Send Maya the revised outline tomorrow, check whether the venue needs a deposit, and buy coffee filters.” Use your own ordinary speech, including a pause or self-correction. Do not rehearse a command designed to flatter either product.",
+          "Then inspect the result. Are there three actionable tasks? Did “check whether” remain a check rather than become an instruction to pay? Is tomorrow attached to the outline rather than every task? Can you put the personal item somewhere you will see it outside work? These are evaluation questions, not a claim that either product will always get the example right."
+        ],
+        "bullets": [
+          "Count missing tasks, unwanted tasks, and details you must correct.",
+          "Include the time spent moving or reorganizing the results.",
+          "Repeat with a short reminder, a longer ramble, and a correction halfway through."
+        ]
+      },
+      {
+        "heading": "Compare the cost of keeping your current system",
+        "paragraphs": [
+          "A subscription comparison should begin with what you already pay for. If your Todoist plan already includes the amount of Ramble you need, a separate capture subscription is an additional expense. If you only need occasional capture, the free allowance may be sufficient. Check current billing terms and your account’s plan rather than assuming a headline price applies to you.",
+          "Also count setup and review. A different app can be worthwhile if it removes repeated work, but moving projects, recreating filters, or maintaining two inboxes can absorb the gain. Do not migrate a carefully maintained system on the strength of one successful recording. Try several ordinary days while keeping your current task list intact."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "When to keep Todoist, and when to test Blurts",
+        "paragraphs": [
+          "Keep Todoist as your primary system when its projects, shared work, and planning views are where you decide what to do next. Test Blurts when the capture moment is still failing despite having a planner: ideas stay in your head, voice memos pile up, or typing causes you to postpone recording a commitment. Decide on the tasks you successfully recover later, not the size of the feature list.",
+          "Using both makes sense only if the handoff is explicit. Confirm a currently supported connection before assuming tasks can move automatically between them. Without one, include manual transfer in the trial. A workflow that feels effortless during capture but leaves tasks in an unattended second inbox has not solved the original problem."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does Todoist support voice capture?",
+        "a": "Yes. Ramble captures spoken tasks and interprets task details. It is a meaningful native alternative to a separate voice capture app."
+      },
+      {
+        "q": "Is Blurts more accurate than Todoist Ramble?",
+        "a": "There is no comparative benchmark presented here. Test both with your language, typical wording, microphone, and actual tasks, then compare the corrections required."
+      },
+      {
+        "q": "Do I need to replace Todoist to try Blurts?",
+        "a": "No. Keep your established system during the trial. Verify any supported integration and judge the entire capture-to-action workflow before changing where your tasks live."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Todoist Ramble documentation",
+        "url": "https://www.todoist.com/help/todoist/todoist-and-ai/dictate-to-add-tasks-with-ramble-P1Raq7vVF"
+      },
+      {
+        "label": "Todoist pricing and feature entitlements",
+        "url": "https://www.todoist.com/pricing"
+      }
+    ],
+    "seoTitle": "Blurts vs Todoist: Voice Capture & Ramble Compared",
+    "table": [
+      [
+        "Capture",
+        "Voice recording to extracted tasks",
+        "Ramble already supports multiple spoken tasks"
+      ],
+      [
+        "Where work lives",
+        "Blurts plus supported destinations",
+        "Projects, lists, boards and planning in Todoist"
+      ],
+      [
+        "Connection between them",
+        "No verified Todoist connector",
+        "Manual transfer would add a step"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-ticktick",
+    "title": "Blurts vs TickTick: voice capture or a complete daily planner?",
+    "description": "An honest comparison of Blurts and TickTick, including AI Voice Add, calendar planning, habits, review effort, and when keeping both makes sense.",
+    "competitor": "TickTick",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Start with the part of your day that needs help",
+        "paragraphs": [
+          "Choose a daily planner because it helps you decide and do the work. Choose a capture tool because it helps you preserve intentions before they disappear. TickTick addresses a broad daily-planning workflow, while Blurts centers on turning spoken thoughts into tasks. There is overlap: TickTick now offers AI voice capture that can split a single input into multiple tasks.",
+          "That overlap matters. If you already use TickTick successfully, adding Blurts needs a more specific reason than wanting to speak instead of type. The question is whether a separate capture experience improves the moments when you currently lose tasks, without creating another place to maintain. Compare the work remaining after capture as carefully as the recording itself."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "TickTick’s voice features go beyond basic dictation",
+        "paragraphs": [
+          "TickTick’s [official product update](https://help.ticktick.com/articles/7082552170989486080) describes AI Voice Add on mobile. It can identify task dates, lists, tags, and priorities, and split multiple tasks from one spoken input. The same update documents an AI assistant for task creation and organization, as well as transcription and summaries for audio attachments. It would be inaccurate to describe TickTick as a text-only alternative.",
+          "The [feature overview](https://ticktick.com/features) also covers lists, tags, filters, reminders, calendar views, focus tools, and habits. These features serve different moments: capturing an intention, arranging a day, starting a focused session, and maintaining a routine. Their value depends on whether you use those moments in one place."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What a focused Blurts workflow should improve",
+        "paragraphs": [
+          "Blurts is designed around the initial handoff from a spoken ramble to clean tasks. For a person who remembers obligations while changing context, that can be the part worth optimizing. The meaningful benefit is fewer intentions left unrecorded and less cleanup before the tasks are usable. That is something to verify in your own routine, rather than assume from a narrower feature set.",
+          "Blurts gives a captured task a title, optional description, type, area, priority, and date when one is mentioned. You can correct these afterward, use date groups to review the list, and narrow it with [Lens](/blog/lens-task-filters.html). Its connected destinations are Notion, Google Tasks, and Microsoft Planner. A direct TickTick connection is not supported here, so maintaining TickTick as your main list would add a transfer step. Choose Blurts for its capture and review workflow only if that complete path works better for you; it does not replace TickTick’s habit and focus tools."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "A practical test: planning tomorrow without losing today’s thoughts",
+        "paragraphs": [
+          "Picture an evening review. You remember a work follow-up, a shopping item, and a recurring household chore. Then you change your mind about when the work item should happen. Speak the same natural input into each app. Review whether the output preserves the correction, separates the three actions, and leaves the household routine in a form you can maintain.",
+          "Next, continue into your real planning process. Place the work in tomorrow’s plan and find the shopping item from your phone. If you normally use a timer or a habit tracker, keep those steps in the evaluation. A capture app does not automatically replace all the routines surrounding a task, and a planner’s breadth does not automatically make its capture experience right for you."
+        ],
+        "bullets": [
+          "Check whether separate actions became separate tasks.",
+          "Check the meaning of dates and any repeated schedule before trusting the result.",
+          "Measure the complete review and organization effort, including any transfer between apps."
+        ]
+      },
+      {
+        "heading": "Pricing is partly about the features you already use",
+        "paragraphs": [
+          "TickTick offers free and Premium plans. Its [current plan comparison](https://ticktick.com/upgrade) places AI features and expanded planning capabilities in the paid offering and distinguishes limits across lists, tasks, reminders, and other tools. Verify the entitlement on your platform and account before making AI capture the basis of a purchase. This comparison deliberately avoids a fixed price that could vary by store or billing period.",
+          "If you already pay for TickTick’s calendar or other planning tools, evaluate its included capture experience first. Blurts would need to justify an additional workflow or expense through an observable improvement. If you do not need TickTick’s broader planning features, compare the cost and effort of the smaller workflow you actually intend to use."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Keep one clear place to review commitments",
+        "paragraphs": [
+          "TickTick is the stronger fit when your decision depends on keeping tasks, calendar planning, habits, and focus routines together. Blurts is a candidate when getting thoughts into tasks is the stubborn gap in an otherwise workable routine. Neither choice removes the need to decide which tasks matter or when you will do them.",
+          "Coexistence can work, but only after you define the handoff. Do not assume Blurts connects to TickTick because both products support integrations generally. Check the exact supported destination and transfer behavior. If a task must be copied manually, include that work in the trial. Keep the place where you review commitments unambiguous so a new capture habit does not fragment your day."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can TickTick split one voice input into several tasks?",
+        "a": "Yes. Its official AI Voice Add documentation describes automatic splitting of multiple tasks on mobile, along with recognition of task details."
+      },
+      {
+        "q": "Does Blurts replace TickTick’s calendar and habit features?",
+        "a": "Do not assume feature parity. Evaluate Blurts for its verified capture workflow and keep the planning tools you rely on unless their replacements are explicitly supported."
+      },
+      {
+        "q": "Which one is better for a quick brain dump?",
+        "a": "Use your own examples to decide. Compare omissions, incorrect details, review effort, and where the resulting tasks end up; this article does not report a head-to-head performance test."
+      }
+    ],
+    "sources": [
+      {
+        "label": "TickTick AI feature announcements",
+        "url": "https://help.ticktick.com/articles/7082552170989486080"
+      },
+      {
+        "label": "TickTick feature overview",
+        "url": "https://ticktick.com/features"
+      },
+      {
+        "label": "TickTick plans",
+        "url": "https://ticktick.com/upgrade"
+      }
+    ],
+    "seoTitle": "Blurts vs TickTick: AI Voice Capture & Daily Planning",
+    "table": [
+      [
+        "Capture",
+        "Short voice capture with task review",
+        "AI Voice Add also splits multiple spoken tasks"
+      ],
+      [
+        "Daily workflow",
+        "Focused list and connected destinations",
+        "Tasks, calendar planning, habits and focus tools"
+      ],
+      [
+        "Connection between them",
+        "No verified TickTick connector",
+        "Evaluate native capture before adding a second inbox"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-apple-reminders",
+    "title": "Blurts vs Apple Reminders and Siri: when built-in capture is enough",
+    "description": "Compare Blurts with Apple Reminders and Siri for everyday reminders, spoken task capture, shared lists, and a sensible way to test an alternative.",
+    "competitor": "Apple Reminders",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Begin with the reminder you actually need",
+        "paragraphs": [
+          "If your goal is to remember one clear action at a known time, Apple Reminders and Siri deserve to be your starting point. They already fit many iPhone routines. Blurts becomes interesting when the difficult part comes earlier: you have a jumble of intentions and want to turn it into clean tasks before deciding what happens next.",
+          "The distinction is about your situation, not whether one app can use a microphone. Apple supports speaking and dictating reminders. A fair comparison asks how well each approach handles the particular things you forget: a single errand, a set of unrelated follow-ups, a shared household list, or an idea that still needs clarification."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What Apple Reminders already does",
+        "paragraphs": [
+          "Apple’s [getting-started guide](https://support.apple.com/guide/iphone/get-started-with-reminders-iphc7880ecd6/ios) documents reminders created by typing, dictation, or Siri, along with grocery lists, shared lists, tags, and Smart Lists. Its [reminder creation guide](https://support.apple.com/guide/iphone/create-reminders-iph88463e18/ios) also describes Apple Intelligence assistance for descriptions and suggested reminders. Availability depends on compatible devices, software, language, region, and account setup.",
+          "These are meaningful strengths for people whose commitments already live across Apple devices. Apple also notes that the full set of described Reminders features depends on updated iCloud reminders; other account types may differ. Do not treat the experience on one person’s iPhone as proof that every Apple account and device behaves identically."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Where a separate capture app may help",
+        "paragraphs": [
+          "Blurts focuses on one spoken ramble becoming clean tasks. That may suit the moment when you know several things need doing but do not want to stop and formulate each as a separate entry. The value to look for is not merely a transcript. It is a set of tasks whose wording still matches your intentions and which you can review without replaying the whole recording.",
+          "Blurts records up to two minutes of speech, extracts separate tasks, and saves them before showing the results. It offers date groups, editable fields, and [Lens filters](/blog/lens-task-filters.html), with connected destinations in Notion, Google Tasks, and Microsoft Planner. The [Apple option in settings](/blog/sign-in-with-apple.html) signs you in to Blurts; it does not itself connect a Reminders list. Direct Reminders delivery has not been verified here. Blurts’ [daily reminder](/blog/daily-task-reminder.html) is a morning review prompt, not a substitute for a time-specific or location-based reminder you already rely on."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Compare a clear reminder with a messy set of intentions",
+        "paragraphs": [
+          "Use two examples. First, capture a simple reminder to put a library book in your bag tomorrow morning. Then try a more natural stream: the book needs returning, the apartment inspection needs confirming, and you should ask a friend which restaurant they booked. Include a correction if you normally change your mind while speaking.",
+          "Review the outputs for different reasons. In the first test, the right timing and a dependable place to see the reminder are central. In the second, you care about separating actions and keeping uncertainties intact. “Ask which restaurant” must not become “book a restaurant.” Neither this scenario nor a screenshot establishes that either app will interpret every sentence correctly; it is a way to test your own needs."
+        ],
+        "bullets": [
+          "Try the exact Apple device, account, and Siri language you use each day.",
+          "Check whether household tasks remain visible to the people who need them.",
+          "Verify that timing and task wording survive any handoff between apps."
+        ]
+      },
+      {
+        "heading": "Account for familiarity before paying for another tool",
+        "paragraphs": [
+          "The built-in workflow has a practical advantage when you already know how to use it. You do not have to teach yourself a new place to look each morning. A separate app should repay the effort of installing it, learning its review flow, and remembering where tasks are stored. That trade can be worthwhile, but it should be visible during an ordinary week.",
+          "Compare the incremental cost you would actually incur. Check Blurts’ current offer before subscribing, and consider whether your existing Apple setup already performs the necessary work. Avoid paying for a different recording interface if the real problem is that you never review your task list. Equally, do not dismiss a focused app if easier capture reliably gets previously forgotten commitments onto that list."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Make a small trial before moving your lists",
+        "paragraphs": [
+          "Keep shared groceries, recurring chores, and established reminders where they already work. Try Blurts with a bounded set of new personal tasks. At the end of each day, check whether you can find and act on every captured commitment. This exposes the cost of a second inbox before you move anything important.",
+          "If your intended workflow is to capture in Blurts and review in Apple Reminders, verify that exact integration and its behavior in the current app. Do not infer automatic synchronization from an Apple logo or general integration language. A clear handoff lets you improve capture while preserving a routine that works. An unclear handoff is a reason to keep the simpler setup until you have tested it."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can Siri already create reminders by voice?",
+        "a": "Yes. Apple documents Siri and dictation as ways to create reminders. Blurts should be evaluated against that real baseline, not against typing alone."
+      },
+      {
+        "q": "Does this comparison assume every iPhone has the same AI features?",
+        "a": "No. Apple Intelligence features have device, software, language, and regional requirements. Check Apple’s current documentation for your setup."
+      },
+      {
+        "q": "Should I move all my reminders to Blurts?",
+        "a": "Start with a small trial. Preserve shared lists and recurring reminders until you have verified the features and handoff you need, and confirmed that the new workflow reduces effort."
+      },
+      {
+        "q": "Does the Apple option in Blurts settings connect Reminders?",
+        "a": "That option runs Sign in with Apple to identify your Blurts account. It does not itself request Reminders access or send tasks to a Reminders list."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Apple: get started with Reminders",
+        "url": "https://support.apple.com/guide/iphone/get-started-with-reminders-iphc7880ecd6/ios"
+      },
+      {
+        "label": "Apple: create reminders",
+        "url": "https://support.apple.com/guide/iphone/create-reminders-iph88463e18/ios"
+      },
+      {
+        "label": "Apple: use Reminders across devices",
+        "url": "https://support.apple.com/en-us/102484"
+      }
+    ],
+    "seoTitle": "Blurts vs Apple Reminders & Siri: Voice Task Capture",
+    "table": [
+      [
+        "Capture",
+        "Record a ramble and review extracted tasks",
+        "Siri, dictation and supported Apple Intelligence features"
+      ],
+      [
+        "Ecosystem",
+        "Mobile app on iPhone and Android",
+        "Built into the Apple ecosystem"
+      ],
+      [
+        "Connection between them",
+        "Direct Reminders export is not verified",
+        "Keep existing lists while testing a separate workflow"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-google-tasks",
+    "title": "Blurts vs Google Tasks: capture thoughts without losing your Google workflow",
+    "description": "Compare Blurts with Google Tasks and Gemini for task capture, Gmail and Calendar workflows, account requirements, and everyday review.",
+    "competitor": "Google Tasks",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Your existing Google routine is part of the comparison",
+        "paragraphs": [
+          "Google Tasks is worth keeping when Gmail and Calendar are already where you notice and finish commitments. Blurts is worth testing when the missing step is capturing thoughts that arrive away from those screens. The decision should account for both moments: getting an intention recorded and encountering it again when you can act.",
+          "Google Tasks also has a conversational capture route through Gemini. A comparison that treats it as manual typing alone misses an important alternative. Before adding a separate app, try the capabilities available on your actual account. Then compare the result with Blurts using the same everyday tasks and the same standard for what counts as complete."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What Google Tasks and Gemini already provide",
+        "paragraphs": [
+          "Google’s [Tasks overview](https://support.google.com/tasks/answer/7675772?co=GENIE.Platform%3DDesktop&hl=en) documents synced tasks, details, subtasks, dates, notifications, and entry points from Google products including Gmail and Calendar. This matters when an obligation originates in an email: keeping it close to the original work can reduce the amount of context you must reconstruct later.",
+          "Google also documents [creating and managing Tasks through Gemini](https://support.google.com/gemini/answer/15230285?co=GENIE.Platform%3DAndroid&hl=en), including requests based on a conversation. The connection has requirements such as the appropriate connected app and activity settings. [Gemini Live](https://support.google.com/gemini/answer/15274899?hl=en) provides a voice conversation route, with availability and connected-app behavior depending on the user’s setup. Check those requirements before assuming access."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What to expect from a Blurts trial",
+        "paragraphs": [
+          "Blurts centers on turning one spoken ramble into clean tasks. That makes it relevant when you do not begin with an email or a calendar entry: a thought arrives during a break, after a conversation, or while you are preparing to leave. Its usefulness depends on whether that short capture moment reliably produces tasks you can find and act on later.",
+          "Blurts can connect to a chosen Google Tasks list after Google sign-in. Captured tasks are saved in Blurts and sent to that list; later Blurts edits and completion changes can be sent outward too. This is not a promise that changes made in Google Tasks return automatically to Blurts. Google Tasks due dates also have different time semantics from a calendar event. Read the [Google Tasks setup guide](/blog/google-tasks-integration.html) before testing the handoff. This makes coexistence a practical option: compare Blurts plus Google Tasks with Gemini plus Google Tasks, keeping the same destination."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Use two different starting points",
+        "paragraphs": [
+          "First test a task that begins in Gmail, such as replying to a supplier after reviewing an attachment. Evaluate the path from the original message to a visible task and back to the information you need. A spoken summary may be unnecessary if the existing Google workflow already preserves the right context with little effort.",
+          "Then test a task that begins only in your head. For example, you need to compare two travel dates, ask a colleague about coverage, and send an update after they reply. Say that naturally. Check whether the output keeps the dependency clear: sending the update is conditional on getting an answer, rather than an instruction to send one immediately. This is an illustrative test, not a report of either product’s measured output."
+        ],
+        "bullets": [
+          "Open the destination list and verify that the tasks exist.",
+          "Check dates, conditions, and distinctions between personal and work accounts.",
+          "Count any copy-and-paste work needed to preserve useful context."
+        ]
+      },
+      {
+        "heading": "Account setup can decide the result",
+        "paragraphs": [
+          "A Google account used for personal life and a Google account used for work are different destinations. Before evaluating convenience, confirm that the capture route writes to the account you actually review. A successful assistant response is not enough if the task is sitting in a personal list while your workday happens in another account.",
+          "Apply the same standard to Blurts. Verify the supported connection and where a new task appears. Do not infer that connecting one Google service grants access to every other service. If you cannot complete the handoff with the account and permissions you have, that is a real limitation of your proposed workflow, regardless of how well the recording itself works."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Compare incremental cost and ongoing attention",
+        "paragraphs": [
+          "Start with the Google tools you already use and the features available to your account. Do not assume that a broader paid Google AI plan is required for every Tasks workflow, or that every account has identical Gemini functionality. Consult the current account and product documentation. For Blurts, check the current subscription offer and supported usage before committing.",
+          "The recurring cost also includes attention. Maintaining two inboxes, correcting the same date twice, or wondering which system contains a promise can cost more than the initial capture saved. Keep one clear review routine during the trial. Choose the option that reliably preserves the commitments that matter while requiring the least extra maintenance in your actual day."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can Gemini create Google Tasks?",
+        "a": "Yes. Google documents creating, updating, and viewing Tasks through Gemini, subject to connection and account requirements. This is part of the comparison, not an unsupported workaround."
+      },
+      {
+        "q": "Does Blurts replace Google Calendar?",
+        "a": "This article evaluates task capture. Do not assume that a voice capture app replaces calendar scheduling or every Google Tasks feature; check the specific supported capabilities."
+      },
+      {
+        "q": "What is the most useful trial for an existing Google Tasks user?",
+        "a": "Keep your current lists. Compare a task originating in Gmail with a set of thoughts captured away from your desk, then inspect where every resulting task appears and how much cleanup it needs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Google Tasks overview",
+        "url": "https://support.google.com/tasks/answer/7675772?co=GENIE.Platform%3DDesktop&hl=en"
+      },
+      {
+        "label": "Tasks and reminders through Gemini",
+        "url": "https://support.google.com/gemini/answer/15230285?co=GENIE.Platform%3DAndroid&hl=en"
+      },
+      {
+        "label": "Gemini Live documentation",
+        "url": "https://support.google.com/gemini/answer/15274899?hl=en"
+      }
+    ],
+    "seoTitle": "Blurts vs Google Tasks: Voice Capture & Gemini",
+    "table": [
+      [
+        "Capture",
+        "Voice recording to several saved tasks",
+        "Gemini offers a native conversational route"
+      ],
+      [
+        "Connection",
+        "Choose a Google Tasks list",
+        "Tasks remain in the Google workflow"
+      ],
+      [
+        "Calendar distinction",
+        "Creates Google Tasks, not calendar events",
+        "Dated tasks can be managed in Google Calendar"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-microsoft-to-do",
+    "title": "Blurts vs Microsoft To Do: spoken capture alongside your workday",
+    "description": "Compare Blurts and Microsoft To Do for voice capture, My Day, Outlook follow-ups, account requirements, and keeping commitments in one place.",
+    "competitor": "Microsoft To Do",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Capture and daily review solve different parts of the problem",
+        "paragraphs": [
+          "Microsoft To Do is a strong starting point when your tasks belong beside Outlook and your day begins with a deliberate list of priorities. Blurts focuses on an earlier moment: taking spoken thoughts and turning them into clean tasks. If To Do already works as your review system, the practical question is whether a different capture route helps you feed it without extra maintenance.",
+          "That makes this less of an automatic replacement decision than a workflow decision. You may need a better way to record thoughts without needing a new place to organize your day. Alternatively, the native tools you already use may be sufficient. Judge both choices by whether commitments arrive in the right place with enough context to act."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Microsoft To Do’s strengths are concrete",
+        "paragraphs": [
+          "Microsoft’s [product overview](https://www.microsoft.com/en-us/microsoft-365/microsoft-to-do-list-app) describes a free task app with list sharing, reminders, cross-device access, and Outlook tasks integration. [My Day](https://support.microsoft.com/en-us/todo/my-day-and-suggestions) lets you choose tasks for today, supported by suggestions. The wider task experience includes details such as steps, repeat settings, notes, and files.",
+          "[Flagged Outlook email](https://support.microsoft.com/en-us/todo/using-microsoft-to-do-with-flagged-email-from-outlook) is especially relevant for work follow-ups. For supported Microsoft-hosted accounts, flagged messages can appear in To Do with a route back to the email. Microsoft specifies limitations, including primary-mailbox behavior and the absence of support for shared-mailbox flags. Those details matter more than a generic claim that an app “integrates with Outlook.”"
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Voice claims need to be specific",
+        "paragraphs": [
+          "A phone’s keyboard dictation, an operating-system assistant, and an app that separates a ramble into tasks are different capture paths. Compare the one you actually use. Microsoft still publishes Siri setup articles explicitly titled for older iOS versions. Those articles should not be read as a guarantee that every current iPhone configuration offers the same connection.",
+          "Blurts is designed around speaking a ramble and receiving clean tasks. The question for a Microsoft To Do user is how that capture experience fits the account and lists already used for work. The Microsoft integration in Blurts targets **Microsoft Planner**, using a selected plan and bucket. It is not a direct Microsoft To Do connector. Blurts can deliver captured work to that Planner destination, but later Blurts edits, completion, and deletion are not promised to update the delivered Planner task. If your requirement is personal To Do list capture or Outlook flagged-email processing, verify that workflow separately. The [Planner integration guide](/blog/microsoft-planner-integration.html) explains account access, destination selection, and the delivery boundary."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Test a follow-up that starts away from Outlook",
+        "paragraphs": [
+          "Suppose a colleague stops you after a meeting. You agree to check a delivery date, send a revised document after approval, and ask facilities about a room. None of those commitments has reached your inbox yet. Capture the thoughts while the details are fresh, then inspect whether the three actions remain distinct and the approval condition is still clear.",
+          "Continue the test the next morning. Can you find the commitments in the place where you choose your day’s work? Can you distinguish the task to check a delivery date from a task to confirm it? Can you add the right item to today’s plan without copying the entire note? These checks reveal whether the workflow helps beyond the moment of speaking."
+        ],
+        "bullets": [
+          "Use the same Microsoft account you depend on during the workday.",
+          "Check the actual destination list and the task’s details after capture.",
+          "Verify what happens when you edit or complete a task; do not assume synchronization in both directions."
+        ]
+      },
+      {
+        "heading": "Keep the strengths of your current system",
+        "paragraphs": [
+          "If most tasks originate as emails, the native Outlook-to-To Do path may already be the least work. Re-speaking an email can discard context or introduce a new interpretation step. Use a voice workflow for the moments it improves, rather than forcing every task through it simply because the capability is available.",
+          "If thoughts routinely arrive between meetings or away from your desk, a focused capture app may fill a gap. Test that gap with new tasks while leaving your established lists intact. You do not need to migrate a backlog, recreate recurring tasks, or change a shared household list to learn whether capturing a spoken set of follow-ups is useful."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Cost and connection details should decide the next step",
+        "paragraphs": [
+          "Microsoft markets To Do as free. A separate paid capture app therefore needs to justify its incremental cost for your routine. Compare the current Blurts offer with the effort you actually save, including review and transfer. Do not count a successful transcription as a saved task until the result is somewhere you will use.",
+          "For a combined workflow, confirm the exact supported Microsoft destination and account requirements in Blurts. A Microsoft sign-in option alone does not prove support for every Microsoft service, list type, or synchronization behavior. Keep the definition of success simple: the intended task appears once, in the right place, with the details you need. Choose the workflow that meets that standard consistently in your trial."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is Microsoft To Do free?",
+        "a": "Microsoft’s product page describes To Do as free. Separate services, account features, or a third-party capture subscription should be considered on their own terms."
+      },
+      {
+        "q": "Does Blurts replace My Day or Outlook?",
+        "a": "Evaluate Blurts for the capabilities verified in its current app. A capture workflow can complement daily planning without replacing Outlook or every Microsoft To Do feature."
+      },
+      {
+        "q": "Can I assume a Microsoft integration has two-way sync?",
+        "a": "No. Verify the destination, account, supported fields, and edit or completion behavior. Creating a task in another service does not automatically mean all future changes synchronize both ways."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Microsoft To Do product overview",
+        "url": "https://www.microsoft.com/en-us/microsoft-365/microsoft-to-do-list-app"
+      },
+      {
+        "label": "My Day and suggestions",
+        "url": "https://support.microsoft.com/en-us/todo/my-day-and-suggestions"
+      },
+      {
+        "label": "Flagged Outlook emails in To Do",
+        "url": "https://support.microsoft.com/en-us/todo/using-microsoft-to-do-with-flagged-email-from-outlook"
+      },
+      {
+        "label": "Task details in Outlook and To Do",
+        "url": "https://support.microsoft.com/en-us/outlook/calendar/manage-tasks-with-to-do-in-outlook"
+      },
+      {
+        "label": "Historical Siri instructions, explicitly scoped to older iOS",
+        "url": "https://support.microsoft.com/en-gb/todo/using-siri-with-microsoft-to-do-on-ios-11-ios-12-and-ios-13"
+      }
+    ],
+    "seoTitle": "Blurts vs Microsoft To Do: Capture, Lists & Planner",
+    "table": [
+      [
+        "Primary use",
+        "Capture scattered intentions by voice",
+        "Daily lists, My Day and Microsoft task workflow"
+      ],
+      [
+        "Microsoft destination",
+        "Microsoft Planner plan and bucket",
+        "Microsoft To Do is a different destination"
+      ],
+      [
+        "Handoff",
+        "No direct Microsoft To Do connector verified",
+        "Do not assume Planner delivery equals To Do sync"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-notion",
+    "title": "Blurts vs Notion: capture thoughts or manage the work around them?",
+    "description": "Compare Blurts with Notion’s task databases and AI Meeting Notes, including capture, context, setup, pricing considerations, and practical coexistence.",
+    "competitor": "Notion",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Choose the outcome before choosing the workspace",
+        "paragraphs": [
+          "Notion is a strong fit when a task belongs inside a larger body of work: project notes, decisions, owners, statuses, and shared documentation. Blurts focuses on turning a spoken ramble into clean tasks. If you already run projects in Notion, you may be evaluating a more convenient entrance to that workspace rather than a replacement for it.",
+          "Be specific about what is failing today. Losing thoughts before they reach your task database is a capture problem. Having unclear ownership or too many competing views is a workspace problem. A new capture app can help with the former only if the handoff works; it will not automatically solve the latter. This distinction prevents an appealing recording experience from becoming another disconnected inbox."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Notion is more than typed notes",
+        "paragraphs": [
+          "Notion’s [projects overview](https://www.notion.com/product/projects) documents task and project databases with properties such as status, assignee, and due date, alongside views, subtasks, and dependencies. This structure helps when the same task needs to be understood by several people or viewed in the context of a larger project.",
+          "Notion also offers [AI Meeting Notes](https://www.notion.com/help/ai-meeting-notes), which captures and summarizes conversations and supports follow-up work. Its documentation includes transcript handling, permissions, recording consent, and ways to create follow-up tasks. Notion therefore should not be described as unable to work with speech or extract actions. The relevant comparison is how much of that workflow you need for the moment at hand."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "A quick thought and a meeting record are different inputs",
+        "paragraphs": [
+          "A short personal ramble can be valuable without preserving a full meeting. You may only need to remember a few things you have decided to do. A team meeting can require the opposite: who said what, which options were rejected, and why a decision was made. Turning both situations into the same kind of task list can discard useful information in one case and create unnecessary material in the other.",
+          "Blurts is designed for the spoken-thought-to-task moment. Blurts can send captured tasks to a selected Notion database. The capture becomes saved tasks first; database selection or an integration error is a separate delivery step. Linked task changes can be sent from Blurts to Notion, but this does not establish automatic synchronization of changes made in Notion back to Blurts. The integration is a task-database workflow, not a general editor for all your pages. Read the [Notion setup guide](/blog/notion-integration.html) for database access, properties, and troubleshooting. This is a reason to consider using both products rather than replacing your Notion workspace."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Try the database handoff with a real task",
+        "paragraphs": [
+          "Imagine you finish reviewing a draft and remember three follow-ups: ask the designer about an image, verify a claim with the researcher, and update the launch checklist after those answers arrive. Speak the thoughts naturally, then inspect the task wording. The output should preserve which actions are immediate and which depend on other people’s replies.",
+          "Now check what your Notion workflow requires. Is a title enough, or must the task have a project relation, an owner, a status, and a date? A task that exists but never appears in your filtered working view can still be effectively lost. Evaluate the end state in the database you actually use, not only a success message in the capture app."
+        ],
+        "bullets": [
+          "Use a small test destination with the same essential properties as your real workflow.",
+          "Inspect which fields are populated and which require manual entry.",
+          "Check access and visibility from the view where you normally review tasks."
+        ]
+      },
+      {
+        "heading": "Structure is useful when it pays for itself",
+        "paragraphs": [
+          "Notion’s flexibility can be an advantage when you need a shared understanding of work. It can also invite more setup than a simple personal task requires. The right amount of structure is the amount that helps you recover context and make decisions later. Do not build a complicated database merely to justify a capture workflow.",
+          "Conversely, do not remove useful project context in pursuit of fewer taps. A brief task title may be insufficient for a teammate who was not in the conversation. Keep source notes or relevant links where they matter. For a team, the effort saved by the person capturing a task should not simply reappear as confusion for the person expected to complete it."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Compare plans and keep the integration promise narrow",
+        "paragraphs": [
+          "Notion’s [pricing page](https://www.notion.com/pricing) distinguishes basic workspace capabilities from AI and team features, including AI Meeting Notes in its Business offering at the time reviewed. Check your workspace’s current plan and trials before deciding what an alternative would cost. If Notion is already paid for by your team, compare the extra cost and effort of adding capture separately.",
+          "If you want to combine Blurts with Notion, confirm the actual supported destination and fields. A Notion connection does not automatically imply arbitrary database-property mapping, access to every teamspace, or two-way updates. Start with a small set of real tasks and check the results in Notion. Keep Notion for the project context you need, and add Blurts only when its verified capture path improves how tasks arrive there."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can Notion already turn speech into useful notes and actions?",
+        "a": "Yes. AI Meeting Notes is a documented Notion capability. Its availability and requirements should be checked for your workspace and device."
+      },
+      {
+        "q": "Is Blurts a replacement for Notion project databases?",
+        "a": "That is not the basis of this comparison. Blurts focuses on capture; Notion provides a broader workspace. Decide which parts of your workflow you need before considering replacement."
+      },
+      {
+        "q": "What should I verify in a Notion integration?",
+        "a": "Verify the destination, permissions, supported task fields, visibility in your working views, and what happens after edits. Do not assume that connection means every database configuration is supported."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Notion projects and task databases",
+        "url": "https://www.notion.com/product/projects"
+      },
+      {
+        "label": "Notion AI Meeting Notes documentation",
+        "url": "https://www.notion.com/help/ai-meeting-notes"
+      },
+      {
+        "label": "Notion plans and feature access",
+        "url": "https://www.notion.com/pricing"
+      }
+    ],
+    "seoTitle": "Blurts vs Notion: Voice Tasks & AI Meeting Notes",
+    "table": [
+      [
+        "Input",
+        "Short personal voice capture",
+        "Documents, databases and AI Meeting Notes"
+      ],
+      [
+        "Connection",
+        "Send captured tasks to a selected Notion database",
+        "Organize work inside the workspace"
+      ],
+      [
+        "Best starting point",
+        "When quick capture is the missing step",
+        "When collaborative knowledge and project structure matter"
+      ]
+    ]
+  },
+  {
+    "slug": "blurts-vs-otter",
+    "title": "Blurts vs Otter: personal task capture or a searchable conversation?",
+    "description": "Compare Blurts and Otter for spoken tasks, meeting transcripts, action items, context, costs, and deciding whether to use one or both.",
+    "competitor": "Otter",
+    "verifiedAt": "2026-11-09",
+    "sections": [
+      {
+        "heading": "Start with what you need to keep from the conversation",
+        "paragraphs": [
+          "Choose Otter when the conversation itself is valuable: you need to revisit what was said, find a decision, or share a record with someone who was not there. Consider Blurts when you mainly want to express your own intentions and turn them into clean tasks. Both involve speech, but the information you want afterward can be very different.",
+          "A meeting transcript and a personal task list should not be treated as interchangeable outputs. A transcript preserves context that a short task may omit. A task list can be easier to act on when the context is already clear. The right comparison starts with the future moment when you will use the result, rather than the fact that both tools accept audio."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Otter already identifies and manages action items",
+        "paragraphs": [
+          "Otter’s [product overview](https://otter.ai/) describes transcription, searchable meeting knowledge, and follow-up work. Its [action-item documentation](https://help.otter.ai/hc/en-us/articles/25983095114519-Action-Items-Overview) explains how users can see assigned items across conversations, edit them, and return to the relevant transcript context. Otter should not be described as merely producing a wall of text or as unable to identify next steps.",
+          "That context link can be valuable when an action is ambiguous. If a short task says to revise a proposal, the discussion may explain which section, whose feedback, and what tradeoff the team chose. A workflow that keeps the evidence close to the task can reduce the need to ask everyone to reconstruct the meeting later."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "What Blurts is being evaluated for",
+        "paragraphs": [
+          "Blurts focuses on turning a spoken ramble into clean tasks. The relevant input may be a short set of personal intentions rather than an entire meeting. For example, after reading a document you may already know what you want to do and simply need to preserve those actions before moving on.",
+          "Blurts is built around recordings of up to two minutes and the tasks extracted from them. It saves the resulting tasks, lets you edit their details, and can send them to Notion, Google Tasks, or Microsoft Planner. Its [voice capture guide](/blog/voice-to-tasks.html) explains the review and delivery steps. That is a different scope from retaining a long meeting with speaker context and a searchable transcript. There is no direct Otter connector documented here. Use Blurts for a short personal follow-up when that is the missing step; retain a meeting tool when the conversation itself must remain available."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Compare a meeting with a personal debrief",
+        "paragraphs": [
+          "For a meeting use case, ask whether you need the participants’ actual words, the reasoning behind a decision, and a shared record. If so, evaluate Otter’s conversation workflow directly. A personal recap recorded afterward reflects what you remember and choose to include. It cannot establish a complete record of everything other people said.",
+          "For a personal-capture use case, imagine you have just finished your own planning session. You want to renew a membership, request a quote, and check a date before committing to an event. The desired result is a small set of actions, with the uncertainty around the event preserved. Compare how much review each approach requires before those tasks are somewhere you will act on them."
+        ],
+        "bullets": [
+          "Separate tasks you personally intend to do from actions assigned to other people.",
+          "Preserve conditions such as “after approval” instead of treating them as completed decisions.",
+          "Check whether you need the original conversation context or only the resulting task."
+        ]
+      },
+      {
+        "heading": "Review effort matters more than transcript length",
+        "paragraphs": [
+          "A long transcript is not inherently a failure, and a short task list is not inherently a success. The transcript can answer questions a summary leaves open. The task list can also include an instruction that nobody actually agreed to. Review the specific output you depend on: wording, ownership, timing, and conditions.",
+          "For your own spoken thoughts, check that an idea remained an idea when appropriate. “Maybe ask for a quote” and “request the quote today” do not express the same commitment. For meetings, check whether a suggested action was accepted and who agreed to own it. These checks apply to AI-assisted outputs generally; this article does not claim one product has superior recognition accuracy."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Compare costs against the workload you really have",
+        "paragraphs": [
+          "Otter’s [plan comparison](https://otter.ai/pricing) distinguishes free and paid offerings and describes transcription, imports, usage allowances, and collaboration features. Read the current terms for your recording method rather than assuming every audio workflow has the same limit. A user recording regular meetings has a different workload from someone capturing a few personal tasks between activities.",
+          "For Blurts, compare the current offer with your own capture frequency and the amount of cleanup required. Avoid paying for a full conversation workflow solely because it can receive audio if all you need is a task list. Equally, avoid replacing a useful meeting archive with short tasks if you routinely need to retrieve decisions and their context."
+        ],
+        "bullets": []
+      },
+      {
+        "heading": "Using both can be reasonable with a clear boundary",
+        "paragraphs": [
+          "Keep Otter for conversations whose record you need. Test Blurts for new personal thoughts or follow-ups that arise outside those recordings. If both tools produce an action for the same commitment, choose a single place where its completion is tracked. Otherwise, you may gain two copies of a task and uncertainty about which one is current.",
+          "Do not assume a direct Blurts-to-Otter connection or an automatic transfer into your preferred task manager. Verify any supported integration separately. The useful boundary is based on the outcome: preserve a conversation when you need evidence and context; capture a personal task when you already know the action and need to remember it."
+        ],
+        "bullets": []
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does Otter already extract action items?",
+        "a": "Yes. Otter documents action-item management and a way to inspect the related transcript context. It is a substantive alternative for meeting-derived work."
+      },
+      {
+        "q": "Can a personal Blurts recap replace a meeting transcript?",
+        "a": "A recap records your selected recollection and intentions. It should not be treated as a complete record of another person’s statements or all the decisions made in a meeting."
+      },
+      {
+        "q": "When does using both make sense?",
+        "a": "When you need both searchable meeting records and a separate way to capture personal thoughts. Keep one authoritative task-review routine and avoid duplicate tracking of the same commitment."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Otter product overview",
+        "url": "https://otter.ai/"
+      },
+      {
+        "label": "Otter action-item management",
+        "url": "https://help.otter.ai/hc/en-us/articles/25983095114519-Action-Items-Overview"
+      },
+      {
+        "label": "Otter pricing and usage limits",
+        "url": "https://otter.ai/pricing"
+      }
+    ],
+    "seoTitle": "Blurts vs Otter: Voice Tasks, Meetings & Action Items",
+    "table": [
+      [
+        "Recording context",
+        "Short personal intentions and reminders",
+        "Meetings and conversations"
+      ],
+      [
+        "Output",
+        "Tasks for your list and supported destinations",
+        "Transcripts, summaries and action items"
+      ],
+      [
+        "Connection between them",
+        "No verified Otter connector",
+        "Meeting action extraction already exists"
+      ]
+    ]
+  }
+]

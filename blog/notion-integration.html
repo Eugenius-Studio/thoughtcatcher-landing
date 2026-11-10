@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-generated="blurts-content">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send spoken tasks from Blurts to a Notion database | Blurts</title>
+<meta name="description" content="Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.">
+<link rel="canonical" href="https://blurts.app/blog/notion-integration.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Blurts">
+<meta property="og:title" content="Send spoken tasks from Blurts to a Notion database | Blurts">
+<meta property="og:description" content="Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.">
+<meta property="og:url" content="https://blurts.app/blog/notion-integration.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Send spoken tasks from Blurts to a Notion database | Blurts">
+<meta name="twitter:description" content="Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.">
+<link rel="icon" type="image/svg+xml" href="/assets/blurts-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/content.css?v=daaee5ce32">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QP1NHP4F2">
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9QP1NHP4F2');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Send spoken tasks from Blurts to a Notion database", "description": "Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.", "datePublished": "2026-11-09T12:00:00-05:00", "dateModified": "2026-11-09T12:00:00-05:00", "mainEntityOfPage": "https://blurts.app/blog/notion-integration.html", "author": {"@type": "Organization", "name": "Blurts team", "url": "https://blurts.app/"}, "publisher": {"@type": "Organization", "name": "Blurts", "url": "https://blurts.app/"}, "inLanguage": "en", "articleSection": "Integration"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://blurts.app/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://blurts.app/blog/"}, {"@type": "ListItem", "position": 3, "name": "Send spoken tasks from Blurts to a Notion database", "item": "https://blurts.app/blog/notion-integration.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use an existing Notion database?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when it is accessible and its properties are compatible. Inspect the field mapping with a small test task."}}, {"@type": "Question", "name": "Why is a task missing from my usual Notion view?", "acceptedAnswer": {"@type": "Answer", "text": "Check the underlying database and the view’s filters. A newly created task may lack a custom relation, owner, or other property required by your view."}}, {"@type": "Question", "name": "Does a connected badge prove tasks were delivered?", "acceptedAnswer": {"@type": "Answer", "text": "No. It indicates connection state. Verify the actual task page and handle any delivery error separately."}}]}</script>
+</head>
+<body class="editorial">
+<a class="site-skip" href="#main">Skip to content</a>
+<header class="site-header">
+<nav class="site-nav" aria-label="Primary">
+<a class="site-brand" href="/" aria-label="Blurts home">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<g fill="var(--orange)">
+<rect x="4.5" y="14.5" width="5" height="19" rx="2.5"/>
+<rect x="11.5" y="8.5" width="5" height="31" rx="2.5"/>
+<rect x="18.5" y="16.5" width="5" height="15" rx="2.5"/>
+</g>
+<g fill="currentColor">
+<rect x="28" y="13.5" width="16" height="5" rx="1.1"/>
+<rect x="28" y="21.5" width="14" height="5" rx="1.1"/>
+<rect x="28" y="29.5" width="12" height="5" rx="1.1"/>
+</g>
+</svg>blurts</a>
+<div class="site-links">
+<a href="/features/">Features</a>
+<a href="/compare/">Compare</a>
+<a href="/blog/">Blog</a>
+<details class="site-menu">
+<summary>Explore<svg class="menu-caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+<path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</summary>
+<div class="menu-links">
+<a href="/use-cases/">Use cases</a>
+<a href="/features/#integrations">Integrations</a>
+<a href="/blog/#guides">Practical guides</a>
+<a href="/#how">How it works</a>
+<a href="/#lang">Languages</a>
+<a href="/#price">Pricing</a>
+<a href="/#qs">Questions</a>
+</div>
+</details>
+</div>
+<a class="site-cta" href="/#start" onclick="gtag('event','click',{event_category:'Nav',event_label:'Get Blurts'});">Get Blurts</a>
+</nav>
+</header>
+<main id="main" class="content-wrap">
+<div class="breadcrumbs">
+<a href="/">Home</a> / <a href="/blog/">Blog</a> / Integration</div>
+<article>
+<header class="article-head">
+<span class="eyebrow">Integration</span>
+<h1>Send spoken tasks from Blurts to a Notion database</h1>
+<p class="intro">Connect Blurts to Notion, choose a task database, understand supported properties, and troubleshoot delivery without assuming two-way synchronization.</p>
+<div class="article-meta">
+<span>By the Blurts team</span>
+<time datetime="2026-11-09">November 9, 2026</time>
+<span>3 min read</span>
+</div>
+</header>
+<div class="article-layout">
+<div class="article-body">
+<section aria-labelledby="capture-on-your-phone-and-keep-the-task-in-notion">
+<h2 id="capture-on-your-phone-and-keep-the-task-in-notion">Capture on your phone and keep the task in Notion</h2>
+<p>When Notion is where you review work, a voice note left elsewhere creates a second inbox. Blurts can turn a recording into tasks and send them to a selected Notion database. The useful result is a task page in the workspace you already use, with structured details where the destination supports them.</p>
+<p>Blurts saves the captured tasks first, then handles Notion delivery as a separate step. A saved task and a successfully delivered Notion page are therefore different outcomes. If the connection needs attention, you can still inspect the captured task in Blurts instead of assuming the whole recording has disappeared.</p>
+</section>
+<section aria-labelledby="connect-and-choose-the-destination">
+<h2 id="connect-and-choose-the-destination">Connect and choose the destination</h2>
+<p>Open Blurts settings, choose Notion, and complete the authorization flow. Grant access to the pages or databases you intend to use. A database that your Notion account can see is not necessarily available to the integration until the appropriate access is granted.</p>
+<p>When a destination has not been selected, Blurts can offer candidate task databases, let you identify a database by name, or create a new task database under an accessible page. If a selected destination lacks the expected properties, the flow can ask whether to add them. Read that prompt before changing an established workspace database.</p>
+<ul>
+<li>Start with a database where you are comfortable testing new tasks.</li>
+<li>Confirm the selected database in the Notion section of settings.</li>
+<li>Use Reset Database when you need to choose the destination again.</li>
+</ul>
+</section>
+<figure class="screenshot">
+<a href="/assets/screenshots/blurts-integrations.png" aria-label="Open full-size screenshot">
+<img src="/assets/screenshots/blurts-integrations.png" alt="Blurts settings showing Notion connected and Main Tasks selected as its database." width="1206" height="2622" loading="lazy" decoding="async">
+</a>
+<figcaption>Genuine simulator screenshot: Notion is connected and Main Tasks is selected. This settings view shows configuration, not proof that a new task was delivered.</figcaption>
+</figure>
+<section aria-labelledby="understand-the-property-mapping">
+<h2 id="understand-the-property-mapping">Understand the property mapping</h2>
+<p>Blurts sends a task title and can map Type, Priority, Area or Category, Due Date, Status, and Description to compatible properties. Mapping depends on recognized property names and types. The current behavior is not an arbitrary schema mapper: a property with the same purpose but an incompatible type may not receive the value you expect.</p>
+<p>For example, a newly created Blurts task database uses select fields for type, area, priority, and status, a date field for due date, and a text field for description. An existing Notion project database may use different conventions. Inspect a small test task before relying on a filtered view that requires additional relations, owners, or custom fields.</p>
+</section>
+<section aria-labelledby="a-useful-first-test">
+<h2 id="a-useful-first-test">A useful first test</h2>
+<p>Record a simple action such as “Check the draft with Sam tomorrow.” Once Blurts shows the saved task, open the selected Notion database and inspect the new page. Check its title, due date, status, and any mapped details. Then check the exact view where you normally review tasks; a page can exist in the database while being hidden by that view’s filters.</p>
+<p>After confirming creation, try a harmless title correction from Blurts and inspect the linked page. Blurts also attempts to propagate completion and deletion handling for linked Notion tasks. Deletion archives the Notion page. These operations depend on a valid connection, so treat destination inspection as part of setup rather than proof supplied by a connected badge alone.</p>
+</section>
+<figure class="screenshot screenshot-wide">
+<a href="/assets/screenshots/notion-delivered-tasks.png" aria-label="Open full-size screenshot">
+<img src="/assets/screenshots/notion-delivered-tasks.png" alt="Notion database showing three delivered tasks with Captured status, including the landing-page update and expense-check demo tasks." width="681" height="289" loading="lazy" decoding="async">
+</a>
+<figcaption>Tasks delivered from Blurts appear in Notion with Captured status. This genuine destination screenshot was supplied by the product owner after the capture.</figcaption>
+</figure>
+<section aria-labelledby="troubleshoot-the-handoff">
+<h2 id="troubleshoot-the-handoff">Troubleshoot the handoff</h2>
+<p>If no database appears, check that you authorized the correct workspace and shared an accessible page or database. If a property is missing, inspect its name and type before adding duplicate fields. If the task is saved locally but delivery fails, address the Notion connection or database selection rather than immediately repeating the recording.</p>
+<p>The integration is a Blurts-to-Notion workflow. This guide does not promise that changes made directly in Notion flow back automatically, nor that every custom database property is supported. The current free-tier flow allows one integration, while multiple integrations require an eligible paid tier; check the current in-app entitlement before adding another destination.</p>
+</section>
+<section class="faq" aria-labelledby="questions">
+<h2 id="questions">Common questions</h2>
+<h3>Can I use an existing Notion database?</h3>
+<p>Yes, when it is accessible and its properties are compatible. Inspect the field mapping with a small test task.</p>
+<h3>Why is a task missing from my usual Notion view?</h3>
+<p>Check the underlying database and the view’s filters. A newly created task may lack a custom relation, owner, or other property required by your view.</p>
+<h3>Does a connected badge prove tasks were delivered?</h3>
+<p>No. It indicates connection state. Verify the actual task page and handle any delivery error separately.</p>
+</section>
+<div class="article-cta">
+<h2>Try one real thought.</h2>
+<p>Start with something you actually need to do. Review the result and decide whether the workflow fits your day.</p>
+<a href="/#start">Get Blurts</a>
+</div>
+</div>
+<aside class="article-toc" aria-label="On this page">
+<strong>On this page</strong>
+<ol>
+<li>
+<a href="#capture-on-your-phone-and-keep-the-task-in-notion">Capture on your phone and keep the task in Notion</a>
+</li>
+<li>
+<a href="#connect-and-choose-the-destination">Connect and choose the destination</a>
+</li>
+<li>
+<a href="#understand-the-property-mapping">Understand the property mapping</a>
+</li>
+<li>
+<a href="#a-useful-first-test">A useful first test</a>
+</li>
+<li>
+<a href="#troubleshoot-the-handoff">Troubleshoot the handoff</a>
+</li>
+<li>
+<a href="#questions">Common questions</a>
+</li>
+</ol>
+</aside>
+</div>
+</article>
+<section class="related">
+<h2>Keep exploring</h2>
+<div class="card-grid">
+<article class="editorial-card">
+<span class="card-kicker">Comparison</span>
+<h3>
+<a href="/blog/blurts-vs-notion.html">Blurts vs Notion: capture thoughts or manage the work around them?</a>
+</h3>
+<p>Compare Blurts with Notion’s task databases and AI Meeting Notes, including capture, context, setup, pricing considerations, and practical coexistence.</p>
+<a class="read-link" href="/blog/blurts-vs-notion.html" aria-label="Read Blurts vs Notion: capture thoughts or manage the work around them?">Read the guide →</a>
+</article>
+<article class="editorial-card">
+<span class="card-kicker">Feature guide</span>
+<h3>
+<a href="/blog/voice-to-tasks.html">Turn a spoken brain dump into tasks with Blurts</a>
+</h3>
+<p>Capture several intentions in one short recording, then review clean tasks with useful details in Blurts. Learn the flow and its limits.</p>
+<a class="read-link" href="/blog/voice-to-tasks.html" aria-label="Read Turn a spoken brain dump into tasks with Blurts">Read the guide →</a>
+</article>
+</div>
+</section>
+</main>
+<footer class="discovery-footer" aria-label="Explore Blurts">
+<div class="footer-columns">
+<div class="footer-column">
+<h2>Compare</h2>
+<ul>
+<li>
+<a href="/blog/blurts-vs-todoist.html">vs Todoist</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-ticktick.html">vs TickTick</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-apple-reminders.html">vs Apple Reminders</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-google-tasks.html">vs Google Tasks</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-microsoft-to-do.html">vs Microsoft To Do</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-notion.html">vs Notion</a>
+</li>
+<li>
+<a href="/blog/blurts-vs-otter.html">vs Otter</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Features</h2>
+<ul>
+<li>
+<a href="/features/">All Blurts features</a>
+</li>
+<li>
+<a href="/blog/voice-to-tasks.html">Voice capture</a>
+</li>
+<li>
+<a href="/blog/multilingual-task-capture.html">Multilingual capture</a>
+</li>
+<li>
+<a href="/blog/live-transcription.html">Live transcription preview</a>
+</li>
+<li>
+<a href="/blog/natural-language-due-dates.html">Due dates and times</a>
+</li>
+<li>
+<a href="/blog/automatic-task-organization.html">Task organization</a>
+</li>
+<li>
+<a href="/blog/lens-task-filters.html">Lens filters and sorting</a>
+</li>
+<li>
+<a href="/blog/edit-complete-tasks.html">Edit and complete tasks</a>
+</li>
+<li>
+<a href="/blog/sign-in-with-apple.html">Apple sign-in</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Integrations</h2>
+<ul>
+<li>
+<a href="/blog/notion-integration.html">Notion integration</a>
+</li>
+<li>
+<a href="/blog/google-tasks-integration.html">Google Tasks integration</a>
+</li>
+<li>
+<a href="/blog/microsoft-planner-integration.html">Microsoft Planner integration</a>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h2>Use cases & guides</h2>
+<ul>
+<li>
+<a href="/use-cases/">Find your workflow</a>
+</li>
+<li>
+<a href="/blog/how-to-break-down-tasks-adhd-executive-dysfunction.html">Break down an overwhelming task</a>
+</li>
+<li>
+<a href="/blog/how-to-build-a-neurodivergent-friendly-productivity-system.html">Build a workable task system</a>
+</li>
+<li>
+<a href="/blog/how-to-capture-tasks-before-you-forget-them.html">Capture before you forget</a>
+</li>
+<li>
+<a href="/blog/how-to-finish-tasks-instead-of-leaving-them-almost-done.html">Finish the last step</a>
+</li>
+<li>
+<a href="/blog/how-to-stay-focused-on-tasks-neurodivergent.html">Return your focus to a task</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<span>© 2026 Blurts · Say it messy. Get it back clean.</span>
+<span>
+<a href="/privacy.html">Privacy</a> · <a href="mailto:support@blurts.app">Support</a>
+</span>
+</div>
+</footer>
+</body>
+</html>
